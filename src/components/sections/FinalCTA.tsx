@@ -28,7 +28,7 @@ const FinalCTA = () => {
               Book a Strategy Call
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
-            <Button size="lg" variant="outline" className="text-base px-8 border-secondary-foreground text-secondary-foreground hover:bg-secondary-foreground hover:text-secondary">
+            <Button size="lg" className="text-base px-8 bg-transparent border border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-secondary">
               Request Talent
             </Button>
           </div>
