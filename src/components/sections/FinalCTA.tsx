@@ -1,0 +1,41 @@
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+
+const FinalCTA = () => {
+  const scrollTo = (id: string) => {
+    document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  return (
+    <section id="contact" className="py-20 md:py-28 bg-secondary text-secondary-foreground">
+      <div className="container">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center max-w-2xl mx-auto"
+        >
+          <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
+            Looking for a more reliable IT outsourcing partner?
+          </h2>
+          <p className="text-secondary-foreground/70 mb-10 text-lg leading-relaxed">
+            Let's discuss how Komodo can support your delivery goals with vetted talent, dedicated teams, and nearshore execution from Portugal.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Button size="lg" className="text-base px-8 bg-primary text-primary-foreground hover:bg-primary/90">
+              Book a Strategy Call
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+            <Button size="lg" variant="outline" className="text-base px-8 border-secondary-foreground/20 text-secondary-foreground hover:bg-secondary-foreground/10">
+              Request Talent
+            </Button>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+export default FinalCTA;
