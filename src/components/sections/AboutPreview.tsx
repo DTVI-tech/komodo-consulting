@@ -8,42 +8,42 @@ const values = [
 ];
 
 const AboutPreview = () => (
-  <section id="about" className="py-20 md:py-28 bg-muted/50">
+  <section id="about" className="section-padding bg-muted">
     <div className="container">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
         <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <p className="text-sm font-semibold uppercase tracking-widest text-primary mb-3">About Komodo</p>
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-6">
+          <span className="section-label">About Komodo</span>
+          <h2 className="section-title mb-6">
             A partner, not just a provider
           </h2>
-          <p className="text-muted-foreground leading-relaxed mb-4">
+          <p className="text-muted-foreground leading-relaxed mb-4 text-base">
             Komodo is a premium IT outsourcing and nearshore delivery partner for companies that need strong technical capability, fast onboarding, and reliable collaboration.
           </p>
-          <p className="text-muted-foreground leading-relaxed">
-            We combine commercial maturity with operational rigour — supporting companies across Portugal and international markets with teams built for real delivery, not just resourcing.
+          <p className="text-muted-foreground leading-relaxed text-base">
+            We combine commercial maturity with operational rigour — supporting companies across Portugal and international markets with teams built for real delivery.
           </p>
         </motion.div>
 
-        <div className="space-y-6">
+        <div className="space-y-5">
           {values.map((value, i) => (
             <motion.div
               key={value.title}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
-              className="flex gap-4"
+              transition={{ duration: 0.4, delay: i * 0.08 }}
+              className="flex gap-4 p-5 rounded-xl bg-card border border-border"
             >
-              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+              <div className="w-10 h-10 rounded-lg bg-primary/[0.08] flex items-center justify-center flex-shrink-0">
                 <value.icon className="h-5 w-5 text-primary" />
               </div>
               <div>
-                <h3 className="font-display font-semibold text-foreground mb-1">{value.title}</h3>
+                <h3 className="font-display font-bold text-foreground mb-1 text-[15px] tracking-tight">{value.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{value.description}</p>
               </div>
             </motion.div>
