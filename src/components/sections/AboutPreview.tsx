@@ -2,14 +2,16 @@ import { motion } from "framer-motion";
 import { Target, Handshake, Eye } from "lucide-react";
 
 const values = [
-  { icon: Target, title: "Delivery Focus", description: "We prioritise execution. Our teams are built around outcomes, not just headcount." },
-  { icon: Handshake, title: "Partnership Mindset", description: "We work as an extension of your team — invested in your success, not just our placement." },
-  { icon: Eye, title: "Transparency", description: "Clear communication, honest timelines, and no hidden surprises. Trust built through visibility." },
+  { icon: Target, title: "Delivery Focus", description: "We prioritise execution. Our teams are built around outcomes, not just headcount.", gradient: "from-primary to-primary" },
+  { icon: Handshake, title: "Partnership Mindset", description: "We work as an extension of your team — invested in your success, not just our placement.", gradient: "from-primary to-accent" },
+  { icon: Eye, title: "Transparency", description: "Clear communication, honest timelines, and no hidden surprises. Trust built through visibility.", gradient: "from-accent to-primary" },
 ];
 
 const AboutPreview = () => (
-  <section id="about" className="section-padding bg-muted">
-    <div className="container">
+  <section id="about" className="section-padding bg-muted relative overflow-hidden">
+    <div className="absolute inset-0 gradient-mesh pointer-events-none" />
+    
+    <div className="container relative">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -37,10 +39,10 @@ const AboutPreview = () => (
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.08 }}
-              className="flex gap-4 p-5 rounded-xl bg-card border border-border"
+              className="group flex gap-4 p-5 rounded-xl bg-card border border-border hover:border-primary/15 hover:shadow-sm transition-all duration-300"
             >
-              <div className="w-10 h-10 rounded-lg bg-primary/[0.08] flex items-center justify-center flex-shrink-0">
-                <value.icon className="h-5 w-5 text-primary" />
+              <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${value.gradient} flex items-center justify-center flex-shrink-0 opacity-90`}>
+                <value.icon className="h-5 w-5 text-primary-foreground" />
               </div>
               <div>
                 <h3 className="font-display font-bold text-foreground mb-1 text-[15px] tracking-tight">{value.title}</h3>
