@@ -9,7 +9,6 @@ const navLinks = [
   { label: "Industries", href: "#industries" },
   { label: "Technologies", href: "#expertise" },
   { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" },
 ];
 
 const Header = () => {
@@ -22,34 +21,34 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
-      <div className="container flex items-center justify-between h-16 md:h-20">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border/60">
+      <div className="container flex items-center justify-between h-16 md:h-[72px]">
         <Link to="/" className="flex-shrink-0">
-          <img src={logoDark} alt="Komodo" className="h-8 md:h-10 w-auto" />
+          <img src={logoDark} alt="Komodo" className="h-7 md:h-8 w-auto" />
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden lg:flex items-center gap-8">
+        <nav className="hidden lg:flex items-center gap-7">
           {navLinks.map((link) => (
             <button
               key={link.label}
               onClick={() => scrollTo(link.href)}
-              className="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors"
+              className="text-[13px] font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
               {link.label}
             </button>
           ))}
         </nav>
 
-        <div className="hidden lg:flex items-center gap-3">
-          <Button variant="ghost" size="sm" onClick={() => scrollTo("#contact")}>
-            Book a Call
+        <div className="hidden lg:flex items-center gap-2.5">
+          <Button variant="ghost" size="sm" onClick={() => scrollTo("#contact")} className="text-[13px] text-muted-foreground hover:text-foreground">
+            Contact
           </Button>
-          <Button size="sm" onClick={() => scrollTo("#contact")}>
+          <Button size="sm" onClick={() => scrollTo("#contact")} className="text-[13px] h-9 px-5 shadow-sm shadow-primary/15">
             Request Talent
           </Button>
           <Link to="/consulting">
-            <Button variant="outline" size="sm" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground font-semibold">
+            <Button variant="outline" size="sm" className="text-[13px] h-9 px-5 border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground font-semibold">
               Consulting
             </Button>
           </Link>
@@ -57,26 +56,26 @@ const Header = () => {
 
         {/* Mobile toggle */}
         <button className="lg:hidden p-2" onClick={() => setMobileOpen(!mobileOpen)}>
-          {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </div>
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="lg:hidden bg-background border-b border-border px-6 pb-6 space-y-4">
+        <div className="lg:hidden bg-background border-b border-border px-6 pb-6 space-y-3">
           {navLinks.map((link) => (
             <button
               key={link.label}
               onClick={() => scrollTo(link.href)}
-              className="block text-sm font-medium text-foreground/70 hover:text-foreground"
+              className="block text-sm font-medium text-muted-foreground hover:text-foreground"
             >
               {link.label}
             </button>
           ))}
           <div className="flex flex-col gap-2 pt-4">
-            <Button size="sm" onClick={() => scrollTo("#contact")}>Request Talent</Button>
+            <Button size="sm" onClick={() => { setMobileOpen(false); scrollTo("#contact"); }}>Request Talent</Button>
             <Link to="/consulting">
-              <Button variant="outline" size="sm" className="w-full border-primary text-primary font-semibold">
+              <Button variant="outline" size="sm" className="w-full border-primary/30 text-primary font-semibold">
                 Consulting
               </Button>
             </Link>
