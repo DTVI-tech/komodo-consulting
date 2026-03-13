@@ -5,7 +5,7 @@ const reasons = [
   {
     icon: GraduationCap,
     title: "Talent Quality",
-    description: "Access to a deep pool of skilled engineers, cloud specialists, data professionals, and delivery experts.",
+    description: "Deep pool of skilled engineers, cloud specialists, data professionals, and delivery experts.",
   },
   {
     icon: Clock,
@@ -15,49 +15,50 @@ const reasons = [
   {
     icon: MessageCircle,
     title: "Communication & Culture",
-    description: "Strong English proficiency and Western European business culture ensure smooth, low-friction collaboration.",
+    description: "Strong English proficiency and Western European business culture ensure low-friction collaboration.",
   },
   {
     icon: TrendingDown,
     title: "Cost-to-Quality Balance",
-    description: "Competitive rates combined with high delivery standards — better value than traditional Western hubs.",
+    description: "Competitive rates with high delivery standards — better value than traditional Western hubs.",
   },
 ];
 
 const WhyPortugal = () => (
-  <section className="py-20 md:py-28 bg-secondary text-secondary-foreground">
+  <section className="section-padding bg-secondary text-secondary-foreground">
     <div className="container">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
         <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
+          className="lg:sticky lg:top-32"
         >
-          <p className="text-sm font-semibold uppercase tracking-widest text-primary mb-3">
+          <span className="section-label !text-accent">
             Nearshore Advantage
-          </p>
-          <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
-            Why companies choose Portugal for nearshore IT outsourcing
+          </span>
+          <h2 className="text-3xl md:text-[2.75rem] md:leading-[1.15] font-display font-bold tracking-tight mb-6">
+            Why companies choose Portugal for nearshore IT
           </h2>
-          <p className="text-secondary-foreground/70 leading-relaxed max-w-lg">
-            Portugal has become one of Europe's strongest nearshore hubs — combining deep technical talent, cultural alignment, and a mature business environment that supports reliable delivery at scale.
+          <p className="text-secondary-foreground/60 leading-relaxed max-w-lg text-base">
+            Portugal has become one of Europe's strongest nearshore hubs — combining deep technical talent, cultural alignment, and a mature business environment for reliable delivery at scale.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {reasons.map((reason, i) => (
             <motion.div
               key={reason.title}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
-              className="p-6 rounded-lg bg-secondary-foreground/5 border border-secondary-foreground/10"
+              transition={{ duration: 0.4, delay: i * 0.08 }}
+              className="p-6 rounded-xl bg-secondary-foreground/[0.05] border border-secondary-foreground/[0.08] hover:border-secondary-foreground/[0.15] transition-colors"
             >
-              <reason.icon className="h-5 w-5 text-primary mb-4" />
-              <h3 className="font-display font-semibold text-sm mb-2">{reason.title}</h3>
-              <p className="text-sm text-secondary-foreground/60 leading-relaxed">{reason.description}</p>
+              <reason.icon className="h-5 w-5 text-accent mb-4" />
+              <h3 className="font-display font-bold text-sm mb-2 tracking-tight">{reason.title}</h3>
+              <p className="text-[13px] text-secondary-foreground/50 leading-relaxed">{reason.description}</p>
             </motion.div>
           ))}
         </div>

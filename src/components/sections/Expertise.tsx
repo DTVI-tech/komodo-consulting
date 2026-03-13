@@ -13,38 +13,38 @@ const areas = [
 ];
 
 const Expertise = () => (
-  <section id="expertise" className="py-20 md:py-28 bg-background">
+  <section id="expertise" className="section-padding bg-background">
     <div className="container">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="text-center mb-16"
+        className="text-center mb-14 md:mb-20"
       >
-        <p className="text-sm font-semibold uppercase tracking-widest text-primary mb-3">Expertise</p>
-        <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
-          Technical depth across modern delivery functions
+        <span className="section-label">Expertise</span>
+        <h2 className="section-title mb-5">
+          Technical depth across modern delivery
         </h2>
-        <p className="text-muted-foreground max-w-2xl mx-auto">
-          We provide talent and teams across the technology roles that matter most to your product and platform execution.
+        <p className="section-subtitle mx-auto">
+          Talent and teams across the technology roles that matter most to your product and platform execution.
         </p>
       </motion.div>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
         {areas.map((area, i) => (
           <motion.div
             key={area.label}
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.3, delay: i * 0.05 }}
-            className="flex flex-col items-center text-center p-6 md:p-8 rounded-lg border border-border hover:border-primary/20 hover:shadow-md transition-all duration-300 group"
+            transition={{ duration: 0.3, delay: i * 0.04 }}
+            className="flex flex-col items-center text-center p-6 md:p-8 rounded-xl border border-border bg-card hover:border-primary/15 hover:shadow-md transition-all duration-300 group"
           >
-            <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/15 transition-colors">
+            <div className="w-11 h-11 rounded-lg bg-primary/[0.08] flex items-center justify-center mb-4 group-hover:bg-primary/[0.12] transition-colors">
               <area.icon className="h-5 w-5 text-primary" />
             </div>
-            <span className="text-sm font-medium text-foreground">{area.label}</span>
+            <span className="text-sm font-semibold text-foreground tracking-tight">{area.label}</span>
           </motion.div>
         ))}
       </div>

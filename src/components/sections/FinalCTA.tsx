@@ -8,7 +8,7 @@ const FinalCTA = () => {
   };
 
   return (
-    <section id="contact" className="py-20 md:py-28 bg-secondary text-secondary-foreground">
+    <section id="contact" className="section-padding bg-secondary text-secondary-foreground">
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -17,18 +17,18 @@ const FinalCTA = () => {
           transition={{ duration: 0.5 }}
           className="text-center max-w-2xl mx-auto"
         >
-          <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
+          <h2 className="text-3xl md:text-[2.75rem] md:leading-[1.15] font-display font-bold tracking-tight mb-6">
             Looking for a more reliable IT outsourcing partner?
           </h2>
-          <p className="text-secondary-foreground/70 mb-10 text-lg leading-relaxed">
+          <p className="text-secondary-foreground/50 mb-12 text-base md:text-lg leading-relaxed">
             Let's discuss how Komodo can support your delivery goals with vetted talent, dedicated teams, and nearshore execution from Portugal.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button size="lg" className="text-base px-8 bg-primary text-primary-foreground hover:bg-primary/90">
+            <Button size="lg" className="text-base px-8 h-12 bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg shadow-primary/25">
               Book a Strategy Call
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
-            <Button size="lg" className="text-base px-8 bg-transparent border border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-secondary">
+            <Button size="lg" className="text-base px-8 h-12 bg-transparent border border-secondary-foreground/30 text-secondary-foreground hover:bg-secondary-foreground/10 hover:border-secondary-foreground/50">
               Request Talent
             </Button>
           </div>
