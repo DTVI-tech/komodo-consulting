@@ -1,32 +1,48 @@
 import { motion } from "framer-motion";
-import { Clock, GraduationCap, MessageCircle, TrendingDown } from "lucide-react";
+import { Clock, GraduationCap, MessageCircle, TrendingDown, MapPin } from "lucide-react";
 
 const reasons = [
   {
     icon: GraduationCap,
     title: "Talent Quality",
     description: "Deep pool of skilled engineers, cloud specialists, data professionals, and delivery experts.",
+    stat: "70K+",
+    statLabel: "IT graduates per year",
   },
   {
     icon: Clock,
     title: "Time Zone Alignment",
     description: "CET/WET time zone enables real-time collaboration with European and overlapping hours with US teams.",
+    stat: "0–1h",
+    statLabel: "offset from CET",
   },
   {
     icon: MessageCircle,
     title: "Communication & Culture",
     description: "Strong English proficiency and Western European business culture ensure low-friction collaboration.",
+    stat: "7th",
+    statLabel: "in EF English index (EU)",
   },
   {
     icon: TrendingDown,
     title: "Cost-to-Quality Balance",
     description: "Competitive rates with high delivery standards — better value than traditional Western hubs.",
+    stat: "30–40%",
+    statLabel: "cost advantage",
   },
 ];
 
 const WhyPortugal = () => (
-  <section className="section-padding bg-secondary text-secondary-foreground">
-    <div className="container">
+  <section className="section-padding bg-secondary text-secondary-foreground relative overflow-hidden">
+    {/* Geometric background composition */}
+    <div className="absolute inset-0 gradient-mesh-dark pointer-events-none" />
+    <div className="absolute top-[10%] right-[5%] w-[500px] h-[500px] rounded-full border border-secondary-foreground/[0.04] pointer-events-none hidden lg:block" />
+    <div className="absolute bottom-[15%] right-[15%] w-[200px] h-[200px] rounded-full border border-secondary-foreground/[0.03] pointer-events-none hidden lg:block" />
+    
+    {/* Accent line */}
+    <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+
+    <div className="container relative">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -41,9 +57,15 @@ const WhyPortugal = () => (
           <h2 className="text-3xl md:text-[2.75rem] md:leading-[1.15] font-display font-bold tracking-tight mb-6">
             Why companies choose Portugal for nearshore IT
           </h2>
-          <p className="text-secondary-foreground/60 leading-relaxed max-w-lg text-base">
+          <p className="text-secondary-foreground/60 leading-relaxed max-w-lg text-base mb-8">
             Portugal has become one of Europe's strongest nearshore hubs — combining deep technical talent, cultural alignment, and a mature business environment for reliable delivery at scale.
           </p>
+          
+          {/* Visual location badge */}
+          <div className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-secondary-foreground/[0.06] border border-secondary-foreground/[0.08]">
+            <MapPin className="h-4 w-4 text-accent" />
+            <span className="text-sm font-medium text-secondary-foreground/70">Lisbon · Porto · Remote</span>
+          </div>
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -54,11 +76,17 @@ const WhyPortugal = () => (
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.08 }}
-              className="p-6 rounded-xl bg-secondary-foreground/[0.05] border border-secondary-foreground/[0.08] hover:border-secondary-foreground/[0.15] transition-colors"
+              className="group p-6 rounded-xl bg-secondary-foreground/[0.04] border border-secondary-foreground/[0.06] hover:border-secondary-foreground/[0.12] hover:bg-secondary-foreground/[0.06] transition-all duration-300"
             >
               <reason.icon className="h-5 w-5 text-accent mb-4" />
               <h3 className="font-display font-bold text-sm mb-2 tracking-tight">{reason.title}</h3>
-              <p className="text-[13px] text-secondary-foreground/50 leading-relaxed">{reason.description}</p>
+              <p className="text-[13px] text-secondary-foreground/50 leading-relaxed mb-4">{reason.description}</p>
+              
+              {/* Stat highlight */}
+              <div className="pt-3 border-t border-secondary-foreground/[0.06]">
+                <span className="text-xl font-display font-bold text-accent">{reason.stat}</span>
+                <span className="block text-[11px] text-secondary-foreground/40 mt-0.5">{reason.statLabel}</span>
+              </div>
             </motion.div>
           ))}
         </div>

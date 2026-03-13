@@ -8,8 +8,16 @@ const FinalCTA = () => {
   };
 
   return (
-    <section id="contact" className="section-padding bg-secondary text-secondary-foreground">
-      <div className="container">
+    <section id="contact" className="section-padding bg-secondary text-secondary-foreground relative overflow-hidden">
+      {/* Geometric background */}
+      <div className="absolute inset-0 gradient-mesh-dark pointer-events-none" />
+      <div className="absolute top-[20%] right-[10%] w-[300px] h-[300px] rounded-full border border-secondary-foreground/[0.04] pointer-events-none hidden md:block" />
+      <div className="absolute bottom-[10%] left-[8%] w-[150px] h-[150px] rounded-full border border-secondary-foreground/[0.03] pointer-events-none hidden md:block" />
+      
+      {/* Top accent line */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+
+      <div className="container relative">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

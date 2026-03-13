@@ -1,16 +1,20 @@
 import { motion } from "framer-motion";
+import { Search, ListChecks, UserCheck, Rocket, HeartHandshake } from "lucide-react";
 
 const steps = [
-  { number: "01", title: "Discovery", description: "We understand your requirements, team structure, timelines, and business context." },
-  { number: "02", title: "Shortlist", description: "We identify and present vetted candidates or team configurations matched to your needs." },
-  { number: "03", title: "Validation", description: "You review profiles, conduct interviews, and approve the fit before engagement." },
-  { number: "04", title: "Onboarding", description: "Fast, structured onboarding with clear communication channels and delivery alignment." },
-  { number: "05", title: "Ongoing Support", description: "Continuous follow-up, performance tracking, and proactive collaboration management." },
+  { icon: Search, number: "01", title: "Discovery", description: "We understand your requirements, team structure, timelines, and business context.", color: "from-primary to-primary" },
+  { icon: ListChecks, number: "02", title: "Shortlist", description: "We identify and present vetted candidates or team configurations matched to your needs.", color: "from-primary to-accent" },
+  { icon: UserCheck, number: "03", title: "Validation", description: "You review profiles, conduct interviews, and approve the fit before engagement.", color: "from-accent to-accent" },
+  { icon: Rocket, number: "04", title: "Onboarding", description: "Fast, structured onboarding with clear communication channels and delivery alignment.", color: "from-accent to-primary" },
+  { icon: HeartHandshake, number: "05", title: "Ongoing Support", description: "Continuous follow-up, performance tracking, and proactive collaboration management.", color: "from-primary to-primary" },
 ];
 
 const HowWeWork = () => (
-  <section className="section-padding bg-background">
-    <div className="container">
+  <section className="section-padding bg-background relative overflow-hidden">
+    {/* Background geometric accent */}
+    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full border border-border/50 pointer-events-none hidden lg:block" />
+
+    <div className="container relative">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -27,7 +31,50 @@ const HowWeWork = () => (
         </p>
       </motion.div>
 
-      <div className="max-w-2xl mx-auto">
+      {/* Desktop: Horizontal process cards */}
+      <div className="hidden md:block">
+        <div className="grid grid-cols-5 gap-4">
+          {steps.map((step, i) => (
+            <motion.div
+              key={step.number}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: i * 0.08 }}
+              className="group relative"
+            >
+              <div className="p-6 rounded-xl border border-border bg-card hover:border-primary/15 hover:shadow-md transition-all duration-300 h-full">
+                {/* Step number with gradient line */}
+                <div className="flex items-center gap-3 mb-4">
+                  <div className={`w-9 h-9 rounded-lg bg-gradient-to-br ${step.color} flex items-center justify-center flex-shrink-0`}>
+                    <step.icon className="h-4 w-4 text-primary-foreground" />
+                  </div>
+                  <span className="text-xs font-bold text-muted-foreground/50 font-display">{step.number}</span>
+                </div>
+                <h3 className="font-display font-bold text-foreground text-[15px] mb-2 tracking-tight">{step.title}</h3>
+                <p className="text-[13px] text-muted-foreground leading-relaxed">{step.description}</p>
+              </div>
+              
+              {/* Connector arrow */}
+              {i < steps.length - 1 && (
+                <div className="absolute top-1/2 -right-2 w-4 h-px bg-border hidden lg:block" />
+              )}
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Progress bar underneath */}
+        <motion.div
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="mt-8 h-0.5 bg-gradient-to-r from-primary via-accent to-primary/30 rounded-full origin-left"
+        />
+      </div>
+
+      {/* Mobile: Vertical timeline */}
+      <div className="md:hidden max-w-sm mx-auto">
         {steps.map((step, i) => (
           <motion.div
             key={step.number}
@@ -35,15 +82,16 @@ const HowWeWork = () => (
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: i * 0.08 }}
-            className="flex gap-6 md:gap-8 group"
+            className="flex gap-5"
           >
             <div className="flex flex-col items-center">
-              <div className="w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xs font-bold font-display flex-shrink-0">
-                {step.number}
+              <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${step.color} flex items-center justify-center flex-shrink-0`}>
+                <step.icon className="h-4 w-4 text-primary-foreground" />
               </div>
               {i < steps.length - 1 && <div className="w-px flex-1 bg-border my-1" />}
             </div>
-            <div className="pb-10">
+            <div className="pb-8">
+              <span className="text-[10px] font-bold text-muted-foreground/40 uppercase tracking-wider">{step.number}</span>
               <h3 className="font-display font-bold text-foreground text-base mb-1 tracking-tight">{step.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">{step.description}</p>
             </div>
