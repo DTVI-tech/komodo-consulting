@@ -86,7 +86,7 @@ const Hero = () => {
             <img
               src={heroVisual}
               alt="Technology infrastructure visualization showing connected cloud, database, and computing services"
-              className="w-full max-w-[540px] h-auto mix-blend-multiply dark:mix-blend-lighten"
+              className="w-full max-w-[540px] h-auto drop-shadow-2xl"
             />
           </motion.div>
         </div>
