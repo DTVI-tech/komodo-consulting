@@ -1,50 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
-const HeroImagePlaceholder = () => (
-  <motion.div
-    initial={{ opacity: 0, scale: 0.96 }}
-    animate={{ opacity: 1, scale: 1 }}
-    transition={{ duration: 0.9, delay: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-    className="relative w-full aspect-[4/3] lg:aspect-[3/4] xl:aspect-square max-w-[520px] mx-auto lg:mx-0"
-  >
-    {/* Main container */}
-    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-secondary/[0.03] to-primary/[0.06] border border-border/60 overflow-hidden">
-      {/* Grid texture */}
-      <div
-        className="absolute inset-0 opacity-[0.035]"
-        style={{
-          backgroundImage:
-            "linear-gradient(hsl(var(--primary)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)",
-          backgroundSize: "40px 40px",
-        }}
-      />
-
-      {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.04] via-transparent to-accent/[0.06]" />
-
-      {/* Geometric accents */}
-      <div className="absolute top-6 left-6 w-12 h-12 rounded-lg border border-primary/10" />
-      <div className="absolute top-8 left-8 w-12 h-12 rounded-lg border border-accent/[0.07]" />
-
-      <div className="absolute bottom-8 right-8 w-20 h-20 rounded-full border border-primary/[0.08]" />
-      <div className="absolute bottom-10 right-10 w-16 h-16 rounded-full border border-accent/[0.06]" />
-      <div className="absolute bottom-[3.25rem] right-[3.25rem] w-2 h-2 rounded-full bg-primary/20" />
-
-      {/* Horizontal accent lines */}
-      <div className="absolute top-[35%] left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/[0.06] to-transparent" />
-      <div className="absolute top-[65%] left-0 w-full h-px bg-gradient-to-r from-transparent via-accent/[0.05] to-transparent" />
-
-      {/* Corner glow */}
-      <div className="absolute -bottom-12 -right-12 w-48 h-48 rounded-full bg-primary/[0.06] blur-3xl" />
-      <div className="absolute -top-8 -left-8 w-32 h-32 rounded-full bg-accent/[0.04] blur-2xl" />
-    </div>
-
-    {/* Outer decorative border offset */}
-    <div className="absolute -inset-px rounded-2xl border border-primary/[0.04]" />
-  </motion.div>
-);
+import heroImage from "@/assets/hero-image.png";
 
 const Hero = () => {
   const scrollTo = (id: string) => {
