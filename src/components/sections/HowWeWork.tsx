@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Search, ListChecks, UserCheck, Rocket, HeartHandshake, ArrowRight } from "lucide-react";
+import { Search, ListChecks, UserCheck, Rocket, HeartHandshake } from "lucide-react";
 
 const steps = [
   { icon: Search, number: "01", title: "Discovery", description: "We understand your requirements, team structure, timelines, and business context.", color: "from-primary to-primary" },
