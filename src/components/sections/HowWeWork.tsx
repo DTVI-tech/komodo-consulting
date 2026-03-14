@@ -73,8 +73,6 @@ const HowWeWork = () => (
           className="mt-8 h-0.5 bg-gradient-to-r from-primary via-accent to-primary/30 rounded-full origin-left"
         />
 
-        {/* Process flow infographic placeholder */}
-        <ProcessFlowPlaceholder />
       </div>
 
       {/* Mobile: Vertical timeline */}
