@@ -12,6 +12,7 @@ import NearshorePortugal from "./pages/NearshorePortugal.tsx";
 import Technologies from "./pages/Technologies.tsx";
 import Contact from "./pages/Contact.tsx";
 import NotFound from "./pages/NotFound.tsx";
+import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -21,6 +22,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/consulting" element={<ConsultingComingSoon />} />
