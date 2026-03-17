@@ -73,15 +73,26 @@ const Header = () => {
       {/* Mobile menu */}
       {mobileOpen && (
         <div className="lg:hidden bg-background border-b border-border px-6 pb-6 space-y-3">
-          {navLinks.map((link) => (
-            <button
-              key={link.label}
-              onClick={() => scrollTo(link.href)}
-              className="block text-sm font-medium text-muted-foreground hover:text-foreground"
-            >
-              {link.label}
-            </button>
-          ))}
+          {navLinks.map((link) =>
+            link.isRoute ? (
+              <Link
+                key={link.label}
+                to={link.href}
+                onClick={() => setMobileOpen(false)}
+                className="block text-sm font-medium text-muted-foreground hover:text-foreground"
+              >
+                {link.label}
+              </Link>
+            ) : (
+              <button
+                key={link.label}
+                onClick={() => scrollTo(link.href)}
+                className="block text-sm font-medium text-muted-foreground hover:text-foreground"
+              >
+                {link.label}
+              </button>
+            )
+          )}
           <div className="flex flex-col gap-2 pt-4">
             <Button size="sm" onClick={() => { setMobileOpen(false); scrollTo("#contact"); }}>Request Talent</Button>
             <Link to="/consulting">

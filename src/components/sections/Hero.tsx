@@ -111,9 +111,11 @@ const Hero = () => {
                 Book a Strategy Call
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
-              <Button size="lg" variant="outline" onClick={() => scrollTo("#services")} className="text-base px-8 h-12">
-                Explore Services
-              </Button>
+              <Link to="/services">
+                <Button size="lg" variant="outline" className="text-base px-8 h-12">
+                  Explore Services
+                </Button>
+              </Link>
             </motion.div>
           </motion.div>
 
