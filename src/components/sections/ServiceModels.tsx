@@ -29,6 +29,7 @@ const services = [
   {
     icon: Settings,
     title: "Managed Delivery",
+    slug: "managed-delivery",
     description: "Outsource delivery responsibility with structured oversight, reporting, and accountability.",
     accent: "from-primary/10 to-primary/[0.03]",
     graphic: [
