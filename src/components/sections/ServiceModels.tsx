@@ -40,6 +40,7 @@ const services = [
   {
     icon: Globe,
     title: "Nearshore Portugal",
+    slug: "nearshore-portugal",
     description: "Access strong talent from Portugal with time-zone alignment, cultural fit, and cost efficiency.",
     accent: "from-accent/10 to-accent/[0.03]",
     graphic: [
