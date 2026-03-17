@@ -88,28 +88,29 @@ const ServiceModels = () => (
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
         {services.map((service, i) => (
-          <motion.div
-            key={service.title}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: i * 0.08 }}
-            className="group relative bg-card rounded-xl border border-border p-7 md:p-8 hover:border-primary/20 hover:shadow-lg hover:shadow-primary/[0.04] transition-all duration-300 overflow-hidden"
-          >
-            <div className={`absolute inset-0 bg-gradient-to-b ${service.accent} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
-            <CardGraphic service={service} />
+          <Link key={service.title} to={`/services/${service.slug}`} className="block">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: i * 0.08 }}
+              className="group relative bg-card rounded-xl border border-border p-7 md:p-8 hover:border-primary/20 hover:shadow-lg hover:shadow-primary/[0.04] transition-all duration-300 overflow-hidden h-full"
+            >
+              <div className={`absolute inset-0 bg-gradient-to-b ${service.accent} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
+              <CardGraphic service={service} />
 
-            <div className="relative">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/[0.1] to-accent/[0.05] flex items-center justify-center mb-5 group-hover:scale-105 transition-transform duration-300">
-                <service.icon className="h-5 w-5 text-primary" />
+              <div className="relative">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/[0.1] to-accent/[0.05] flex items-center justify-center mb-5 group-hover:scale-105 transition-transform duration-300">
+                  <service.icon className="h-5 w-5 text-primary" />
+                </div>
+                <h3 className="text-base font-display font-bold text-foreground mb-2.5 tracking-tight">{service.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-4">{service.description}</p>
+                <span className="inline-flex items-center text-xs font-semibold text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  Learn more <ArrowRight className="ml-1 h-3 w-3" />
+                </span>
               </div>
-              <h3 className="text-base font-display font-bold text-foreground mb-2.5 tracking-tight">{service.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-4">{service.description}</p>
-              <span className="inline-flex items-center text-xs font-semibold text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                Learn more <ArrowRight className="ml-1 h-3 w-3" />
-              </span>
-            </div>
-          </motion.div>
+            </motion.div>
+          </Link>
         ))}
       </div>
     </div>
