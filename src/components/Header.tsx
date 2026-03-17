@@ -51,12 +51,16 @@ const Header = () => {
         </nav>
 
         <div className="hidden lg:flex items-center gap-2.5">
-          <Button variant="ghost" size="sm" onClick={() => scrollTo("#contact")} className="text-[13px] text-muted-foreground hover:text-foreground">
-            Contact
-          </Button>
-          <Button size="sm" onClick={() => scrollTo("#contact")} className="text-[13px] h-9 px-5 shadow-sm shadow-primary/15">
-            Request Talent
-          </Button>
+          <Link to="/contact">
+            <Button variant="ghost" size="sm" className="text-[13px] text-muted-foreground hover:text-foreground">
+              Contact
+            </Button>
+          </Link>
+          <Link to="/contact">
+            <Button size="sm" className="text-[13px] h-9 px-5 shadow-sm shadow-primary/15">
+              Request Talent
+            </Button>
+          </Link>
           <Link to="/consulting">
             <Button size="sm" className="text-[13px] h-9 px-6 bg-secondary text-secondary-foreground hover:bg-secondary/90 font-semibold tracking-wide shadow-md shadow-secondary/20">
               Consulting
@@ -94,7 +98,9 @@ const Header = () => {
             )
           )}
           <div className="flex flex-col gap-2 pt-4">
-            <Button size="sm" onClick={() => { setMobileOpen(false); scrollTo("#contact"); }}>Request Talent</Button>
+            <Link to="/contact" onClick={() => setMobileOpen(false)}>
+              <Button size="sm" className="w-full">Request Talent</Button>
+            </Link>
             <Link to="/consulting">
               <Button size="sm" className="w-full bg-secondary text-secondary-foreground hover:bg-secondary/90 font-semibold tracking-wide">
                 Consulting
