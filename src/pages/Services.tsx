@@ -126,14 +126,15 @@ const ServicesHero = () => {
                 Explore Models
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                onClick={() => scrollTo("#services-cta")}
-                className="text-base px-8 h-12"
-              >
-                Request Talent
-              </Button>
+              <Link to="/contact">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="text-base px-8 h-12"
+                >
+                  Request Talent
+                </Button>
+              </Link>
             </motion.div>
           </motion.div>
 
