@@ -570,16 +570,20 @@ const FinalCTA = () => (
           Tell us about your delivery goals and we'll recommend the right engagement model — with matched talent ready in days.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Button size="lg" className="text-base px-8 h-12 shadow-lg shadow-primary/25">
-            Book a Strategy Call
-            <ArrowRight className="ml-2 h-4 w-4" />
-          </Button>
-          <Button
-            size="lg"
-            className="text-base px-8 h-12 bg-transparent border border-secondary-foreground/30 text-secondary-foreground hover:bg-secondary-foreground/10 hover:border-secondary-foreground/50"
-          >
-            Request Talent
-          </Button>
+          <Link to="/contact">
+            <Button size="lg" className="text-base px-8 h-12 shadow-lg shadow-primary/25">
+              Book a Strategy Call
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+          </Link>
+          <Link to="/contact">
+            <Button
+              size="lg"
+              className="text-base px-8 h-12 bg-transparent border border-secondary-foreground/30 text-secondary-foreground hover:bg-secondary-foreground/10 hover:border-secondary-foreground/50"
+            >
+              Request Talent
+            </Button>
+          </Link>
         </div>
       </motion.div>
     </div>

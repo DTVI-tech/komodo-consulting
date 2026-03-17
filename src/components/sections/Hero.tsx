@@ -107,10 +107,12 @@ const Hero = () => {
               transition={{ duration: 0.5, delay: 0.5 }}
               className="flex flex-col sm:flex-row gap-4"
             >
-              <Button size="lg" onClick={() => scrollTo("#contact")} className="text-base px-8 h-12 shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all">
-                Book a Strategy Call
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
+              <Link to="/contact">
+                <Button size="lg" className="text-base px-8 h-12 shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all">
+                  Book a Strategy Call
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
               <Link to="/services">
                 <Button size="lg" variant="outline" className="text-base px-8 h-12">
                   Explore Services

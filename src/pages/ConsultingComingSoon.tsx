@@ -35,17 +35,28 @@ const ConsultingComingSoon = () => (
       <p className="text-base md:text-lg leading-relaxed mb-12" style={{ color: "hsl(220 15% 55%)" }}>
         Our Consulting practice is launching soon. For IT outsourcing, staff augmentation, and nearshore delivery — explore our main website.
       </p>
-      <Link to="/">
-        <Button
-          size="lg"
-          variant="outline"
-          className="text-base px-8 border-white/10 bg-white hover:bg-white/90 transition-all"
-          style={{ color: "hsl(220 40% 10%)" }}
-        >
-          <ArrowLeft className="mr-2 h-4 w-4" />
-          Back to Outsourcing
-        </Button>
-      </Link>
+      <div className="flex flex-col sm:flex-row gap-3">
+        <Link to="/">
+          <Button
+            size="lg"
+            variant="outline"
+            className="text-base px-8 border-white/10 bg-white hover:bg-white/90 transition-all"
+            style={{ color: "hsl(220 40% 10%)" }}
+          >
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            Back to Outsourcing
+          </Button>
+        </Link>
+        <Link to="/contact">
+          <Button
+            size="lg"
+            variant="outline"
+            className="text-base px-8 border-white/20 text-white hover:bg-white/10 transition-all"
+          >
+            Contact Us About Consulting
+          </Button>
+        </Link>
+      </div>
     </div>
   </div>
 );
