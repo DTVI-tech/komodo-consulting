@@ -39,7 +39,7 @@ const ConsultingComingSoon = () => (
         <Button
           size="lg"
           variant="outline"
-          className="text-base px-8 border-white/10 hover:bg-white/5 hover:border-white/20 transition-all"
+          className="text-base px-8 border-white/10 bg-white hover:bg-white/90 transition-all"
           style={{ color: "hsl(210 20% 80%)" }}
         >
           <ArrowLeft className="mr-2 h-4 w-4" />
