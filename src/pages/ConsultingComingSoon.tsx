@@ -40,7 +40,7 @@ const ConsultingComingSoon = () => (
           size="lg"
           variant="outline"
           className="text-base px-8 border-white/10 bg-white hover:bg-white/90 transition-all"
-          style={{ color: "hsl(210 20% 80%)" }}
+          style={{ color: "hsl(220 40% 10%)" }}
         >
           <ArrowLeft className="mr-2 h-4 w-4" />
           Back to Outsourcing
