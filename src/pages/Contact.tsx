@@ -394,7 +394,7 @@ const Contact = () => {
               <Button
                 variant="outline"
                 size="lg"
-                className="text-base h-12 px-8 border-secondary-foreground/20 text-secondary-foreground hover:bg-secondary-foreground/10 hover:border-secondary-foreground/40 transition-all duration-200"
+                className="text-base h-12 px-8 border-secondary-foreground/10 text-secondary-foreground hover:bg-secondary-foreground/5"
                 asChild
               >
                 <Link to="/services">
