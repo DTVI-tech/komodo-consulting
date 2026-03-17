@@ -48,7 +48,7 @@ const Header = () => {
             Request Talent
           </Button>
           <Link to="/consulting">
-            <Button variant="outline" size="sm" className="text-[13px] h-9 px-5 border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground font-semibold">
+            <Button size="sm" className="text-[13px] h-9 px-6 bg-secondary text-secondary-foreground hover:bg-secondary/90 font-semibold tracking-wide shadow-md shadow-secondary/20">
               Consulting
             </Button>
           </Link>
@@ -75,7 +75,7 @@ const Header = () => {
           <div className="flex flex-col gap-2 pt-4">
             <Button size="sm" onClick={() => { setMobileOpen(false); scrollTo("#contact"); }}>Request Talent</Button>
             <Link to="/consulting">
-              <Button variant="outline" size="sm" className="w-full border-primary/30 text-primary font-semibold">
+              <Button size="sm" className="w-full bg-secondary text-secondary-foreground hover:bg-secondary/90 font-semibold tracking-wide">
                 Consulting
               </Button>
             </Link>
