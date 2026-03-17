@@ -392,9 +392,8 @@ const Contact = () => {
                 Go to Form <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
               <Button
-                variant="outline"
                 size="lg"
-                className="text-base h-12 px-8 border-secondary-foreground/10 text-secondary-foreground hover:bg-secondary-foreground/5"
+                className="text-base h-12 px-8 bg-transparent border border-secondary-foreground/30 text-secondary-foreground hover:bg-secondary-foreground/10 hover:border-secondary-foreground/50"
                 asChild
               >
                 <Link to="/services">
