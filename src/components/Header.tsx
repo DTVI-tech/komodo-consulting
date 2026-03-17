@@ -5,10 +5,10 @@ import { Button } from "@/components/ui/button";
 import logoDark from "@/assets/logo-dark.png";
 
 const navLinks = [
-  { label: "Services", href: "#services" },
-  { label: "Industries", href: "#industries" },
-  { label: "Technologies", href: "#expertise" },
-  { label: "About", href: "#about" },
+  { label: "Services", href: "/services", isRoute: true },
+  { label: "Industries", href: "#industries", isRoute: false },
+  { label: "Technologies", href: "#expertise", isRoute: false },
+  { label: "About", href: "#about", isRoute: false },
 ];
 
 const Header = () => {
