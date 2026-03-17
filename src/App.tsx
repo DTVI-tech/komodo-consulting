@@ -8,6 +8,7 @@ import ConsultingComingSoon from "./pages/ConsultingComingSoon.tsx";
 import Services from "./pages/Services.tsx";
 import ServiceDetail from "./pages/ServiceDetail.tsx";
 import IndustryPage from "./pages/IndustryPage.tsx";
+import NearshorePortugal from "./pages/NearshorePortugal.tsx";
 import Technologies from "./pages/Technologies.tsx";
 import Contact from "./pages/Contact.tsx";
 import NotFound from "./pages/NotFound.tsx";
@@ -24,6 +25,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/consulting" element={<ConsultingComingSoon />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/services/nearshore-portugal" element={<NearshorePortugal />} />
           <Route path="/services/:slug" element={<ServiceDetail />} />
           <Route path="/industries/:slug" element={<IndustryPage />} />
           <Route path="/technologies" element={<Technologies />} />
