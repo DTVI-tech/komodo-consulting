@@ -5,10 +5,10 @@ import { Button } from "@/components/ui/button";
 import logoDark from "@/assets/logo-dark.png";
 
 const navLinks = [
-  { label: "Services", href: "#services" },
-  { label: "Industries", href: "#industries" },
-  { label: "Technologies", href: "#expertise" },
-  { label: "About", href: "#about" },
+  { label: "Services", href: "/services", isRoute: true },
+  { label: "Industries", href: "#industries", isRoute: false },
+  { label: "Technologies", href: "#expertise", isRoute: false },
+  { label: "About", href: "#about", isRoute: false },
 ];
 
 const Header = () => {
@@ -29,15 +29,25 @@ const Header = () => {
 
         {/* Desktop nav */}
         <nav className="hidden lg:flex items-center gap-7">
-          {navLinks.map((link) => (
-            <button
-              key={link.label}
-              onClick={() => scrollTo(link.href)}
-              className="text-[13px] font-medium text-muted-foreground hover:text-foreground transition-colors"
-            >
-              {link.label}
-            </button>
-          ))}
+          {navLinks.map((link) =>
+            link.isRoute ? (
+              <Link
+                key={link.label}
+                to={link.href}
+                className="text-[13px] font-medium text-muted-foreground hover:text-foreground transition-colors"
+              >
+                {link.label}
+              </Link>
+            ) : (
+              <button
+                key={link.label}
+                onClick={() => scrollTo(link.href)}
+                className="text-[13px] font-medium text-muted-foreground hover:text-foreground transition-colors"
+              >
+                {link.label}
+              </button>
+            )
+          )}
         </nav>
 
         <div className="hidden lg:flex items-center gap-2.5">
@@ -63,15 +73,26 @@ const Header = () => {
       {/* Mobile menu */}
       {mobileOpen && (
         <div className="lg:hidden bg-background border-b border-border px-6 pb-6 space-y-3">
-          {navLinks.map((link) => (
-            <button
-              key={link.label}
-              onClick={() => scrollTo(link.href)}
-              className="block text-sm font-medium text-muted-foreground hover:text-foreground"
-            >
-              {link.label}
-            </button>
-          ))}
+          {navLinks.map((link) =>
+            link.isRoute ? (
+              <Link
+                key={link.label}
+                to={link.href}
+                onClick={() => setMobileOpen(false)}
+                className="block text-sm font-medium text-muted-foreground hover:text-foreground"
+              >
+                {link.label}
+              </Link>
+            ) : (
+              <button
+                key={link.label}
+                onClick={() => scrollTo(link.href)}
+                className="block text-sm font-medium text-muted-foreground hover:text-foreground"
+              >
+                {link.label}
+              </button>
+            )
+          )}
           <div className="flex flex-col gap-2 pt-4">
             <Button size="sm" onClick={() => { setMobileOpen(false); scrollTo("#contact"); }}>Request Talent</Button>
             <Link to="/consulting">
