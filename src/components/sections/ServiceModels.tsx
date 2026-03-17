@@ -19,6 +19,7 @@ const services = [
   {
     icon: Building2,
     title: "Dedicated Teams",
+    slug: "dedicated-teams",
     description: "Build stable, nearshore teams aligned to your product roadmap and delivery cadence.",
     accent: "from-accent/10 to-accent/[0.03]",
     graphic: [
