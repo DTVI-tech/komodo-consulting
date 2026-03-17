@@ -8,6 +8,7 @@ import ConsultingComingSoon from "./pages/ConsultingComingSoon.tsx";
 import Services from "./pages/Services.tsx";
 import ServiceDetail from "./pages/ServiceDetail.tsx";
 import IndustryPage from "./pages/IndustryPage.tsx";
+import NearshorePortugal from "./pages/NearshorePortugal.tsx";
 import Technologies from "./pages/Technologies.tsx";
 import Contact from "./pages/Contact.tsx";
 import NotFound from "./pages/NotFound.tsx";
