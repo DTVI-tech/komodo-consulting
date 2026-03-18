@@ -9,6 +9,7 @@ const navLinks = [
   { label: "Industries", href: "#industries", isRoute: false },
   { label: "Technologies", href: "/technologies", isRoute: true },
   { label: "About", href: "/about", isRoute: true },
+  { label: "Careers", href: "https://komodo-consulting.careers-page.com/", isExternal: true },
 ];
 
 const Header = () => {
@@ -36,7 +37,17 @@ const Header = () => {
         {/* Desktop nav */}
         <nav className="hidden lg:flex items-center gap-7">
           {navLinks.map((link) =>
-            link.isRoute ? (
+            link.isExternal ? (
+              <a
+                key={link.label}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[13px] font-medium text-muted-foreground hover:text-foreground transition-colors"
+              >
+                {link.label}
+              </a>
+            ) : link.isRoute ? (
               <Link
                 key={link.label}
                 to={link.href}
@@ -84,7 +95,18 @@ const Header = () => {
       {mobileOpen && (
         <div className="lg:hidden bg-background border-b border-border px-6 pb-6 space-y-3">
           {navLinks.map((link) =>
-            link.isRoute ? (
+            link.isExternal ? (
+              <a
+                key={link.label}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileOpen(false)}
+                className="block text-sm font-medium text-muted-foreground hover:text-foreground"
+              >
+                {link.label}
+              </a>
+            ) : link.isRoute ? (
               <Link
                 key={link.label}
                 to={link.href}

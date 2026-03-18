@@ -41,7 +41,7 @@ const Footer = () => {
             <h4 className="text-xs font-bold font-display uppercase tracking-[0.15em] text-secondary-foreground/30">Other</h4>
             <ul className="space-y-2.5 text-[13px] text-secondary-foreground/50">
               <li><Link to="/consulting" className="hover:text-secondary-foreground transition-colors">Consulting</Link></li>
-              <li><a href="#" className="hover:text-secondary-foreground transition-colors">Careers</a></li>
+              <li><a href="https://komodo-consulting.careers-page.com/" target="_blank" rel="noopener noreferrer" className="hover:text-secondary-foreground transition-colors">Careers</a></li>
               <li><a href="#" className="hover:text-secondary-foreground transition-colors">Privacy Policy</a></li>
               <li><a href="#" className="hover:text-secondary-foreground transition-colors">Terms of Service</a></li>
             </ul>
