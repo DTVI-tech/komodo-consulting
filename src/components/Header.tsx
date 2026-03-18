@@ -7,7 +7,7 @@ import logoDark from "@/assets/logo-dark.png";
 const navLinks = [
   { label: "Services", href: "/services", isRoute: true },
   { label: "Industries", href: "#industries", isRoute: false },
-  { label: "Technologies", href: "#expertise", isRoute: false },
+  { label: "Technologies", href: "/technologies", isRoute: true },
   { label: "About", href: "#about", isRoute: false },
 ];
 

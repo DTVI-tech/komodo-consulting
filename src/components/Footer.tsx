@@ -32,7 +32,7 @@ const Footer = () => {
             <ul className="space-y-2.5 text-[13px] text-secondary-foreground/50">
               <li><button onClick={() => scrollTo("#about")} className="hover:text-secondary-foreground transition-colors">About</button></li>
               <li><button onClick={() => scrollTo("#industries")} className="hover:text-secondary-foreground transition-colors">Industries</button></li>
-              <li><button onClick={() => scrollTo("#expertise")} className="hover:text-secondary-foreground transition-colors">Technologies</button></li>
+              <li><Link to="/technologies" className="hover:text-secondary-foreground transition-colors">Technologies</Link></li>
               <li><Link to="/contact" className="hover:text-secondary-foreground transition-colors">Contact</Link></li>
             </ul>
           </div>
