@@ -11,6 +11,7 @@ import IndustryPage from "./pages/IndustryPage.tsx";
 import NearshorePortugal from "./pages/NearshorePortugal.tsx";
 import Technologies from "./pages/Technologies.tsx";
 import Contact from "./pages/Contact.tsx";
+import About from "./pages/About.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import ScrollToTop from "./components/ScrollToTop";
 
