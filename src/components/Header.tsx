@@ -94,7 +94,18 @@ const Header = () => {
       {mobileOpen && (
         <div className="lg:hidden bg-background border-b border-border px-6 pb-6 space-y-3">
           {navLinks.map((link) =>
-            link.isRoute ? (
+            'isExternal' in link ? (
+              <a
+                key={link.label}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileOpen(false)}
+                className="block text-sm font-medium text-muted-foreground hover:text-foreground"
+              >
+                {link.label}
+              </a>
+            ) : 'isRoute' in link ? (
               <Link
                 key={link.label}
                 to={link.href}
