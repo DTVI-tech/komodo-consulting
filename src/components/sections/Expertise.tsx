@@ -70,7 +70,8 @@ const Expertise = () => (
               <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/[0.1] to-accent/[0.05] flex items-center justify-center mb-4 group-hover:scale-105 transition-transform duration-300 border border-primary/[0.06]">
                 <area.icon className="h-6 w-6 text-primary" />
               </div>
-              <span className="text-sm font-semibold text-foreground tracking-tight">{area.label}</span>
+              <span className="text-sm font-semibold text-foreground tracking-tight block mb-2">{area.label}</span>
+              <p className="text-[11px] leading-relaxed text-muted-foreground/70 tracking-wide">{area.techs}</p>
             </div>
           </motion.div>
         ))}
