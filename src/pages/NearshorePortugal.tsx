@@ -715,7 +715,7 @@ const FinalCTA = () => (
             </Button>
           </Link>
           <Link to="/contact">
-            <Button size="lg" variant="outline" className="text-base px-8 h-12 border-secondary-foreground/[0.12] text-secondary-foreground/70 hover:bg-secondary-foreground/[0.06]">
+            <Button size="lg" variant="outlineDark" className="text-base px-8 h-12">
               Request Talent
             </Button>
           </Link>
