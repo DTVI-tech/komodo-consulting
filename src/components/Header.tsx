@@ -96,7 +96,7 @@ const Header = () => {
       {mobileOpen && (
         <div className="lg:hidden bg-background border-b border-border px-6 pb-6 space-y-3">
           {navLinks.map((link) =>
-            'isExternal' in link ? (
+            link.isExternal ? (
               <a
                 key={link.label}
                 href={link.href}
@@ -107,7 +107,7 @@ const Header = () => {
               >
                 {link.label}
               </a>
-            ) : 'isRoute' in link ? (
+            ) : link.isRoute ? (
               <Link
                 key={link.label}
                 to={link.href}
