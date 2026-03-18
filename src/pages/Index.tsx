@@ -4,7 +4,7 @@ import Hero from "@/components/sections/Hero";
 import ServiceModels from "@/components/sections/ServiceModels";
 import WhyPortugal from "@/components/sections/WhyPortugal";
 import Expertise from "@/components/sections/Expertise";
-
+import Industries from "@/components/sections/Industries";
 import HowWeWork from "@/components/sections/HowWeWork";
 import AboutPreview from "@/components/sections/AboutPreview";
 import ConsultingCallout from "@/components/sections/ConsultingCallout";
@@ -18,7 +18,7 @@ const Index = () => (
       <ServiceModels />
       <WhyPortugal />
       <Expertise />
-      
+      <Industries />
       <HowWeWork />
       <AboutPreview />
       <ConsultingCallout />
