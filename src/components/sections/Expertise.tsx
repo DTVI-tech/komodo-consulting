@@ -2,14 +2,14 @@ import { motion } from "framer-motion";
 import { Code2, Cloud, Database, TestTube, Shield, Server, Headphones, Kanban } from "lucide-react";
 
 const areas = [
-  { icon: Code2, label: "Software Engineering", techs: "Java · .NET · Node.js · React · Angular · Python", gradient: "from-primary/15 to-primary/5" },
-  { icon: Cloud, label: "Cloud & DevOps", techs: "AWS · Azure · GCP · Docker · Kubernetes · Terraform", gradient: "from-accent/15 to-accent/5" },
-  { icon: Database, label: "Data & AI", techs: "Python · SQL · Power BI · Databricks · dbt · Azure Data Factory", gradient: "from-primary/15 to-accent/5" },
-  { icon: TestTube, label: "QA & Test Automation", techs: "Selenium · Cypress · Playwright · Postman · JMeter", gradient: "from-accent/15 to-primary/5" },
-  { icon: Shield, label: "Cybersecurity", techs: "IAM · SIEM · SOC · Vulnerability Mgmt · Cloud Security", gradient: "from-primary/15 to-primary/5" },
-  { icon: Server, label: "ERP / Business Apps", techs: "SAP · Salesforce · Dynamics 365 · Oracle · ServiceNow", gradient: "from-accent/15 to-accent/5" },
-  { icon: Headphones, label: "IT Support & Infra", techs: "Windows Server · Linux · M365 · Networking · VMware", gradient: "from-primary/15 to-accent/5" },
-  { icon: Kanban, label: "Product & Project Delivery", techs: "Agile · Scrum · Jira · Confluence · Product Discovery", gradient: "from-accent/15 to-primary/5" },
+  { icon: Code2, label: "Software Engineering", gradient: "from-primary/15 to-primary/5", pattern: "code" },
+  { icon: Cloud, label: "Cloud & DevOps", gradient: "from-accent/15 to-accent/5", pattern: "cloud" },
+  { icon: Database, label: "Data & AI", gradient: "from-primary/15 to-accent/5", pattern: "data" },
+  { icon: TestTube, label: "QA & Test Automation", gradient: "from-accent/15 to-primary/5", pattern: "test" },
+  { icon: Shield, label: "Cybersecurity", gradient: "from-primary/15 to-primary/5", pattern: "shield" },
+  { icon: Server, label: "ERP / Business Apps", gradient: "from-accent/15 to-accent/5", pattern: "server" },
+  { icon: Headphones, label: "IT Support & Infra", gradient: "from-primary/15 to-accent/5", pattern: "support" },
+  { icon: Kanban, label: "Product & Project Delivery", gradient: "from-accent/15 to-primary/5", pattern: "kanban" },
 ];
 
 /* Subtle tech pattern background per card */
@@ -70,8 +70,7 @@ const Expertise = () => (
               <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/[0.1] to-accent/[0.05] flex items-center justify-center mb-4 group-hover:scale-105 transition-transform duration-300 border border-primary/[0.06]">
                 <area.icon className="h-6 w-6 text-primary" />
               </div>
-              <span className="text-sm font-semibold text-foreground tracking-tight block mb-2">{area.label}</span>
-              <p className="text-[11px] leading-relaxed text-muted-foreground/70 tracking-wide">{area.techs}</p>
+              <span className="text-sm font-semibold text-foreground tracking-tight">{area.label}</span>
             </div>
           </motion.div>
         ))}
