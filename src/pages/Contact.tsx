@@ -393,7 +393,8 @@ const Contact = () => {
               </Button>
               <Button
                 size="lg"
-                className="text-base h-12 px-8 bg-transparent border border-secondary-foreground/30 text-secondary-foreground hover:bg-secondary-foreground/10 hover:border-secondary-foreground/50"
+                variant="outlineDark"
+                className="text-base h-12 px-8"
                 asChild
               >
                 <Link to="/services">

@@ -164,7 +164,7 @@ const IndustryPage = () => {
                 Get Started <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
               <Link to="/services">
-                <Button size="lg" variant="outline" className="text-base px-8 h-12 border-secondary-foreground/20 text-secondary-foreground hover:bg-secondary-foreground/10">
+                <Button size="lg" variant="outlineDark" className="text-base px-8 h-12">
                   View Services
                 </Button>
               </Link>
