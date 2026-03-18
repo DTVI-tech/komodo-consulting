@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logoDark from "@/assets/logo-dark.png";
@@ -13,11 +13,17 @@ const navLinks = [
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
-  const scrollTo = (href: string) => {
+  const handleAnchorClick = (href: string) => {
     setMobileOpen(false);
-    const el = document.querySelector(href);
-    el?.scrollIntoView({ behavior: "smooth" });
+    if (location.pathname === "/") {
+      const el = document.querySelector(href);
+      el?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate("/" + href);
+    }
   };
 
   return (
