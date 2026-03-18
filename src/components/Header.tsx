@@ -37,7 +37,17 @@ const Header = () => {
         {/* Desktop nav */}
         <nav className="hidden lg:flex items-center gap-7">
           {navLinks.map((link) =>
-            link.isRoute ? (
+            link.isExternal ? (
+              <a
+                key={link.label}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[13px] font-medium text-muted-foreground hover:text-foreground transition-colors"
+              >
+                {link.label}
+              </a>
+            ) : link.isRoute ? (
               <Link
                 key={link.label}
                 to={link.href}
