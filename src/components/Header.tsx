@@ -4,12 +4,14 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logoDark from "@/assets/logo-dark.png";
 
-const navLinks = [
+type NavLink = { label: string; href: string; isRoute?: boolean; isExternal?: boolean };
+
+const navLinks: NavLink[] = [
   { label: "Services", href: "/services", isRoute: true },
   { label: "Technologies", href: "/technologies", isRoute: true },
   { label: "About", href: "/about", isRoute: true },
   { label: "Careers", href: "https://komodo-consulting.careers-page.com/", isExternal: true },
-] as const;
+];
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
