@@ -2,14 +2,14 @@ import { motion } from "framer-motion";
 import { Code2, Cloud, Database, TestTube, Shield, Server, Headphones, Kanban } from "lucide-react";
 
 const areas = [
-  { icon: Code2, label: "Software Engineering", gradient: "from-primary/15 to-primary/5", pattern: "code" },
-  { icon: Cloud, label: "Cloud & DevOps", gradient: "from-accent/15 to-accent/5", pattern: "cloud" },
-  { icon: Database, label: "Data & AI", gradient: "from-primary/15 to-accent/5", pattern: "data" },
-  { icon: TestTube, label: "QA & Test Automation", gradient: "from-accent/15 to-primary/5", pattern: "test" },
-  { icon: Shield, label: "Cybersecurity", gradient: "from-primary/15 to-primary/5", pattern: "shield" },
-  { icon: Server, label: "ERP / Business Apps", gradient: "from-accent/15 to-accent/5", pattern: "server" },
-  { icon: Headphones, label: "IT Support & Infra", gradient: "from-primary/15 to-accent/5", pattern: "support" },
-  { icon: Kanban, label: "Product & Project Delivery", gradient: "from-accent/15 to-primary/5", pattern: "kanban" },
+  { icon: Code2, label: "Software Engineering", tech: "Java · .NET · React · Node.js", gradient: "from-primary/15 to-primary/5" },
+  { icon: Cloud, label: "Cloud & DevOps", tech: "AWS · Azure · Kubernetes · Terraform", gradient: "from-accent/15 to-accent/5" },
+  { icon: Database, label: "Data & AI", tech: "Python · SQL · Power BI · Databricks", gradient: "from-primary/15 to-accent/5" },
+  { icon: TestTube, label: "QA & Test Automation", tech: "Selenium · Cypress · Playwright", gradient: "from-accent/15 to-primary/5" },
+  { icon: Shield, label: "Cybersecurity", tech: "IAM · SIEM · Cloud Security", gradient: "from-primary/15 to-primary/5" },
+  { icon: Server, label: "ERP / Business Apps", tech: "SAP · Salesforce · Dynamics 365", gradient: "from-accent/15 to-accent/5" },
+  { icon: Headphones, label: "IT Support & Infra", tech: "Linux · Microsoft 365 · VMware", gradient: "from-primary/15 to-accent/5" },
+  { icon: Kanban, label: "Product & Project Delivery", tech: "Agile · Scrum · Jira · Confluence", gradient: "from-accent/15 to-primary/5" },
 ];
 
 /* Subtle tech pattern background per card */
@@ -71,6 +71,7 @@ const Expertise = () => (
                 <area.icon className="h-6 w-6 text-primary" />
               </div>
               <span className="text-sm font-semibold text-foreground tracking-tight">{area.label}</span>
+              <span className="text-[11px] text-muted-foreground/70 mt-1.5 leading-snug">{area.tech}</span>
             </div>
           </motion.div>
         ))}
