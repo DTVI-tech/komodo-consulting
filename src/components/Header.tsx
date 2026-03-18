@@ -9,7 +9,7 @@ const navLinks = [
   { label: "Technologies", href: "/technologies", isRoute: true },
   { label: "About", href: "/about", isRoute: true },
   { label: "Careers", href: "https://komodo-consulting.careers-page.com/", isExternal: true },
-];
+] as const;
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
