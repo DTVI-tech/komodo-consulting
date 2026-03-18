@@ -38,7 +38,7 @@ const Header = () => {
         {/* Desktop nav */}
         <nav className="hidden lg:flex items-center gap-7">
           {navLinks.map((link) =>
-            'isExternal' in link ? (
+            link.isExternal ? (
               <a
                 key={link.label}
                 href={link.href}
@@ -48,7 +48,7 @@ const Header = () => {
               >
                 {link.label}
               </a>
-            ) : 'isRoute' in link ? (
+            ) : link.isRoute ? (
               <Link
                 key={link.label}
                 to={link.href}
