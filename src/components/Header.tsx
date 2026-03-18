@@ -47,7 +47,7 @@ const Header = () => {
             ) : (
               <button
                 key={link.label}
-                onClick={() => scrollTo(link.href)}
+                onClick={() => handleAnchorClick(link.href)}
                 className="text-[13px] font-medium text-muted-foreground hover:text-foreground transition-colors"
               >
                 {link.label}
