@@ -18,7 +18,7 @@ const Index = () => (
       <ServiceModels />
       <WhyPortugal />
       <Expertise />
-      <Industries />
+      
       <HowWeWork />
       <AboutPreview />
       <ConsultingCallout />
