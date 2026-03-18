@@ -9,6 +9,7 @@ const navLinks = [
   { label: "Industries", href: "#industries", isRoute: false },
   { label: "Technologies", href: "/technologies", isRoute: true },
   { label: "About", href: "/about", isRoute: true },
+  { label: "Careers", href: "https://komodo-consulting.careers-page.com/", isExternal: true },
 ];
 
 const Header = () => {
