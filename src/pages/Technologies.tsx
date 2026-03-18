@@ -265,7 +265,7 @@ const Technologies = () => (
           <Button
             size="lg"
             variant="outline"
-            className="text-base px-8 h-12 border-secondary-foreground/[0.12] text-secondary-foreground/70 hover:bg-secondary-foreground/[0.06]"
+            className="text-base px-8 h-12 border-secondary-foreground/30 text-secondary-foreground hover:bg-secondary-foreground/10 focus:ring-2 focus:ring-primary active:bg-secondary-foreground/15"
           >
             View Service Models
           </Button>
