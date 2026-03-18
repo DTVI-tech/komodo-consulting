@@ -71,6 +71,7 @@ const Expertise = () => (
                 <area.icon className="h-6 w-6 text-primary" />
               </div>
               <span className="text-sm font-semibold text-foreground tracking-tight">{area.label}</span>
+              <span className="text-[11px] text-muted-foreground/70 mt-1.5 leading-snug">{area.tech}</span>
             </div>
           </motion.div>
         ))}
