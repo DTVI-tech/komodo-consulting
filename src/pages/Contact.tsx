@@ -109,6 +109,10 @@ const FAQItem = ({ q, a, index }: { q: string; a: string; index: number }) => {
 
 const Contact = () => {
   const [selectedType, setSelectedType] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
+  const { toast } = useToast();
 
   return (
     <PageShell>
