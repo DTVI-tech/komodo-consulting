@@ -181,8 +181,37 @@ const Contact = () => {
 
               {/* Form */}
               <form
+                ref={formRef}
                 className="space-y-5"
-                onSubmit={(e) => e.preventDefault()}
+                onSubmit={async (e) => {
+                  e.preventDefault();
+                  if (isSubmitting || isSubmitted) return;
+                  setIsSubmitting(true);
+                  try {
+                    const form = formRef.current!;
+                    const payload = {
+                      inquiryType: selectedType,
+                      name: (form.querySelector("#name") as HTMLInputElement).value.trim(),
+                      email: (form.querySelector("#email") as HTMLInputElement).value.trim(),
+                      company: (form.querySelector("#company") as HTMLInputElement).value.trim(),
+                      country: (form.querySelector("#country") as HTMLInputElement).value.trim(),
+                      teamSize: (form.querySelector("#team-size") as HTMLInputElement).value.trim(),
+                      startDate: (form.querySelector("#start-date") as HTMLInputElement).value.trim(),
+                      message: (form.querySelector("#message") as HTMLTextAreaElement).value.trim(),
+                    };
+                    const { data, error } = await supabase.functions.invoke("send-contact-email", { body: payload });
+                    if (error) throw error;
+                    setIsSubmitted(true);
+                    toast({ title: "Inquiry sent", description: "We'll get back to you within one business day." });
+                    form.reset();
+                    setSelectedType(null);
+                  } catch (err: any) {
+                    console.error("Submit error:", err);
+                    toast({ title: "Something went wrong", description: "Please try again or email us directly at hello@komodo.dev.", variant: "destructive" });
+                  } finally {
+                    setIsSubmitting(false);
+                  }
+                }}
               >
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div className="space-y-2">
