@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useRef } from "react";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
 import { Link } from "react-router-dom";
 import {
   Mail,
@@ -107,6 +109,10 @@ const FAQItem = ({ q, a, index }: { q: string; a: string; index: number }) => {
 
 const Contact = () => {
   const [selectedType, setSelectedType] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
+  const { toast } = useToast();
 
   return (
     <PageShell>
@@ -175,8 +181,37 @@ const Contact = () => {
 
               {/* Form */}
               <form
+                ref={formRef}
                 className="space-y-5"
-                onSubmit={(e) => e.preventDefault()}
+                onSubmit={async (e) => {
+                  e.preventDefault();
+                  if (isSubmitting || isSubmitted) return;
+                  setIsSubmitting(true);
+                  try {
+                    const form = formRef.current!;
+                    const payload = {
+                      inquiryType: selectedType,
+                      name: (form.querySelector("#name") as HTMLInputElement).value.trim(),
+                      email: (form.querySelector("#email") as HTMLInputElement).value.trim(),
+                      company: (form.querySelector("#company") as HTMLInputElement).value.trim(),
+                      country: (form.querySelector("#country") as HTMLInputElement).value.trim(),
+                      teamSize: (form.querySelector("#team-size") as HTMLInputElement).value.trim(),
+                      startDate: (form.querySelector("#start-date") as HTMLInputElement).value.trim(),
+                      message: (form.querySelector("#message") as HTMLTextAreaElement).value.trim(),
+                    };
+                    const { data, error } = await supabase.functions.invoke("send-contact-email", { body: payload });
+                    if (error) throw error;
+                    setIsSubmitted(true);
+                    toast({ title: "Inquiry sent", description: "We'll get back to you within one business day." });
+                    form.reset();
+                    setSelectedType(null);
+                  } catch (err: any) {
+                    console.error("Submit error:", err);
+                    toast({ title: "Something went wrong", description: "Please try again or email us directly at hello@komodo.dev.", variant: "destructive" });
+                  } finally {
+                    setIsSubmitting(false);
+                  }
+                }}
               >
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div className="space-y-2">
@@ -235,11 +270,17 @@ const Contact = () => {
                 </div>
 
                 <div className="flex items-center gap-4 pt-2">
-                  <Button size="lg" className="text-base px-8 h-12 shadow-lg shadow-primary/25">
-                    Submit Inquiry <ArrowRight className="ml-2 h-4 w-4" />
+                  <Button
+                    type="submit"
+                    size="lg"
+                    className="text-base px-8 h-12 shadow-lg shadow-primary/25"
+                    disabled={isSubmitting || isSubmitted}
+                  >
+                    {isSubmitting ? "Sending…" : isSubmitted ? "Sent ✓" : "Submit Inquiry"}
+                    {!isSubmitting && !isSubmitted && <ArrowRight className="ml-2 h-4 w-4" />}
                   </Button>
                   <span className="text-xs text-muted-foreground">
-                    We'll respond within 1 business day.
+                    {isSubmitted ? "We'll be in touch soon." : "We'll respond within 1 business day."}
                   </span>
                 </div>
               </form>
