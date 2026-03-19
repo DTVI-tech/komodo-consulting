@@ -270,11 +270,17 @@ const Contact = () => {
                 </div>
 
                 <div className="flex items-center gap-4 pt-2">
-                  <Button size="lg" className="text-base px-8 h-12 shadow-lg shadow-primary/25">
-                    Submit Inquiry <ArrowRight className="ml-2 h-4 w-4" />
+                  <Button
+                    type="submit"
+                    size="lg"
+                    className="text-base px-8 h-12 shadow-lg shadow-primary/25"
+                    disabled={isSubmitting || isSubmitted}
+                  >
+                    {isSubmitting ? "Sending…" : isSubmitted ? "Sent ✓" : "Submit Inquiry"}
+                    {!isSubmitting && !isSubmitted && <ArrowRight className="ml-2 h-4 w-4" />}
                   </Button>
                   <span className="text-xs text-muted-foreground">
-                    We'll respond within 1 business day.
+                    {isSubmitted ? "We'll be in touch soon." : "We'll respond within 1 business day."}
                   </span>
                 </div>
               </form>
