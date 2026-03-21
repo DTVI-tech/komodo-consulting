@@ -265,6 +265,14 @@ const ServiceModelCards = () => (
                 ))}
               </ul>
 
+              {service.slug === "nearshore-portugal" && (
+                <Link to="/services/nearshore-portugal">
+                  <Button variant="outline" size="sm" className="text-sm">
+                    Why Portugal? <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
+                  </Button>
+                </Link>
+              )}
+
             </div>
           </motion.div>
         ))}
