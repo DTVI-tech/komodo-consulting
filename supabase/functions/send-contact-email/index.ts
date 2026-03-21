@@ -124,7 +124,7 @@ serve(async (req) => {
         ` : ""}
       </div>
       <div class="footer">
-        This inquiry was submitted via the Komodo website contact form.
+        This inquiry was submitted via the Komodo Consulting website contact form.
       </div>
     </div>
   </div>
