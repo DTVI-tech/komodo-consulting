@@ -96,9 +96,9 @@ const ServicesHero = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-[2.75rem] md:text-[3.5rem] lg:text-[3.25rem] xl:text-[3.75rem] font-display font-extrabold leading-[1.08] tracking-[-0.025em] text-foreground mb-7"
             >
-              Flexible models.{" "}
+              Three models.{" "}
               <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                Serious delivery.
+                One standard.
               </span>
             </motion.h1>
 
@@ -108,7 +108,7 @@ const ServicesHero = () => {
               transition={{ duration: 0.5, delay: 0.35 }}
               className="text-lg md:text-xl text-muted-foreground max-w-[560px] mb-12 leading-[1.7]"
             >
-              Choose the engagement model that fits your pace, scale, and delivery goals — from individual specialists to full managed teams.
+              Scale with individual specialists, outsourced teams, or Portugal-based nearshore delivery — always on your terms.
             </motion.p>
 
             <motion.div
