@@ -44,12 +44,12 @@ const Expertise = () => (
         transition={{ duration: 0.5 }}
         className="text-center mb-14 md:mb-20"
       >
-        <span className="section-label">Expertise</span>
+        <span className="section-label">Capabilities</span>
         <h2 className="section-title mb-5">
-          Technical depth across modern delivery
+          Technical depth across modern IT
         </h2>
         <p className="section-subtitle mx-auto">
-          Talent and teams across the technology roles that matter most to your product and platform execution.
+          Consultants and teams across the technology disciplines that matter most to your delivery and business outcomes.
         </p>
       </motion.div>
 

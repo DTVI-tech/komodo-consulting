@@ -84,10 +84,10 @@ const AboutPreview = () => (
             A partner, not just a provider
           </h2>
           <p className="text-muted-foreground leading-relaxed mb-4 text-base">
-            Komodo Consulting is a premium IT outsourcing and nearshore delivery partner for companies that need strong technical capability, fast onboarding, and reliable collaboration.
+            Komodo Consulting is an IT consulting and outsourcing company that helps businesses build capability through high-quality technology talent and teams.
           </p>
           <p className="text-muted-foreground leading-relaxed text-base mb-8">
-            We combine commercial maturity with operational rigour — supporting companies across Portugal and international markets with teams built for real delivery.
+            We combine commercial maturity with operational rigour — supporting clients in Portugal and international markets with the people, structure, and delivery focus they need.
           </p>
 
           {/* Culture placeholder on desktop */}
