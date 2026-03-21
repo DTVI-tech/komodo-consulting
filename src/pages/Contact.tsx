@@ -237,6 +237,7 @@ const Contact = () => {
                   if (!email) v.email = "Work email is required.";
                   else if (!isWorkEmail(email)) v.email = "Please use your work email address.";
                   if (!company) v.company = "Company's website is required.";
+                  else if (!isValidWebsite(company)) v.company = "Please enter a valid website, e.g. company.com";
                   if (!selectedCountry) v.country = "Please select your country.";
                   if (!teamSize) v.teamSize = "Team size / roles needed is required.";
                   if (!startDate) v.startDate = "Desired start is required.";
