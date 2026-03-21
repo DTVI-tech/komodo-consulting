@@ -8,7 +8,7 @@ const services = [
     icon: Users,
     title: "Staff Augmentation",
     slug: "staff-augmentation",
-    description: "Add vetted IT specialists to your existing teams quickly. Scale capacity without long hiring cycles.",
+    description: "Add carefully selected IT specialists to your existing teams quickly. Scale capacity without long hiring cycles.",
     accent: "from-primary/10 to-primary/[0.03]",
   },
   {

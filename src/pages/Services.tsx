@@ -157,7 +157,7 @@ const services = [
       "Add carefully selected engineers to your existing teams. Scale capacity without long hiring cycles or overhead.",
     ideal: "Teams that need specific skills fast, with direct management.",
     features: [
-      "Screened senior-level candidates",
+      "Carefully selected senior-level candidates",
       "Integrated into your workflows",
       "Flexible scale-up and scale-down",
       "Full IP ownership retained",
@@ -265,6 +265,14 @@ const ServiceModelCards = () => (
                 ))}
               </ul>
 
+              {service.slug === "nearshore-portugal" && (
+                <Link to="/services/nearshore-portugal">
+                  <Button variant="outline" size="sm" className="text-sm">
+                    Why Portugal? <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
+                  </Button>
+                </Link>
+              )}
+
             </div>
           </motion.div>
         ))}
@@ -369,8 +377,8 @@ const Comparison = () => (
 const reasons = [
   {
     icon: Shield,
-    title: "Vetted Talent Only",
-    description: "Every engineer goes through technical and cultural screening before joining any engagement.",
+    title: "Carefully Selected Talent",
+    description: "Every consultant goes through a rigorous selection process before joining any engagement.",
   },
   {
     icon: Clock,
@@ -439,7 +447,7 @@ const WhyKomodo = () => (
 const faqs = [
   {
     q: "How quickly can you provide engineers?",
-    a: "For staff augmentation, we typically present vetted candidates within 5 business days. Dedicated teams take 2–4 weeks depending on team composition and requirements.",
+    a: "For staff augmentation, we typically present candidates within 5 business days. Dedicated teams take 2–4 weeks depending on team composition and requirements.",
   },
   {
     q: "What if a team member isn't the right fit?",
@@ -450,8 +458,8 @@ const faqs = [
     a: "Yes. Portugal's CET timezone provides 4–6 hours of overlap with US East Coast, and we structure communication to maximize collaborative time.",
   },
   {
-    q: "How do you vet your talent?",
-    a: "Every engineer goes through a multi-stage process: technical assessment, live coding review, cultural fit evaluation, and reference checks. Only about 1 in 8 applicants make it through.",
+    q: "How do you select your talent?",
+    a: "Every consultant goes through a multi-stage selection process covering professional experience, cultural fit, and reference checks. We maintain high standards — only a small percentage of applicants are accepted.",
   },
   {
     q: "What technologies do your teams cover?",
@@ -463,7 +471,7 @@ const faqs = [
   },
   {
     q: "Can I scale a team up or down?",
-    a: "Yes. Staff augmentation allows per-role scaling with 30-day notice. Dedicated teams can be restructured on a quarterly basis to match your evolving needs.",
+    a: "Yes. Staff augmentation allows per-role scaling with 30-day notice. Dedicated teams can be restructured to match your evolving needs. All engagements start with a 6-month minimum.",
   },
 ];
 

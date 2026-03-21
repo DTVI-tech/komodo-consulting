@@ -3,7 +3,7 @@ import { Search, ListChecks, UserCheck, Rocket, HeartHandshake } from "lucide-re
 
 const steps = [
   { icon: Search, number: "01", title: "Discovery", description: "We understand your requirements, team structure, timelines, and business context.", color: "from-primary to-primary" },
-  { icon: ListChecks, number: "02", title: "Shortlist", description: "We identify and present vetted candidates or team configurations matched to your needs.", color: "from-primary to-accent" },
+  { icon: ListChecks, number: "02", title: "Shortlist", description: "We identify and present carefully selected candidates or team configurations matched to your needs.", color: "from-primary to-accent" },
   { icon: UserCheck, number: "03", title: "Validation", description: "You review profiles, conduct interviews, and approve the fit before engagement.", color: "from-accent to-accent" },
   { icon: Rocket, number: "04", title: "Onboarding", description: "Fast, structured onboarding with clear communication channels and delivery alignment.", color: "from-accent to-primary" },
   { icon: HeartHandshake, number: "05", title: "Ongoing Support", description: "Continuous follow-up, performance tracking, and proactive collaboration management.", color: "from-primary to-primary" },
