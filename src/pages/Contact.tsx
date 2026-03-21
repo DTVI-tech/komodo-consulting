@@ -201,7 +201,7 @@ const Contact = () => {
                       name: (form.querySelector("#name") as HTMLInputElement).value.trim(),
                       email: (form.querySelector("#email") as HTMLInputElement).value.trim(),
                       company: (form.querySelector("#company") as HTMLInputElement).value.trim(),
-                      country: (form.querySelector("#country") as HTMLInputElement).value.trim(),
+                      country: selectedCountry,
                       teamSize: (form.querySelector("#team-size") as HTMLInputElement).value.trim(),
                       startDate: (form.querySelector("#start-date") as HTMLInputElement).value.trim(),
                       message: (form.querySelector("#message") as HTMLTextAreaElement).value.trim(),
