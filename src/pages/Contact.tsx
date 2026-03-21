@@ -172,7 +172,7 @@ const Contact = () => {
               {/* Inquiry type selector */}
               <div className="mb-10">
                 <h2 className="text-lg font-display font-bold text-foreground mb-1">
-                  What are you looking for?
+                  What are you looking for? <span className="text-destructive">*</span>
                 </h2>
                 <p className="text-sm text-muted-foreground mb-5">
                   Select the model closest to your needs — we'll refine it together.
@@ -181,11 +181,14 @@ const Contact = () => {
                   {inquiryTypes.map((type) => (
                     <button
                       key={type.id}
-                      onClick={() => setSelectedType(type.id === selectedType ? null : type.id)}
+                      type="button"
+                      onClick={() => { setSelectedType(type.id === selectedType ? null : type.id); clearError("inquiryType"); }}
                       className={`flex flex-col items-center gap-2.5 p-4 rounded-xl border text-center transition-all duration-200 ${
                         selectedType === type.id
                           ? "border-primary bg-primary/[0.04] shadow-sm"
-                          : "border-border hover:border-primary/30 hover:bg-muted/50"
+                          : errors.inquiryType
+                            ? "border-destructive/50 hover:border-primary/30 hover:bg-muted/50"
+                            : "border-border hover:border-primary/30 hover:bg-muted/50"
                       }`}
                     >
                       <div
@@ -201,6 +204,7 @@ const Contact = () => {
                     </button>
                   ))}
                 </div>
+                {errors.inquiryType && <p className="text-xs text-destructive mt-2">{errors.inquiryType}</p>}
               </div>
 
               {/* Form */}
