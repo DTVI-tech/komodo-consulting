@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logoWhite from "@/assets/logo-white.png";
+import logoVertical from "@/assets/logo-vertical.png";
 
 const ConsultingComingSoon = () => (
   <div
@@ -46,14 +46,14 @@ const ConsultingComingSoon = () => (
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-      className="relative z-10 text-center max-w-xl"
+      className="relative z-10 text-center max-w-lg"
     >
       {/* Logo */}
-      <Link to="/" className="inline-block mb-16 group">
+      <Link to="/" className="inline-block mb-14 group">
         <img
-          src={logoWhite}
+          src={logoVertical}
           alt="Komodo Consulting"
-          className="h-9 w-auto opacity-90 group-hover:opacity-100 transition-opacity"
+          className="h-16 w-auto mx-auto opacity-90 group-hover:opacity-100 transition-opacity"
         />
       </Link>
 
@@ -64,20 +64,23 @@ const ConsultingComingSoon = () => (
         transition={{ delay: 0.2, duration: 0.5 }}
         className="text-xs font-semibold uppercase tracking-[0.3em] text-primary mb-6"
       >
-        Consulting
+        Strategy &amp; Digital Transformation
       </motion.p>
 
       {/* Heading */}
       <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-display font-bold tracking-tight mb-6 text-foreground">
-        Coming Soon
+        Consulting
       </h1>
 
       {/* Divider */}
       <div className="w-12 h-px bg-primary/30 mx-auto mb-8" />
 
       {/* Copy */}
-      <p className="text-base md:text-lg leading-relaxed text-muted-foreground max-w-md mx-auto mb-12">
-        Our Consulting practice is being built with the same rigour and precision we bring to everything we do. A dedicated experience is on the way.
+      <p className="text-base md:text-lg leading-relaxed text-muted-foreground mx-auto mb-6">
+        Komodo Consulting already supports companies and public entities in Portugal with strategy and digital transformation consulting.
+      </p>
+      <p className="text-sm md:text-base leading-relaxed text-muted-foreground/70 mx-auto mb-12">
+        We are building a dedicated website to better showcase this practice. In the meantime, get in touch to learn more about our consulting services.
       </p>
 
       {/* CTAs */}
@@ -87,7 +90,7 @@ const ConsultingComingSoon = () => (
             size="lg"
             className="text-base px-8 h-12 bg-white text-background hover:bg-white/90 shadow-lg shadow-primary/10 font-semibold"
           >
-            Contact Us About Consulting
+            Talk to Our Team
             <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
         </Link>
