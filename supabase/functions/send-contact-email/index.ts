@@ -48,7 +48,7 @@ serve(async (req) => {
       ? {
           "staff-aug": "Staff Augmentation",
           "dedicated-team": "Dedicated Team",
-          "project": "Project Delivery",
+          "project": "Nearshore Project",
           "consulting": "Consulting",
         }[data.inquiryType] || data.inquiryType
       : "Not specified";
