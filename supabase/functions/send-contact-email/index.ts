@@ -77,7 +77,7 @@ serve(async (req) => {
     <div class="container">
       <div class="header">
         <h1>New Website Inquiry</h1>
-        <p>${timestamp} · Komodo Website Contact Form</p>
+        <p>${timestamp} · Komodo Consulting Website Contact Form</p>
       </div>
       <div class="body">
         <div class="field">
