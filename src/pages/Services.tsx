@@ -281,12 +281,12 @@ const ServiceModelCards = () => (
 /* ─── Comparison / Choosing the Right Model ─── */
 
 const comparisonRows = [
-  { label: "Your involvement", aug: "High — you manage", ded: "Medium — shared", mgd: "Low — we manage" },
-  { label: "Team structure", aug: "Individual roles", ded: "Full squads", mgd: "Project-based" },
-  { label: "Delivery ownership", aug: "Client", ded: "Shared", mgd: "Komodo" },
-  { label: "Scale flexibility", aug: "Per-role", ded: "Team-level", mgd: "Scope-based" },
-  { label: "Best for", aug: "Skill gaps", ded: "Product roadmaps", mgd: "Defined projects" },
-  { label: "Onboarding speed", aug: "1–2 weeks", ded: "2–4 weeks", mgd: "3–5 weeks" },
+  { label: "Your involvement", aug: "High — you manage", ded: "Medium — shared", ns: "Flexible" },
+  { label: "Team structure", aug: "Individual roles", ded: "Full squads", ns: "Any model, PT-based" },
+  { label: "Delivery ownership", aug: "Client", ded: "Shared", ns: "Depends on model" },
+  { label: "Scale flexibility", aug: "Per-role", ded: "Team-level", ns: "Per-role or team" },
+  { label: "Best for", aug: "Skill gaps", ded: "Product roadmaps", ns: "Nearshore efficiency" },
+  { label: "Onboarding speed", aug: "1–2 weeks", ded: "2–4 weeks", ns: "1–4 weeks" },
 ];
 
 const Comparison = () => (
