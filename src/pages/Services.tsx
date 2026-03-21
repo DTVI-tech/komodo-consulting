@@ -269,6 +269,20 @@ const ServiceModelCards = () => (
           </motion.div>
         ))}
       </div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.4, delay: 0.25 }}
+        className="text-center mt-12"
+      >
+        <Link to="/contact">
+          <Button size="lg" className="text-base px-8 h-12 shadow-lg shadow-primary/25">
+            Book a Strategy Call <ArrowRight className="ml-2 h-4 w-4" />
+          </Button>
+        </Link>
+      </motion.div>
     </div>
   </section>
 );
