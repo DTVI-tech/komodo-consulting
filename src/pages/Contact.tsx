@@ -29,7 +29,7 @@ import PageHero from "@/components/PageHero";
 const inquiryTypes = [
   { id: "staff-aug", label: "Staff Augmentation", icon: Users },
   { id: "dedicated-team", label: "Dedicated Team", icon: Building2 },
-  { id: "project", label: "Project Delivery", icon: Zap },
+  { id: "project", label: "Nearshore Project", icon: Zap },
   { id: "consulting", label: "Consulting", icon: Globe },
 ];
 
