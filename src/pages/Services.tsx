@@ -317,7 +317,7 @@ const Comparison = () => (
         {/* Header */}
         <div className="grid grid-cols-4 border-b border-border">
           <div className="p-5 md:p-6" />
-          {["Staff Augmentation", "Dedicated Teams", "Managed Delivery"].map((title) => (
+          {["Staff Augmentation", "Dedicated Teams", "Nearshore Portugal"].map((title) => (
             <div key={title} className="p-5 md:p-6 text-center border-l border-border">
               <span className="text-xs md:text-sm font-display font-bold text-foreground">{title}</span>
             </div>
