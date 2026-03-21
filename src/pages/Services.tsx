@@ -4,7 +4,6 @@ import {
   ArrowRight,
   Users,
   Building2,
-  Settings,
   Globe,
   CheckCircle2,
   Shield,
@@ -169,27 +168,13 @@ const services = [
     title: "Dedicated Teams",
     slug: "dedicated-teams",
     description:
-      "Full cross-functional squads aligned to your product roadmap — with a dedicated team lead and integrated delivery.",
-    ideal: "Companies needing ongoing capacity with team continuity and alignment.",
+      "A complete outsourced team, built around your delivery needs — you set the direction, we provide the people.",
+    ideal: "Companies that need an integrated, ready-to-deploy team with continuity and operational support.",
     features: [
-      "Cross-functional team composition",
-      "Dedicated team lead included",
-      "Aligned to your methodology",
-      "Scalable team structure",
-    ],
-  },
-  {
-    icon: Settings,
-    title: "Managed Delivery",
-    slug: "managed-delivery",
-    description:
-      "We own the delivery end-to-end — structured oversight, milestone tracking, and guaranteed accountability.",
-    ideal: "Organizations that want outcome-based delivery without managing the team.",
-    features: [
-      "Fixed-scope or T&M models",
-      "Milestone-based tracking",
-      "Dedicated project manager",
-      "Post-delivery support options",
+      "Full team with dedicated lead",
+      "You own priorities and direction",
+      "Komodo ensures cohesion and continuity",
+      "Not staff augmentation at scale — a true outsourced team",
     ],
   },
   {
@@ -222,14 +207,14 @@ const ServiceModelCards = () => (
       >
         <span className="section-label">Service Models</span>
         <h2 className="section-title mb-5">
-          Four models, one standard of delivery
+          Three models, one standard of delivery
         </h2>
         <p className="section-subtitle mx-auto">
           Each model is designed for a different level of involvement — choose the one that matches your operational needs.
         </p>
       </motion.div>
 
-      <div className="grid md:grid-cols-2 gap-5 md:gap-6">
+      <div className="grid md:grid-cols-3 gap-5 md:gap-6">
         {services.map((service, i) => (
           <motion.div
             key={service.title}
@@ -296,12 +281,12 @@ const ServiceModelCards = () => (
 /* ─── Comparison / Choosing the Right Model ─── */
 
 const comparisonRows = [
-  { label: "Your involvement", aug: "High — you manage", ded: "Medium — shared", mgd: "Low — we manage" },
-  { label: "Team structure", aug: "Individual roles", ded: "Full squads", mgd: "Project-based" },
-  { label: "Delivery ownership", aug: "Client", ded: "Shared", mgd: "Komodo" },
-  { label: "Scale flexibility", aug: "Per-role", ded: "Team-level", mgd: "Scope-based" },
-  { label: "Best for", aug: "Skill gaps", ded: "Product roadmaps", mgd: "Defined projects" },
-  { label: "Onboarding speed", aug: "1–2 weeks", ded: "2–4 weeks", mgd: "3–5 weeks" },
+  { label: "Your involvement", aug: "High — you manage", ded: "Medium — shared", ns: "Flexible" },
+  { label: "Team structure", aug: "Individual roles", ded: "Full squads", ns: "Any model, PT-based" },
+  { label: "Delivery ownership", aug: "Client", ded: "Shared", ns: "Depends on model" },
+  { label: "Scale flexibility", aug: "Per-role", ded: "Team-level", ns: "Per-role or team" },
+  { label: "Best for", aug: "Skill gaps", ded: "Product roadmaps", ns: "Nearshore efficiency" },
+  { label: "Onboarding speed", aug: "1–2 weeks", ded: "2–4 weeks", ns: "1–4 weeks" },
 ];
 
 const Comparison = () => (
@@ -332,7 +317,7 @@ const Comparison = () => (
         {/* Header */}
         <div className="grid grid-cols-4 border-b border-border">
           <div className="p-5 md:p-6" />
-          {["Staff Augmentation", "Dedicated Teams", "Managed Delivery"].map((title) => (
+          {["Staff Augmentation", "Dedicated Teams", "Nearshore Portugal"].map((title) => (
             <div key={title} className="p-5 md:p-6 text-center border-l border-border">
               <span className="text-xs md:text-sm font-display font-bold text-foreground">{title}</span>
             </div>
@@ -348,7 +333,7 @@ const Comparison = () => (
             <div className="p-4 md:p-5 flex items-center">
               <span className="text-xs md:text-sm font-semibold text-foreground">{row.label}</span>
             </div>
-            {[row.aug, row.ded, row.mgd].map((val, j) => (
+            {[row.aug, row.ded, row.ns].map((val, j) => (
               <div key={j} className="p-4 md:p-5 text-center border-l border-border flex items-center justify-center">
                 <span className="text-xs md:text-sm text-muted-foreground">{val}</span>
               </div>

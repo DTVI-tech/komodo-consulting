@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Users, Building2, Settings, Globe, ArrowRight } from "lucide-react";
+import { Users, Building2, Globe, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
@@ -10,42 +10,20 @@ const services = [
     slug: "staff-augmentation",
     description: "Add vetted IT specialists to your existing teams quickly. Scale capacity without long hiring cycles.",
     accent: "from-primary/10 to-primary/[0.03]",
-    graphic: [
-      { type: "circle", size: "w-6 h-6", pos: "top-3 right-3", border: "border-primary/10" },
-      { type: "line", pos: "bottom-5 left-5 right-5", bg: "bg-primary/[0.06]" },
-      { type: "line", pos: "bottom-8 left-5 right-10", bg: "bg-accent/[0.05]" },
-    ],
   },
   {
     icon: Building2,
     title: "Dedicated Teams",
     slug: "dedicated-teams",
-    description: "Build stable, nearshore teams aligned to your product roadmap and delivery cadence.",
+    description: "A complete outsourced team, built around your delivery needs — you set the direction, we provide the people.",
     accent: "from-accent/10 to-accent/[0.03]",
-    graphic: [
-      { type: "grid", pos: "top-3 right-3" },
-    ],
-  },
-  {
-    icon: Settings,
-    title: "Managed Delivery",
-    slug: "managed-delivery",
-    description: "Outsource delivery responsibility with structured oversight, reporting, and accountability.",
-    accent: "from-primary/10 to-primary/[0.03]",
-    graphic: [
-      { type: "circle", size: "w-8 h-8", pos: "top-3 right-3", border: "border-accent/[0.08]" },
-      { type: "circle", size: "w-5 h-5", pos: "top-4.5 right-4.5", border: "border-primary/[0.06]" },
-    ],
   },
   {
     icon: Globe,
     title: "Nearshore Portugal",
     slug: "nearshore-portugal",
     description: "Access strong talent from Portugal with time-zone alignment, cultural fit, and cost efficiency.",
-    accent: "from-accent/10 to-accent/[0.03]",
-    graphic: [
-      { type: "dot-grid", pos: "top-3 right-3" },
-    ],
+    accent: "from-primary/10 to-primary/[0.03]",
   },
 ];
 
@@ -86,7 +64,7 @@ const ServiceModels = () => (
         </p>
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
         {services.map((service, i) => (
           <Link key={service.title} to={`/services/${service.slug}`} className="block">
             <motion.div
