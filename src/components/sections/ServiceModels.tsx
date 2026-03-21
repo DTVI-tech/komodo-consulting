@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Users, Building2, Settings, Globe, ArrowRight } from "lucide-react";
+import { Users, Building2, Globe, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
