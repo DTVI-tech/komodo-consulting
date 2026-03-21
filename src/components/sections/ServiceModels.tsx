@@ -64,7 +64,7 @@ const ServiceModels = () => (
         </p>
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
         {services.map((service, i) => (
           <Link key={service.title} to={`/services/${service.slug}`} className="block">
             <motion.div
