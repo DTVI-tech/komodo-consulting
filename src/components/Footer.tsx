@@ -48,7 +48,7 @@ const Footer = () => {
         </div>
 
         <div className="mt-14 pt-6 border-t border-secondary-foreground/[0.06] flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-secondary-foreground/30">© {new Date().getFullYear()} Komodo. All rights reserved.</p>
+          <p className="text-xs text-secondary-foreground/30">© {new Date().getFullYear()} Komodo Consulting. All rights reserved.</p>
           <a href="#" className="text-xs text-secondary-foreground/30 hover:text-secondary-foreground transition-colors">LinkedIn</a>
         </div>
       </div>

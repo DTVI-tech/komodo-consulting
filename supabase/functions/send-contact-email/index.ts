@@ -138,9 +138,9 @@ serve(async (req) => {
         Authorization: `Bearer ${RESEND_API_KEY}`,
       },
       body: JSON.stringify({
-        from: "Komodo Website <onboarding@resend.dev>",
+        from: "Komodo Consulting Website <onboarding@resend.dev>",
         to: ["paulo.bartolomeu@komodo-consulting.pt"],
-        subject: "New Komodo website inquiry",
+        subject: "New Komodo Consulting website inquiry",
         html: htmlBody,
         reply_to: data.email,
       }),

@@ -231,7 +231,7 @@ const CompanyStory = () => (
           </h2>
           <div className="space-y-4 text-muted-foreground text-base leading-relaxed">
             <p>
-              Komodo is a premium IT outsourcing and nearshore delivery partner headquartered in Portugal. We exist to solve a specific problem: companies that need strong technical talent, fast onboarding, and reliable collaboration — without the overhead of traditional outsourcing.
+              Komodo Consulting is a premium IT outsourcing and nearshore delivery partner headquartered in Portugal. We exist to solve a specific problem: companies that need strong technical talent, fast onboarding, and reliable collaboration — without the overhead of traditional outsourcing.
             </p>
             <p>
               We don't operate as a staffing agency. We build delivery-ready teams that integrate with your workflows, tools, and standards from day one. Every engagement is structured around outcomes, not just headcount.

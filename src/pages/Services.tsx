@@ -403,7 +403,7 @@ const WhyKomodo = () => (
         transition={{ duration: 0.5 }}
         className="text-center mb-14 md:mb-20"
       >
-        <span className="section-label !text-accent">Why Komodo</span>
+        <span className="section-label !text-accent">Why Komodo Consulting</span>
         <h2 className="text-3xl md:text-[2.75rem] md:leading-[1.15] font-display font-bold tracking-tight mb-5">
           Built for companies that can't afford to compromise
         </h2>

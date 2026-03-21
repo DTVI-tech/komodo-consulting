@@ -109,7 +109,7 @@ const ConsultingComingSoon = () => (
         transition={{ delay: 0.6, duration: 0.5 }}
         className="text-xs text-muted-foreground/50 mt-16"
       >
-        Komodo · Lisbon, Portugal
+        Komodo Consulting · Lisbon, Portugal
       </motion.p>
     </motion.div>
   </div>
