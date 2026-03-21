@@ -430,7 +430,7 @@ const WhyKomodo = () => (
 const faqs = [
   {
     q: "How quickly can you provide engineers?",
-    a: "For staff augmentation, we typically present vetted candidates within 5 business days. Dedicated teams take 2–4 weeks depending on composition. Managed delivery projects start within 3–5 weeks after scoping.",
+    a: "For staff augmentation, we typically present vetted candidates within 5 business days. Dedicated teams take 2–4 weeks depending on team composition and requirements.",
   },
   {
     q: "What if a team member isn't the right fit?",
