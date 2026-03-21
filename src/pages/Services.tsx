@@ -454,7 +454,7 @@ const faqs = [
   },
   {
     q: "Can I scale a team up or down?",
-    a: "Yes. All models are designed for flexibility. Staff augmentation allows per-role scaling with 30-day notice. Dedicated teams can be restructured on a quarterly basis.",
+    a: "Yes. Staff augmentation allows per-role scaling with 30-day notice. Dedicated teams can be restructured on a quarterly basis to match your evolving needs.",
   },
 ];
 

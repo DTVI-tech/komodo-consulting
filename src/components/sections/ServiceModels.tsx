@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Users, Building2, Settings, Globe, ArrowRight } from "lucide-react";
+import { Users, Building2, Globe, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
@@ -10,47 +10,25 @@ const services = [
     slug: "staff-augmentation",
     description: "Add vetted IT specialists to your existing teams quickly. Scale capacity without long hiring cycles.",
     accent: "from-primary/10 to-primary/[0.03]",
-    graphic: [
-      { type: "circle", size: "w-6 h-6", pos: "top-3 right-3", border: "border-primary/10" },
-      { type: "line", pos: "bottom-5 left-5 right-5", bg: "bg-primary/[0.06]" },
-      { type: "line", pos: "bottom-8 left-5 right-10", bg: "bg-accent/[0.05]" },
-    ],
   },
   {
     icon: Building2,
     title: "Dedicated Teams",
     slug: "dedicated-teams",
-    description: "Build stable, nearshore teams aligned to your product roadmap and delivery cadence.",
+    description: "Get a ready-made outsourced team with multiple roles and an optional team lead. You keep full control of priorities and direction.",
     accent: "from-accent/10 to-accent/[0.03]",
-    graphic: [
-      { type: "grid", pos: "top-3 right-3" },
-    ],
-  },
-  {
-    icon: Settings,
-    title: "Managed Delivery",
-    slug: "managed-delivery",
-    description: "Outsource delivery responsibility with structured oversight, reporting, and accountability.",
-    accent: "from-primary/10 to-primary/[0.03]",
-    graphic: [
-      { type: "circle", size: "w-8 h-8", pos: "top-3 right-3", border: "border-accent/[0.08]" },
-      { type: "circle", size: "w-5 h-5", pos: "top-4.5 right-4.5", border: "border-primary/[0.06]" },
-    ],
   },
   {
     icon: Globe,
     title: "Nearshore Portugal",
     slug: "nearshore-portugal",
-    description: "Access strong talent from Portugal with time-zone alignment, cultural fit, and cost efficiency.",
+    description: "Access strong talent from Portugal with timezone alignment, cultural fit, and cost efficiency.",
     accent: "from-accent/10 to-accent/[0.03]",
-    graphic: [
-      { type: "dot-grid", pos: "top-3 right-3" },
-    ],
   },
 ];
 
 /* Mini placeholder graphic inside each card */
-const CardGraphic = ({ service }: { service: typeof services[0] }) => (
+const CardGraphic = () => (
   <div className="absolute top-0 right-0 w-24 h-24 pointer-events-none overflow-hidden rounded-tr-xl opacity-60">
     <div
       className="absolute inset-0 opacity-[0.03]"
@@ -79,14 +57,14 @@ const ServiceModels = () => (
       >
         <span className="section-label">Service Models</span>
         <h2 className="section-title mb-5">
-          Flexible models. Serious delivery.
+          Three models. One standard.
         </h2>
         <p className="section-subtitle mx-auto">
-          Choose the engagement model that fits your needs — from individual specialists to full delivery management.
+          Choose the engagement model that fits your needs — from individual specialists to full outsourced teams.
         </p>
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
         {services.map((service, i) => (
           <Link key={service.title} to={`/services/${service.slug}`} className="block">
             <motion.div
@@ -97,7 +75,7 @@ const ServiceModels = () => (
               className="group relative bg-card rounded-xl border border-border p-7 md:p-8 hover:border-primary/20 hover:shadow-lg hover:shadow-primary/[0.04] transition-all duration-300 overflow-hidden h-full"
             >
               <div className={`absolute inset-0 bg-gradient-to-b ${service.accent} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
-              <CardGraphic service={service} />
+              <CardGraphic />
 
               <div className="relative">
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/[0.1] to-accent/[0.05] flex items-center justify-center mb-5 group-hover:scale-105 transition-transform duration-300">
