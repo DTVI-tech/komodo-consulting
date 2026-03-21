@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { Code2, Cloud, Database, TestTube, Shield, Server, Headphones, Kanban } from "lucide-react";
 
 const areas = [
