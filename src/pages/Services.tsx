@@ -4,7 +4,6 @@ import {
   ArrowRight,
   Users,
   Building2,
-  Settings,
   Globe,
   CheckCircle2,
   Shield,
@@ -97,9 +96,9 @@ const ServicesHero = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-[2.75rem] md:text-[3.5rem] lg:text-[3.25rem] xl:text-[3.75rem] font-display font-extrabold leading-[1.08] tracking-[-0.025em] text-foreground mb-7"
             >
-              Flexible models.{" "}
+              Three models.{" "}
               <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                Serious delivery.
+                One standard.
               </span>
             </motion.h1>
 
@@ -109,7 +108,7 @@ const ServicesHero = () => {
               transition={{ duration: 0.5, delay: 0.35 }}
               className="text-lg md:text-xl text-muted-foreground max-w-[560px] mb-12 leading-[1.7]"
             >
-              Choose the engagement model that fits your pace, scale, and delivery goals — from individual specialists to full managed teams.
+              Scale with individual specialists, outsourced teams, or Portugal-based nearshore delivery — always on your terms.
             </motion.p>
 
             <motion.div
@@ -169,27 +168,13 @@ const services = [
     title: "Dedicated Teams",
     slug: "dedicated-teams",
     description:
-      "Full cross-functional squads aligned to your product roadmap — with a dedicated team lead and integrated delivery.",
-    ideal: "Companies needing ongoing capacity with team continuity and alignment.",
+      "Get a ready-made outsourced team assembled by Komodo — including multiple roles and an optional team lead. You keep full ownership of priorities, planning, and direction.",
+    ideal: "Companies that need ongoing team capacity without building an internal hiring operation.",
     features: [
-      "Cross-functional team composition",
-      "Dedicated team lead included",
-      "Aligned to your methodology",
-      "Scalable team structure",
-    ],
-  },
-  {
-    icon: Settings,
-    title: "Managed Delivery",
-    slug: "managed-delivery",
-    description:
-      "We own the delivery end-to-end — structured oversight, milestone tracking, and guaranteed accountability.",
-    ideal: "Organizations that want outcome-based delivery without managing the team.",
-    features: [
-      "Fixed-scope or T&M models",
-      "Milestone-based tracking",
-      "Dedicated project manager",
-      "Post-delivery support options",
+      "Multi-role team composition",
+      "Optional team lead included",
+      "You manage priorities and direction",
+      "Scalable and flexible structure",
     ],
   },
   {
@@ -222,14 +207,14 @@ const ServiceModelCards = () => (
       >
         <span className="section-label">Service Models</span>
         <h2 className="section-title mb-5">
-          Four models, one standard of delivery
+          Three models, one standard of quality
         </h2>
         <p className="section-subtitle mx-auto">
-          Each model is designed for a different level of involvement — choose the one that matches your operational needs.
+          Each model serves a different operational need — choose the one that fits how you want to work.
         </p>
       </motion.div>
 
-      <div className="grid md:grid-cols-2 gap-5 md:gap-6">
+      <div className="grid md:grid-cols-3 gap-5 md:gap-6">
         {services.map((service, i) => (
           <motion.div
             key={service.title}
@@ -296,12 +281,12 @@ const ServiceModelCards = () => (
 /* ─── Comparison / Choosing the Right Model ─── */
 
 const comparisonRows = [
-  { label: "Your involvement", aug: "High — you manage", ded: "Medium — shared", mgd: "Low — we manage" },
-  { label: "Team structure", aug: "Individual roles", ded: "Full squads", mgd: "Project-based" },
-  { label: "Delivery ownership", aug: "Client", ded: "Shared", mgd: "Komodo" },
-  { label: "Scale flexibility", aug: "Per-role", ded: "Team-level", mgd: "Scope-based" },
-  { label: "Best for", aug: "Skill gaps", ded: "Product roadmaps", mgd: "Defined projects" },
-  { label: "Onboarding speed", aug: "1–2 weeks", ded: "2–4 weeks", mgd: "3–5 weeks" },
+  { label: "Your involvement", aug: "High — you manage directly", ded: "High — you set priorities", ns: "Varies by model" },
+  { label: "Team structure", aug: "Individual roles", ded: "Multi-role squads", ns: "Flexible" },
+  { label: "Delivery ownership", aug: "Client", ded: "Client", ns: "Client" },
+  { label: "Scale flexibility", aug: "Per-role", ded: "Team-level", ns: "Both" },
+  { label: "Best for", aug: "Skill gaps", ded: "Ongoing capacity", ns: "EU nearshore access" },
+  { label: "Onboarding speed", aug: "1–2 weeks", ded: "2–4 weeks", ns: "1–4 weeks" },
 ];
 
 const Comparison = () => (
@@ -332,7 +317,7 @@ const Comparison = () => (
         {/* Header */}
         <div className="grid grid-cols-4 border-b border-border">
           <div className="p-5 md:p-6" />
-          {["Staff Augmentation", "Dedicated Teams", "Managed Delivery"].map((title) => (
+          {["Staff Augmentation", "Dedicated Teams", "Nearshore Portugal"].map((title) => (
             <div key={title} className="p-5 md:p-6 text-center border-l border-border">
               <span className="text-xs md:text-sm font-display font-bold text-foreground">{title}</span>
             </div>
@@ -348,7 +333,7 @@ const Comparison = () => (
             <div className="p-4 md:p-5 flex items-center">
               <span className="text-xs md:text-sm font-semibold text-foreground">{row.label}</span>
             </div>
-            {[row.aug, row.ded, row.mgd].map((val, j) => (
+            {[row.aug, row.ded, row.ns].map((val, j) => (
               <div key={j} className="p-4 md:p-5 text-center border-l border-border flex items-center justify-center">
                 <span className="text-xs md:text-sm text-muted-foreground">{val}</span>
               </div>
@@ -445,7 +430,7 @@ const WhyKomodo = () => (
 const faqs = [
   {
     q: "How quickly can you provide engineers?",
-    a: "For staff augmentation, we typically present vetted candidates within 5 business days. Dedicated teams take 2–4 weeks depending on composition. Managed delivery projects start within 3–5 weeks after scoping.",
+    a: "For staff augmentation, we typically present vetted candidates within 5 business days. Dedicated teams take 2–4 weeks depending on team composition and requirements.",
   },
   {
     q: "What if a team member isn't the right fit?",
@@ -469,7 +454,7 @@ const faqs = [
   },
   {
     q: "Can I scale a team up or down?",
-    a: "Yes. All models are designed for flexibility. Staff augmentation allows per-role scaling with 30-day notice. Dedicated teams can be restructured on a quarterly basis.",
+    a: "Yes. Staff augmentation allows per-role scaling with 30-day notice. Dedicated teams can be restructured on a quarterly basis to match your evolving needs.",
   },
 ];
 
