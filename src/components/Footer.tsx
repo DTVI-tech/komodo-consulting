@@ -11,7 +11,7 @@ const Footer = () => {
       <div className="container py-14 md:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
           <div className="space-y-4">
-            <img src={logoWhite} alt="Komodo" className="h-7 w-auto" />
+            <img src={logoWhite} alt="Komodo Consulting" className="h-7 w-auto" />
             <p className="text-[13px] text-secondary-foreground/40 max-w-[260px] leading-relaxed">
               Premium IT outsourcing and nearshore delivery from Portugal for companies that need dependable execution.
             </p>
