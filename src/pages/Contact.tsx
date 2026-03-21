@@ -3,6 +3,20 @@ import { useState, useRef } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { Link } from "react-router-dom";
+
+const BLOCKED_EMAIL_DOMAINS = [
+  "gmail.com","googlemail.com","hotmail.com","outlook.com","live.com","yahoo.com",
+  "yahoo.co.uk","yahoo.fr","yahoo.de","icloud.com","aol.com","proton.me",
+  "protonmail.com","gmx.com","gmx.de","mail.com","yandex.com","yandex.ru",
+  "msn.com","me.com","zoho.com","tutanota.com","fastmail.com","hushmail.com",
+  "inbox.com","mail.ru","rambler.ru","web.de","t-online.de",
+];
+
+const isWorkEmail = (email: string) => {
+  const domain = email.split("@")[1]?.toLowerCase();
+  if (!domain) return false;
+  return !BLOCKED_EMAIL_DOMAINS.includes(domain);
+};
 import {
   Mail,
   MapPin,
