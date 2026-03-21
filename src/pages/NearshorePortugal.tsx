@@ -702,7 +702,7 @@ const FinalCTA = () => (
           Ready to build your Portugal-based team?
         </h2>
         <p className="text-secondary-foreground/50 mb-10 text-base md:text-lg leading-relaxed">
-          Tell us what you need. We'll present vetted candidates and a delivery plan within days — not weeks.
+          Tell us what you need. We'll present qualified candidates and a delivery plan within days — not weeks.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link to="/contact">

@@ -463,7 +463,7 @@ const faqs = [
   },
   {
     q: "Can I scale a team up or down?",
-    a: "Yes. Staff augmentation allows per-role scaling with 30-day notice. Dedicated teams can be restructured on a quarterly basis to match your evolving needs.",
+    a: "Yes. Staff augmentation allows per-role scaling with 30-day notice. Dedicated teams can be restructured to match your evolving needs. All engagements start with a 6-month minimum.",
   },
 ];
 

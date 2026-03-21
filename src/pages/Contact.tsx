@@ -207,7 +207,7 @@ const Contact = () => {
                     setSelectedType(null);
                   } catch (err: any) {
                     console.error("Submit error:", err);
-                    toast({ title: "Something went wrong", description: "Please try again or email us directly at hello@komodo.dev.", variant: "destructive" });
+                    toast({ title: "Something went wrong", description: "Please try again or email us directly at hello@komodo-consulting.pt.", variant: "destructive" });
                   } finally {
                     setIsSubmitting(false);
                   }
