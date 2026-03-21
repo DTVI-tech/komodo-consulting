@@ -64,23 +64,20 @@ const ConsultingComingSoon = () => (
         transition={{ delay: 0.2, duration: 0.5 }}
         className="text-xs font-semibold uppercase tracking-[0.3em] text-primary mb-6"
       >
-        Strategy &amp; Digital Transformation
+        Consulting
       </motion.p>
 
       {/* Heading */}
       <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-display font-bold tracking-tight mb-6 text-foreground">
-        Consulting — Coming Soon
+        Coming Soon
       </h1>
 
       {/* Divider */}
       <div className="w-12 h-px bg-primary/30 mx-auto mb-8" />
 
       {/* Copy */}
-      <p className="text-base md:text-lg leading-relaxed text-muted-foreground max-w-md mx-auto mb-4">
-        Komodo Consulting is preparing a dedicated strategy and digital transformation consulting practice for companies and public entities in Portugal.
-      </p>
-      <p className="text-sm leading-relaxed text-muted-foreground/70 max-w-sm mx-auto mb-12">
-        We help organisations shape digital initiatives, modernise operations, and move strategic priorities forward with clarity and execution focus.
+      <p className="text-base md:text-lg leading-relaxed text-muted-foreground max-w-md mx-auto mb-12">
+        Our Consulting practice is being built with the same rigour and precision we bring to everything we do. A dedicated experience is on the way.
       </p>
 
       {/* CTAs */}
