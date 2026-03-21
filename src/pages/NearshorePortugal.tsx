@@ -388,7 +388,7 @@ const RolesSection = () => (
         <span className="section-label">Roles Available</span>
         <h2 className="section-title mb-5">The talent you need, ready to deliver</h2>
         <p className="section-subtitle mx-auto">
-          Access a deep bench of pre-vetted professionals across engineering, cloud, data, design, and delivery management.
+          Access a deep bench of carefully selected professionals across engineering, cloud, data, design, and delivery management.
         </p>
       </motion.div>
 
