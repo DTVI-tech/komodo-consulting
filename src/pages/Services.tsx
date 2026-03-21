@@ -168,27 +168,13 @@ const services = [
     title: "Dedicated Teams",
     slug: "dedicated-teams",
     description:
-      "Full cross-functional squads aligned to your product roadmap — with a dedicated team lead and integrated delivery.",
-    ideal: "Companies needing ongoing capacity with team continuity and alignment.",
+      "Get a ready-made outsourced team assembled by Komodo — including multiple roles and an optional team lead. You keep full ownership of priorities, planning, and direction.",
+    ideal: "Companies that need ongoing team capacity without building an internal hiring operation.",
     features: [
-      "Cross-functional team composition",
-      "Dedicated team lead included",
-      "Aligned to your methodology",
-      "Scalable team structure",
-    ],
-  },
-  {
-    icon: Settings,
-    title: "Managed Delivery",
-    slug: "managed-delivery",
-    description:
-      "We own the delivery end-to-end — structured oversight, milestone tracking, and guaranteed accountability.",
-    ideal: "Organizations that want outcome-based delivery without managing the team.",
-    features: [
-      "Fixed-scope or T&M models",
-      "Milestone-based tracking",
-      "Dedicated project manager",
-      "Post-delivery support options",
+      "Multi-role team composition",
+      "Optional team lead included",
+      "You manage priorities and direction",
+      "Scalable and flexible structure",
     ],
   },
   {
