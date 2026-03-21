@@ -364,7 +364,7 @@ const Comparison = () => (
   </section>
 );
 
-/* ─── Why Choose Komodo ─── */
+/* ─── Why Choose Komodo Consulting ─── */
 
 const reasons = [
   {
