@@ -3,6 +3,20 @@ import { useState, useRef } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { Link } from "react-router-dom";
+
+const BLOCKED_EMAIL_DOMAINS = [
+  "gmail.com","googlemail.com","hotmail.com","outlook.com","live.com","yahoo.com",
+  "yahoo.co.uk","yahoo.fr","yahoo.de","icloud.com","aol.com","proton.me",
+  "protonmail.com","gmx.com","gmx.de","mail.com","yandex.com","yandex.ru",
+  "msn.com","me.com","zoho.com","tutanota.com","fastmail.com","hushmail.com",
+  "inbox.com","mail.ru","rambler.ru","web.de","t-online.de",
+];
+
+const isWorkEmail = (email: string) => {
+  const domain = email.split("@")[1]?.toLowerCase();
+  if (!domain) return false;
+  return !BLOCKED_EMAIL_DOMAINS.includes(domain);
+};
 import {
   Mail,
   MapPin,
@@ -118,8 +132,11 @@ const Contact = () => {
   const [selectedCountry, setSelectedCountry] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [errors, setErrors] = useState<Record<string, string>>({});
   const formRef = useRef<HTMLFormElement>(null);
   const { toast } = useToast();
+
+  const clearError = (field: string) => setErrors((prev) => { const n = { ...prev }; delete n[field]; return n; });
 
   return (
     <PageShell>
@@ -155,7 +172,7 @@ const Contact = () => {
               {/* Inquiry type selector */}
               <div className="mb-10">
                 <h2 className="text-lg font-display font-bold text-foreground mb-1">
-                  What are you looking for?
+                  What are you looking for? <span className="text-destructive">*</span>
                 </h2>
                 <p className="text-sm text-muted-foreground mb-5">
                   Select the model closest to your needs — we'll refine it together.
@@ -164,11 +181,14 @@ const Contact = () => {
                   {inquiryTypes.map((type) => (
                     <button
                       key={type.id}
-                      onClick={() => setSelectedType(type.id === selectedType ? null : type.id)}
+                      type="button"
+                      onClick={() => { setSelectedType(type.id === selectedType ? null : type.id); clearError("inquiryType"); }}
                       className={`flex flex-col items-center gap-2.5 p-4 rounded-xl border text-center transition-all duration-200 ${
                         selectedType === type.id
                           ? "border-primary bg-primary/[0.04] shadow-sm"
-                          : "border-border hover:border-primary/30 hover:bg-muted/50"
+                          : errors.inquiryType
+                            ? "border-destructive/50 hover:border-primary/30 hover:bg-muted/50"
+                            : "border-border hover:border-primary/30 hover:bg-muted/50"
                       }`}
                     >
                       <div
@@ -184,6 +204,7 @@ const Contact = () => {
                     </button>
                   ))}
                 </div>
+                {errors.inquiryType && <p className="text-xs text-destructive mt-2">{errors.inquiryType}</p>}
               </div>
 
               {/* Form */}
@@ -193,20 +214,36 @@ const Contact = () => {
                 onSubmit={async (e) => {
                   e.preventDefault();
                   if (isSubmitting || isSubmitted) return;
+
+                  const form = formRef.current!;
+                  const name = (form.querySelector("#name") as HTMLInputElement).value.trim();
+                  const email = (form.querySelector("#email") as HTMLInputElement).value.trim();
+                  const company = (form.querySelector("#company") as HTMLInputElement).value.trim();
+                  const teamSize = (form.querySelector("#team-size") as HTMLInputElement).value.trim();
+                  const startDate = (form.querySelector("#start-date") as HTMLInputElement).value.trim();
+                  const message = (form.querySelector("#message") as HTMLTextAreaElement).value.trim();
+
+                  const v: Record<string, string> = {};
+                  if (!selectedType) v.inquiryType = "Please select an inquiry type.";
+                  if (!name) v.name = "Name is required.";
+                  if (!email) v.email = "Work email is required.";
+                  else if (!isWorkEmail(email)) v.email = "Please use your work email address.";
+                  if (!company) v.company = "Company's website is required.";
+                  if (!selectedCountry) v.country = "Please select your country.";
+                  if (!teamSize) v.teamSize = "Team size / roles needed is required.";
+                  if (!startDate) v.startDate = "Desired start is required.";
+                  if (!message) v.message = "Please describe your needs.";
+
+                  if (Object.keys(v).length > 0) {
+                    setErrors(v);
+                    return;
+                  }
+                  setErrors({});
                   setIsSubmitting(true);
+
                   try {
-                    const form = formRef.current!;
-                    const payload = {
-                      inquiryType: selectedType,
-                      name: (form.querySelector("#name") as HTMLInputElement).value.trim(),
-                      email: (form.querySelector("#email") as HTMLInputElement).value.trim(),
-                      company: (form.querySelector("#company") as HTMLInputElement).value.trim(),
-                      country: selectedCountry,
-                      teamSize: (form.querySelector("#team-size") as HTMLInputElement).value.trim(),
-                      startDate: (form.querySelector("#start-date") as HTMLInputElement).value.trim(),
-                      message: (form.querySelector("#message") as HTMLTextAreaElement).value.trim(),
-                    };
-                    const { data, error } = await supabase.functions.invoke("send-contact-email", { body: payload });
+                    const payload = { inquiryType: selectedType, name, email, company, country: selectedCountry, teamSize, startDate, message };
+                    const { error } = await supabase.functions.invoke("send-contact-email", { body: payload });
                     if (error) throw error;
                     setIsSubmitted(true);
                     toast({ title: "Inquiry sent", description: "We'll get back to you within one business day." });
@@ -226,32 +263,35 @@ const Contact = () => {
                     <Label htmlFor="name" className="text-sm font-medium text-foreground">
                       Name <span className="text-destructive">*</span>
                     </Label>
-                    <Input id="name" placeholder="Your full name" className="h-11" required />
+                    <Input id="name" placeholder="Your full name" className={`h-11 ${errors.name ? "border-destructive" : ""}`} required onFocus={() => clearError("name")} />
+                    {errors.name && <p className="text-xs text-destructive">{errors.name}</p>}
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="email" className="text-sm font-medium text-foreground">
                       Work Email <span className="text-destructive">*</span>
                     </Label>
-                    <Input id="email" type="email" placeholder="you@company.com" className="h-11" required />
+                    <Input id="email" type="email" placeholder="you@company.com" className={`h-11 ${errors.email ? "border-destructive" : ""}`} required onFocus={() => clearError("email")} />
+                    {errors.email && <p className="text-xs text-destructive">{errors.email}</p>}
                   </div>
                 </div>
 
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div className="space-y-2">
                     <Label htmlFor="company" className="text-sm font-medium text-foreground">
-                      Company's Website
+                      Company's Website <span className="text-destructive">*</span>
                     </Label>
-                    <Input id="company" type="url" placeholder="https://yourcompany.com" className="h-11" />
+                    <Input id="company" type="url" placeholder="https://yourcompany.com" className={`h-11 ${errors.company ? "border-destructive" : ""}`} required onFocus={() => clearError("company")} />
+                    {errors.company && <p className="text-xs text-destructive">{errors.company}</p>}
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="country" className="text-sm font-medium text-foreground">
-                      Country
+                      Country <span className="text-destructive">*</span>
                     </Label>
                     <select
                       id="country"
                       value={selectedCountry}
-                      onChange={(e) => setSelectedCountry(e.target.value)}
-                      className="flex h-11 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 text-foreground"
+                      onChange={(e) => { setSelectedCountry(e.target.value); clearError("country"); }}
+                      className={`flex h-11 w-full rounded-md border ${errors.country ? "border-destructive" : "border-input"} bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 text-foreground`}
                     >
                       <option value="" disabled className="text-muted-foreground">Select your country</option>
                       {countryOptions.map((group) => (
@@ -263,33 +303,39 @@ const Contact = () => {
                       ))}
                       <option value="Other">Other</option>
                     </select>
+                    {errors.country && <p className="text-xs text-destructive">{errors.country}</p>}
                   </div>
                 </div>
 
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div className="space-y-2">
                     <Label htmlFor="team-size" className="text-sm font-medium text-foreground">
-                      Team Size / Roles Needed
+                      Team Size / Roles Needed <span className="text-destructive">*</span>
                     </Label>
-                    <Input id="team-size" placeholder="e.g. 2 backend engineers" className="h-11" />
+                    <Input id="team-size" placeholder="e.g. 2 backend engineers" className={`h-11 ${errors.teamSize ? "border-destructive" : ""}`} required onFocus={() => clearError("teamSize")} />
+                    {errors.teamSize && <p className="text-xs text-destructive">{errors.teamSize}</p>}
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="start-date" className="text-sm font-medium text-foreground">
-                      Desired Start
+                      Desired Start <span className="text-destructive">*</span>
                     </Label>
-                    <Input id="start-date" placeholder="e.g. Q2 2026, ASAP" className="h-11" />
+                    <Input id="start-date" placeholder="e.g. Q2 2026, ASAP" className={`h-11 ${errors.startDate ? "border-destructive" : ""}`} required onFocus={() => clearError("startDate")} />
+                    {errors.startDate && <p className="text-xs text-destructive">{errors.startDate}</p>}
                   </div>
                 </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="message" className="text-sm font-medium text-foreground">
-                    Tell us more about your needs
+                    Tell us more about your needs <span className="text-destructive">*</span>
                   </Label>
                   <Textarea
                     id="message"
                     placeholder="Describe your project, challenges, or staffing requirements..."
                     rows={5}
+                    className={errors.message ? "border-destructive" : ""}
+                    onFocus={() => clearError("message")}
                   />
+                  {errors.message && <p className="text-xs text-destructive">{errors.message}</p>}
                 </div>
 
                 <div className="flex items-center gap-4 pt-2">
