@@ -155,7 +155,7 @@ const Contact = () => {
               {/* Inquiry type selector */}
               <div className="mb-10">
                 <h2 className="text-lg font-display font-bold text-foreground mb-1">
-                  What are you looking for?
+                  What are you looking for? <span className="text-destructive">*</span>
                 </h2>
                 <p className="text-sm text-muted-foreground mb-5">
                   Select the model closest to your needs — we'll refine it together.
@@ -164,6 +164,7 @@ const Contact = () => {
                   {inquiryTypes.map((type) => (
                     <button
                       key={type.id}
+                      type="button"
                       onClick={() => setSelectedType(type.id === selectedType ? null : type.id)}
                       className={`flex flex-col items-center gap-2.5 p-4 rounded-xl border text-center transition-all duration-200 ${
                         selectedType === type.id
@@ -193,6 +194,14 @@ const Contact = () => {
                 onSubmit={async (e) => {
                   e.preventDefault();
                   if (isSubmitting || isSubmitted) return;
+                  if (!selectedType) {
+                    toast({ title: "Please select an inquiry type", description: "Choose the model closest to your needs.", variant: "destructive" });
+                    return;
+                  }
+                  if (!selectedCountry) {
+                    toast({ title: "Please select your country", description: "Choose your country from the dropdown.", variant: "destructive" });
+                    return;
+                  }
                   setIsSubmitting(true);
                   try {
                     const form = formRef.current!;
@@ -239,18 +248,19 @@ const Contact = () => {
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div className="space-y-2">
                     <Label htmlFor="company" className="text-sm font-medium text-foreground">
-                      Company's Website
+                      Company's Website <span className="text-destructive">*</span>
                     </Label>
-                    <Input id="company" type="url" placeholder="https://yourcompany.com" className="h-11" />
+                    <Input id="company" type="url" placeholder="https://yourcompany.com" className="h-11" required />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="country" className="text-sm font-medium text-foreground">
-                      Country
+                      Country <span className="text-destructive">*</span>
                     </Label>
                     <select
                       id="country"
                       value={selectedCountry}
                       onChange={(e) => setSelectedCountry(e.target.value)}
+                      required
                       className="flex h-11 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 text-foreground"
                     >
                       <option value="" disabled className="text-muted-foreground">Select your country</option>
@@ -269,26 +279,27 @@ const Contact = () => {
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div className="space-y-2">
                     <Label htmlFor="team-size" className="text-sm font-medium text-foreground">
-                      Team Size / Roles Needed
+                      Team Size / Roles Needed <span className="text-destructive">*</span>
                     </Label>
-                    <Input id="team-size" placeholder="e.g. 2 backend engineers" className="h-11" />
+                    <Input id="team-size" placeholder="e.g. 2 backend engineers" className="h-11" required />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="start-date" className="text-sm font-medium text-foreground">
-                      Desired Start
+                      Desired Start <span className="text-destructive">*</span>
                     </Label>
-                    <Input id="start-date" placeholder="e.g. Q2 2026, ASAP" className="h-11" />
+                    <Input id="start-date" placeholder="e.g. Q2 2026, ASAP" className="h-11" required />
                   </div>
                 </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="message" className="text-sm font-medium text-foreground">
-                    Tell us more about your needs
+                    Tell us more about your needs <span className="text-destructive">*</span>
                   </Label>
                   <Textarea
                     id="message"
                     placeholder="Describe your project, challenges, or staffing requirements..."
                     rows={5}
+                    required
                   />
                 </div>
 
@@ -303,7 +314,7 @@ const Contact = () => {
                     {!isSubmitting && !isSubmitted && <ArrowRight className="ml-2 h-4 w-4" />}
                   </Button>
                   <span className="text-xs text-muted-foreground">
-                    {isSubmitted ? "We'll be in touch soon." : "We'll respond within 1 business day."}
+                    {isSubmitted ? "We'll be in touch soon." : "All fields are required."}
                   </span>
                 </div>
               </form>
