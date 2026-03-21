@@ -52,7 +52,7 @@ const ConsultingComingSoon = () => (
       <Link to="/" className="inline-block mb-16 group">
         <img
           src={logoWhite}
-          alt="Komodo"
+          alt="Komodo Consulting"
           className="h-9 w-auto opacity-90 group-hover:opacity-100 transition-opacity"
         />
       </Link>
@@ -109,7 +109,7 @@ const ConsultingComingSoon = () => (
         transition={{ delay: 0.6, duration: 0.5 }}
         className="text-xs text-muted-foreground/50 mt-16"
       >
-        Komodo · Lisbon, Portugal
+        Komodo Consulting · Lisbon, Portugal
       </motion.p>
     </motion.div>
   </div>

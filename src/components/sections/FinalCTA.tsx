@@ -73,7 +73,7 @@ const FinalCTA = () => {
             Looking for a more reliable IT outsourcing partner?
           </h2>
           <p className="text-secondary-foreground/50 mb-12 text-base md:text-lg leading-relaxed">
-            Let's discuss how Komodo can support your delivery goals with vetted talent, dedicated teams, and nearshore execution from Portugal.
+            Let's discuss how Komodo Consulting can support your delivery goals with vetted talent, dedicated teams, and nearshore execution from Portugal.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link to="/contact">

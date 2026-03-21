@@ -11,7 +11,7 @@ const Footer = () => {
       <div className="container py-14 md:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
           <div className="space-y-4">
-            <img src={logoWhite} alt="Komodo" className="h-7 w-auto" />
+            <img src={logoWhite} alt="Komodo Consulting" className="h-7 w-auto" />
             <p className="text-[13px] text-secondary-foreground/40 max-w-[260px] leading-relaxed">
               Premium IT outsourcing and nearshore delivery from Portugal for companies that need dependable execution.
             </p>
@@ -22,7 +22,6 @@ const Footer = () => {
             <ul className="space-y-2.5 text-[13px] text-secondary-foreground/50">
               <li><button onClick={() => scrollTo("#services")} className="hover:text-secondary-foreground transition-colors">Staff Augmentation</button></li>
               <li><button onClick={() => scrollTo("#services")} className="hover:text-secondary-foreground transition-colors">Dedicated Teams</button></li>
-              <li><button onClick={() => scrollTo("#services")} className="hover:text-secondary-foreground transition-colors">Managed Delivery</button></li>
               <li><button onClick={() => scrollTo("#services")} className="hover:text-secondary-foreground transition-colors">Nearshore Portugal</button></li>
             </ul>
           </div>
@@ -49,7 +48,7 @@ const Footer = () => {
         </div>
 
         <div className="mt-14 pt-6 border-t border-secondary-foreground/[0.06] flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-secondary-foreground/30">© {new Date().getFullYear()} Komodo. All rights reserved.</p>
+          <p className="text-xs text-secondary-foreground/30">© {new Date().getFullYear()} Komodo Consulting. All rights reserved.</p>
           <a href="#" className="text-xs text-secondary-foreground/30 hover:text-secondary-foreground transition-colors">LinkedIn</a>
         </div>
       </div>

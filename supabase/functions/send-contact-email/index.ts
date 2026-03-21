@@ -77,7 +77,7 @@ serve(async (req) => {
     <div class="container">
       <div class="header">
         <h1>New Website Inquiry</h1>
-        <p>${timestamp} · Komodo Website Contact Form</p>
+        <p>${timestamp} · Komodo Consulting Website Contact Form</p>
       </div>
       <div class="body">
         <div class="field">
@@ -124,7 +124,7 @@ serve(async (req) => {
         ` : ""}
       </div>
       <div class="footer">
-        This inquiry was submitted via the Komodo website contact form.
+        This inquiry was submitted via the Komodo Consulting website contact form.
       </div>
     </div>
   </div>
@@ -138,9 +138,9 @@ serve(async (req) => {
         Authorization: `Bearer ${RESEND_API_KEY}`,
       },
       body: JSON.stringify({
-        from: "Komodo Website <onboarding@resend.dev>",
+        from: "Komodo Consulting Website <onboarding@resend.dev>",
         to: ["paulo.bartolomeu@komodo-consulting.pt"],
-        subject: "New Komodo website inquiry",
+        subject: "New Komodo Consulting website inquiry",
         html: htmlBody,
         reply_to: data.email,
       }),

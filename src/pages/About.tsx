@@ -179,7 +179,7 @@ const Hero = () => (
           className="max-w-xl"
         >
           <span className="text-xs font-semibold uppercase tracking-[0.25em] text-primary mb-4 block">
-            About Komodo
+            About Komodo Consulting
           </span>
           <h1 className="text-4xl md:text-5xl lg:text-[3.25rem] font-display font-bold tracking-tight mb-6 leading-[1.1]">
             A partner built for{" "}
@@ -188,7 +188,7 @@ const Hero = () => (
             </span>
           </h1>
           <p className="text-secondary-foreground/50 text-base md:text-lg leading-relaxed max-w-lg mb-10">
-            Komodo is a premium IT outsourcing and nearshore partner from Portugal — focused on quality, clarity, and commercially grounded collaboration.
+            Komodo Consulting is a premium IT outsourcing and nearshore partner from Portugal — focused on quality, clarity, and commercially grounded collaboration.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Link to="/contact">
@@ -231,7 +231,7 @@ const CompanyStory = () => (
           </h2>
           <div className="space-y-4 text-muted-foreground text-base leading-relaxed">
             <p>
-              Komodo is a premium IT outsourcing and nearshore delivery partner headquartered in Portugal. We exist to solve a specific problem: companies that need strong technical talent, fast onboarding, and reliable collaboration — without the overhead of traditional outsourcing.
+              Komodo Consulting is a premium IT outsourcing and nearshore delivery partner headquartered in Portugal. We exist to solve a specific problem: companies that need strong technical talent, fast onboarding, and reliable collaboration — without the overhead of traditional outsourcing.
             </p>
             <p>
               We don't operate as a staffing agency. We build delivery-ready teams that integrate with your workflows, tools, and standards from day one. Every engagement is structured around outcomes, not just headcount.
