@@ -263,32 +263,35 @@ const Contact = () => {
                     <Label htmlFor="name" className="text-sm font-medium text-foreground">
                       Name <span className="text-destructive">*</span>
                     </Label>
-                    <Input id="name" placeholder="Your full name" className="h-11" required />
+                    <Input id="name" placeholder="Your full name" className={`h-11 ${errors.name ? "border-destructive" : ""}`} required onFocus={() => clearError("name")} />
+                    {errors.name && <p className="text-xs text-destructive">{errors.name}</p>}
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="email" className="text-sm font-medium text-foreground">
                       Work Email <span className="text-destructive">*</span>
                     </Label>
-                    <Input id="email" type="email" placeholder="you@company.com" className="h-11" required />
+                    <Input id="email" type="email" placeholder="you@company.com" className={`h-11 ${errors.email ? "border-destructive" : ""}`} required onFocus={() => clearError("email")} />
+                    {errors.email && <p className="text-xs text-destructive">{errors.email}</p>}
                   </div>
                 </div>
 
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div className="space-y-2">
                     <Label htmlFor="company" className="text-sm font-medium text-foreground">
-                      Company's Website
+                      Company's Website <span className="text-destructive">*</span>
                     </Label>
-                    <Input id="company" type="url" placeholder="https://yourcompany.com" className="h-11" />
+                    <Input id="company" type="url" placeholder="https://yourcompany.com" className={`h-11 ${errors.company ? "border-destructive" : ""}`} required onFocus={() => clearError("company")} />
+                    {errors.company && <p className="text-xs text-destructive">{errors.company}</p>}
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="country" className="text-sm font-medium text-foreground">
-                      Country
+                      Country <span className="text-destructive">*</span>
                     </Label>
                     <select
                       id="country"
                       value={selectedCountry}
-                      onChange={(e) => setSelectedCountry(e.target.value)}
-                      className="flex h-11 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 text-foreground"
+                      onChange={(e) => { setSelectedCountry(e.target.value); clearError("country"); }}
+                      className={`flex h-11 w-full rounded-md border ${errors.country ? "border-destructive" : "border-input"} bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 text-foreground`}
                     >
                       <option value="" disabled className="text-muted-foreground">Select your country</option>
                       {countryOptions.map((group) => (
@@ -300,33 +303,39 @@ const Contact = () => {
                       ))}
                       <option value="Other">Other</option>
                     </select>
+                    {errors.country && <p className="text-xs text-destructive">{errors.country}</p>}
                   </div>
                 </div>
 
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div className="space-y-2">
                     <Label htmlFor="team-size" className="text-sm font-medium text-foreground">
-                      Team Size / Roles Needed
+                      Team Size / Roles Needed <span className="text-destructive">*</span>
                     </Label>
-                    <Input id="team-size" placeholder="e.g. 2 backend engineers" className="h-11" />
+                    <Input id="team-size" placeholder="e.g. 2 backend engineers" className={`h-11 ${errors.teamSize ? "border-destructive" : ""}`} required onFocus={() => clearError("teamSize")} />
+                    {errors.teamSize && <p className="text-xs text-destructive">{errors.teamSize}</p>}
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="start-date" className="text-sm font-medium text-foreground">
-                      Desired Start
+                      Desired Start <span className="text-destructive">*</span>
                     </Label>
-                    <Input id="start-date" placeholder="e.g. Q2 2026, ASAP" className="h-11" />
+                    <Input id="start-date" placeholder="e.g. Q2 2026, ASAP" className={`h-11 ${errors.startDate ? "border-destructive" : ""}`} required onFocus={() => clearError("startDate")} />
+                    {errors.startDate && <p className="text-xs text-destructive">{errors.startDate}</p>}
                   </div>
                 </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="message" className="text-sm font-medium text-foreground">
-                    Tell us more about your needs
+                    Tell us more about your needs <span className="text-destructive">*</span>
                   </Label>
                   <Textarea
                     id="message"
                     placeholder="Describe your project, challenges, or staffing requirements..."
                     rows={5}
+                    className={errors.message ? "border-destructive" : ""}
+                    onFocus={() => clearError("message")}
                   />
+                  {errors.message && <p className="text-xs text-destructive">{errors.message}</p>}
                 </div>
 
                 <div className="flex items-center gap-4 pt-2">
