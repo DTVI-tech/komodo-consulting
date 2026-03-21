@@ -333,7 +333,7 @@ const Comparison = () => (
             <div className="p-4 md:p-5 flex items-center">
               <span className="text-xs md:text-sm font-semibold text-foreground">{row.label}</span>
             </div>
-            {[row.aug, row.ded, row.mgd].map((val, j) => (
+            {[row.aug, row.ded, row.ns].map((val, j) => (
               <div key={j} className="p-4 md:p-5 text-center border-l border-border flex items-center justify-center">
                 <span className="text-xs md:text-sm text-muted-foreground">{val}</span>
               </div>
