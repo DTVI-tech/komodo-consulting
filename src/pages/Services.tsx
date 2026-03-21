@@ -207,7 +207,7 @@ const ServiceModelCards = () => (
       >
         <span className="section-label">Service Models</span>
         <h2 className="section-title mb-5">
-          Four models, one standard of delivery
+          Three models, one standard of delivery
         </h2>
         <p className="section-subtitle mx-auto">
           Each model is designed for a different level of involvement — choose the one that matches your operational needs.
