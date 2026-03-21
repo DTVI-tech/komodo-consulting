@@ -34,7 +34,7 @@ const inquiryTypes = [
 ];
 
 const contactDetails = [
-  { icon: Mail, label: "Email", value: "hello@komodo.dev", href: "mailto:hello@komodo.dev" },
+  { icon: Mail, label: "Email", value: "hello@komodo-consulting.pt", href: "mailto:hello@komodo-consulting.pt" },
   { icon: MapPin, label: "Location", value: "Lisbon, Portugal" },
   { icon: Clock, label: "Timezone", value: "CET / WET (UTC+0/+1)" },
 ];
