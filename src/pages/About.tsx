@@ -188,7 +188,7 @@ const Hero = () => (
             </span>
           </h1>
           <p className="text-secondary-foreground/50 text-base md:text-lg leading-relaxed max-w-lg mb-10">
-            Komodo is a premium IT outsourcing and nearshore partner from Portugal — focused on quality, clarity, and commercially grounded collaboration.
+            Komodo Consulting is a premium IT outsourcing and nearshore partner from Portugal — focused on quality, clarity, and commercially grounded collaboration.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Link to="/contact">
