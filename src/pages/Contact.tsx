@@ -47,11 +47,11 @@ const markets = [
 const faqs = [
   {
     q: "How quickly can you start?",
-    a: "For staff augmentation, we can typically present screened candidates within 5–10 business days. Dedicated teams and project engagements begin with a short scoping phase, usually 1–2 weeks.",
+    a: "For staff augmentation, we can typically present candidates within 5–10 business days. Dedicated teams begin with a short scoping phase, usually 1–2 weeks.",
   },
   {
     q: "What is the minimum engagement?",
-    a: "We recommend a minimum of 3 months for staff augmentation to ensure meaningful output. Dedicated teams and projects are scoped based on objectives — we'll help you define the right structure.",
+    a: "Our standard minimum engagement is 6 months. This ensures enough time to build momentum, deliver meaningful results, and establish a strong working relationship.",
   },
   {
     q: "Do you work with startups or only enterprise?",
@@ -63,7 +63,7 @@ const faqs = [
   },
   {
     q: "Are contracts flexible?",
-    a: "Yes. We offer month-to-month arrangements for staff augmentation and milestone-based structures for project delivery. No long-term lock-in required.",
+    a: "Yes. Engagements are structured with a 6-month minimum, but there is no long-term lock-in beyond that. We keep things straightforward and transparent.",
   },
 ];
 
