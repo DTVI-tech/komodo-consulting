@@ -251,7 +251,7 @@ const Contact = () => {
                   setIsSubmitting(true);
 
                   try {
-                    const payload = { inquiryType: selectedType, name, email, company, country: selectedCountry, teamSize, startDate, message };
+                    const payload = { inquiryType: selectedType, name, email, company: normalizeWebsite(company), country: selectedCountry, teamSize, startDate, message };
                     const { error } = await supabase.functions.invoke("send-contact-email", { body: payload });
                     if (error) throw error;
                     setIsSubmitted(true);
