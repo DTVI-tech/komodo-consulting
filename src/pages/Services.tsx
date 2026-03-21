@@ -157,7 +157,7 @@ const services = [
       "Add carefully selected engineers to your existing teams. Scale capacity without long hiring cycles or overhead.",
     ideal: "Teams that need specific skills fast, with direct management.",
     features: [
-      "Vetted senior-level candidates",
+      "Screened senior-level candidates",
       "Integrated into your workflows",
       "Flexible scale-up and scale-down",
       "Full IP ownership retained",

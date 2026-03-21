@@ -55,24 +55,25 @@ const Expertise = () => (
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
         {areas.map((area, i) => (
-          <motion.div
-            key={area.label}
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.3, delay: i * 0.04 }}
-            className="group flex flex-col items-center justify-start text-center p-6 md:p-8 rounded-xl border border-border bg-card hover:border-primary/15 hover:shadow-md transition-all duration-300 relative overflow-hidden min-h-[160px]"
-          >
-            <div className={`absolute inset-0 bg-gradient-to-b ${area.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
-            <TechPattern />
+          <Link key={area.label} to="/technologies" className="block">
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.3, delay: i * 0.04 }}
+              className="group flex flex-col items-center justify-start text-center p-6 md:p-8 rounded-xl border border-border bg-card hover:border-primary/15 hover:shadow-md transition-all duration-300 relative overflow-hidden min-h-[160px] cursor-pointer"
+            >
+              <div className={`absolute inset-0 bg-gradient-to-b ${area.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
+              <TechPattern />
 
-            <div className="relative flex flex-col items-center">
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/[0.1] to-accent/[0.05] flex items-center justify-center group-hover:scale-105 transition-transform duration-300 border border-primary/[0.06]">
-                <area.icon className="h-6 w-6 text-primary" />
+              <div className="relative flex flex-col items-center">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/[0.1] to-accent/[0.05] flex items-center justify-center group-hover:scale-105 transition-transform duration-300 border border-primary/[0.06]">
+                  <area.icon className="h-6 w-6 text-primary" />
+                </div>
+                <span className="mt-4 text-sm font-semibold text-foreground tracking-tight leading-tight">{area.label}</span>
               </div>
-              <span className="mt-4 text-sm font-semibold text-foreground tracking-tight leading-tight">{area.label}</span>
-            </div>
-          </motion.div>
+            </motion.div>
+          </Link>
         ))}
       </div>
     </div>
