@@ -179,7 +179,7 @@ const Hero = () => (
           className="max-w-xl"
         >
           <span className="text-xs font-semibold uppercase tracking-[0.25em] text-primary mb-4 block">
-            About Komodo
+            About Komodo Consulting
           </span>
           <h1 className="text-4xl md:text-5xl lg:text-[3.25rem] font-display font-bold tracking-tight mb-6 leading-[1.1]">
             A partner built for{" "}
