@@ -4,7 +4,6 @@ import {
   ArrowRight,
   Users,
   Building2,
-  Settings,
   Globe,
   CheckCircle2,
   Shield,
