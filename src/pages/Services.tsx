@@ -154,7 +154,7 @@ const services = [
     title: "Staff Augmentation",
     slug: "staff-augmentation",
     description:
-      "Add pre-vetted engineers to your existing teams. Scale capacity without long hiring cycles or overhead.",
+      "Add carefully selected engineers to your existing teams. Scale capacity without long hiring cycles or overhead.",
     ideal: "Teams that need specific skills fast, with direct management.",
     features: [
       "Vetted senior-level candidates",
