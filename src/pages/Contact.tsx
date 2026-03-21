@@ -289,7 +289,7 @@ const Contact = () => {
                     <Label htmlFor="company" className="text-sm font-medium text-foreground">
                       Company's Website <span className="text-destructive">*</span>
                     </Label>
-                    <Input id="company" type="url" placeholder="https://yourcompany.com" className={`h-11 ${errors.company ? "border-destructive" : ""}`} required onFocus={() => clearError("company")} />
+                    <Input id="company" type="text" placeholder="company.com" className={`h-11 ${errors.company ? "border-destructive" : ""}`} required onFocus={() => clearError("company")} />
                     {errors.company && <p className="text-xs text-destructive">{errors.company}</p>}
                   </div>
                   <div className="space-y-2">
