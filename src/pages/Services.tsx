@@ -265,11 +265,6 @@ const ServiceModelCards = () => (
                 ))}
               </ul>
 
-              <Link to={`/services/${service.slug}`}>
-                <Button variant="ghost" size="sm" className="text-primary hover:text-primary/80 px-0 text-[13px] font-semibold">
-                  Learn more <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
-                </Button>
-              </Link>
             </div>
           </motion.div>
         ))}
