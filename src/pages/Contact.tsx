@@ -239,15 +239,30 @@ const Contact = () => {
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div className="space-y-2">
                     <Label htmlFor="company" className="text-sm font-medium text-foreground">
-                      Company
+                      Company's Website
                     </Label>
-                    <Input id="company" placeholder="Company name" className="h-11" />
+                    <Input id="company" type="url" placeholder="https://yourcompany.com" className="h-11" />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="country" className="text-sm font-medium text-foreground">
                       Country
                     </Label>
-                    <Input id="country" placeholder="Where are you based?" className="h-11" />
+                    <select
+                      id="country"
+                      value={selectedCountry}
+                      onChange={(e) => setSelectedCountry(e.target.value)}
+                      className="flex h-11 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 text-foreground"
+                    >
+                      <option value="" disabled className="text-muted-foreground">Select your country</option>
+                      {countryOptions.map((group) => (
+                        <optgroup key={group.group} label={group.group}>
+                          {group.countries.map((c) => (
+                            <option key={c} value={c}>{c}</option>
+                          ))}
+                        </optgroup>
+                      ))}
+                      <option value="Other">Other</option>
+                    </select>
                   </div>
                 </div>
 
