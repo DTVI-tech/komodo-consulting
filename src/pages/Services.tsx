@@ -369,8 +369,8 @@ const Comparison = () => (
 const reasons = [
   {
     icon: Shield,
-    title: "Vetted Talent Only",
-    description: "Every engineer goes through technical and cultural screening before joining any engagement.",
+    title: "Carefully Selected Talent",
+    description: "Every consultant goes through a rigorous selection process before joining any engagement.",
   },
   {
     icon: Clock,
