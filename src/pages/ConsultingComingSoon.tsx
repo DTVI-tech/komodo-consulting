@@ -52,7 +52,7 @@ const ConsultingComingSoon = () => (
       <Link to="/" className="inline-block mb-16 group">
         <img
           src={logoWhite}
-          alt="Komodo"
+          alt="Komodo Consulting"
           className="h-9 w-auto opacity-90 group-hover:opacity-100 transition-opacity"
         />
       </Link>
