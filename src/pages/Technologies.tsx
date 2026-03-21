@@ -352,7 +352,7 @@ const Technologies = () => (
             The talent you need, ready to deliver
           </h2>
           <p className="section-subtitle mx-auto">
-            Pre-vetted professionals across engineering, cloud, data, security,
+            Carefully selected professionals across engineering, cloud, data, security,
             enterprise applications, and delivery management.
           </p>
         </motion.div>

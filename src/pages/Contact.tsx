@@ -47,7 +47,7 @@ const markets = [
 const faqs = [
   {
     q: "How quickly can you start?",
-    a: "For staff augmentation, we can typically present pre-vetted candidates within 5–10 business days. Dedicated teams and project engagements begin with a short scoping phase, usually 1–2 weeks.",
+    a: "For staff augmentation, we can typically present screened candidates within 5–10 business days. Dedicated teams and project engagements begin with a short scoping phase, usually 1–2 weeks.",
   },
   {
     q: "What is the minimum engagement?",

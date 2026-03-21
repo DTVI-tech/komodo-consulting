@@ -388,7 +388,7 @@ const RolesSection = () => (
         <span className="section-label">Roles Available</span>
         <h2 className="section-title mb-5">The talent you need, ready to deliver</h2>
         <p className="section-subtitle mx-auto">
-          Access a deep bench of pre-vetted professionals across engineering, cloud, data, design, and delivery management.
+          Access a deep bench of carefully selected professionals across engineering, cloud, data, design, and delivery management.
         </p>
       </motion.div>
 
@@ -539,7 +539,7 @@ const processSteps = [
   {
     step: "02",
     title: "Talent Matching",
-    description: "Our team identifies and presents pre-vetted candidates or team compositions within 5–10 business days.",
+    description: "Our team identifies and presents screened candidates or team compositions within 5–10 business days.",
   },
   {
     step: "03",
