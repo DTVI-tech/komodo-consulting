@@ -168,7 +168,7 @@ const services = [
     title: "Dedicated Teams",
     slug: "dedicated-teams",
     description:
-      "Get a ready-made outsourced team assembled by Komodo — including multiple roles and an optional team lead. You keep full ownership of priorities, planning, and direction.",
+      "Get a ready-made outsourced team assembled by Komodo Consulting — including multiple roles and an optional team lead. You keep full ownership of priorities, planning, and direction.",
     ideal: "Companies that need ongoing team capacity without building an internal hiring operation.",
     features: [
       "Multi-role team composition",
