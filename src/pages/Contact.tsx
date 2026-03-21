@@ -17,6 +17,14 @@ const isWorkEmail = (email: string) => {
   if (!domain) return false;
   return !BLOCKED_EMAIL_DOMAINS.includes(domain);
 };
+
+const WEBSITE_RE = /^(https?:\/\/)?(www\.)?[a-zA-Z0-9]([a-zA-Z0-9-]*[a-zA-Z0-9])?(\.[a-zA-Z]{2,})+([\/\w\-.~:?#[\]@!$&'()*+,;=%]*)?$/;
+const isValidWebsite = (v: string) => WEBSITE_RE.test(v.trim());
+const normalizeWebsite = (v: string) => {
+  const t = v.trim();
+  if (!t) return t;
+  return /^https?:\/\//i.test(t) ? t : `https://${t}`;
+};
 import {
   Mail,
   MapPin,
