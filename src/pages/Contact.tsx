@@ -212,6 +212,7 @@ const Contact = () => {
                     toast({ title: "Inquiry sent", description: "We'll get back to you within one business day." });
                     form.reset();
                     setSelectedType(null);
+                    setSelectedCountry("");
                   } catch (err: any) {
                     console.error("Submit error:", err);
                     toast({ title: "Something went wrong", description: "Please try again or email us directly at hello@komodo-consulting.pt.", variant: "destructive" });
