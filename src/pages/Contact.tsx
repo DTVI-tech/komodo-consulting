@@ -17,6 +17,14 @@ const isWorkEmail = (email: string) => {
   if (!domain) return false;
   return !BLOCKED_EMAIL_DOMAINS.includes(domain);
 };
+
+const WEBSITE_RE = /^(https?:\/\/)?(www\.)?[a-zA-Z0-9]([a-zA-Z0-9-]*[a-zA-Z0-9])?(\.[a-zA-Z]{2,})+([\/\w\-.~:?#[\]@!$&'()*+,;=%]*)?$/;
+const isValidWebsite = (v: string) => WEBSITE_RE.test(v.trim());
+const normalizeWebsite = (v: string) => {
+  const t = v.trim();
+  if (!t) return t;
+  return /^https?:\/\//i.test(t) ? t : `https://${t}`;
+};
 import {
   Mail,
   MapPin,
@@ -229,6 +237,7 @@ const Contact = () => {
                   if (!email) v.email = "Work email is required.";
                   else if (!isWorkEmail(email)) v.email = "Please use your work email address.";
                   if (!company) v.company = "Company's website is required.";
+                  else if (!isValidWebsite(company)) v.company = "Please enter a valid website, e.g. company.com";
                   if (!selectedCountry) v.country = "Please select your country.";
                   if (!teamSize) v.teamSize = "Team size / roles needed is required.";
                   if (!startDate) v.startDate = "Desired start is required.";
@@ -242,7 +251,7 @@ const Contact = () => {
                   setIsSubmitting(true);
 
                   try {
-                    const payload = { inquiryType: selectedType, name, email, company, country: selectedCountry, teamSize, startDate, message };
+                    const payload = { inquiryType: selectedType, name, email, company: normalizeWebsite(company), country: selectedCountry, teamSize, startDate, message };
                     const { error } = await supabase.functions.invoke("send-contact-email", { body: payload });
                     if (error) throw error;
                     setIsSubmitted(true);
@@ -280,7 +289,7 @@ const Contact = () => {
                     <Label htmlFor="company" className="text-sm font-medium text-foreground">
                       Company's Website <span className="text-destructive">*</span>
                     </Label>
-                    <Input id="company" type="url" placeholder="https://yourcompany.com" className={`h-11 ${errors.company ? "border-destructive" : ""}`} required onFocus={() => clearError("company")} />
+                    <Input id="company" type="text" placeholder="company.com" className={`h-11 ${errors.company ? "border-destructive" : ""}`} required onFocus={() => clearError("company")} />
                     {errors.company && <p className="text-xs text-destructive">{errors.company}</p>}
                   </div>
                   <div className="space-y-2">
