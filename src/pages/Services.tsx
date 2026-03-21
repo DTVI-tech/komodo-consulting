@@ -214,7 +214,7 @@ const ServiceModelCards = () => (
         </p>
       </motion.div>
 
-      <div className="grid md:grid-cols-2 gap-5 md:gap-6">
+      <div className="grid md:grid-cols-3 gap-5 md:gap-6">
         {services.map((service, i) => (
           <motion.div
             key={service.title}
