@@ -105,10 +105,17 @@ const FAQItem = ({ q, a, index }: { q: string; a: string; index: number }) => {
   );
 };
 
+const countryOptions = [
+  { group: "Europe", countries: ["Albania","Andorra","Austria","Belarus","Belgium","Bosnia and Herzegovina","Bulgaria","Croatia","Cyprus","Czech Republic","Denmark","Estonia","Finland","France","Germany","Greece","Hungary","Iceland","Ireland","Italy","Kosovo","Latvia","Liechtenstein","Lithuania","Luxembourg","Malta","Moldova","Monaco","Montenegro","Netherlands","North Macedonia","Norway","Poland","Portugal","Romania","San Marino","Serbia","Slovakia","Slovenia","Spain","Sweden","Switzerland","Ukraine","United Kingdom","Vatican City"] },
+  { group: "North America", countries: ["United States","Canada"] },
+  { group: "Middle East", countries: ["Saudi Arabia","United Arab Emirates","Qatar"] },
+];
+
 /* ─── Page ─── */
 
 const Contact = () => {
   const [selectedType, setSelectedType] = useState<string | null>(null);
+  const [selectedCountry, setSelectedCountry] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
