@@ -132,8 +132,11 @@ const Contact = () => {
   const [selectedCountry, setSelectedCountry] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [errors, setErrors] = useState<Record<string, string>>({});
   const formRef = useRef<HTMLFormElement>(null);
   const { toast } = useToast();
+
+  const clearError = (field: string) => setErrors((prev) => { const n = { ...prev }; delete n[field]; return n; });
 
   return (
     <PageShell>
