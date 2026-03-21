@@ -29,7 +29,7 @@ import PageHero from "@/components/PageHero";
 const inquiryTypes = [
   { id: "staff-aug", label: "Staff Augmentation", icon: Users },
   { id: "dedicated-team", label: "Dedicated Team", icon: Building2 },
-  { id: "project", label: "Project Delivery", icon: Zap },
+  { id: "project", label: "Nearshore Project", icon: Zap },
   { id: "consulting", label: "Consulting", icon: Globe },
 ];
 
@@ -105,10 +105,17 @@ const FAQItem = ({ q, a, index }: { q: string; a: string; index: number }) => {
   );
 };
 
+const countryOptions = [
+  { group: "Europe", countries: ["Albania","Andorra","Austria","Belarus","Belgium","Bosnia and Herzegovina","Bulgaria","Croatia","Cyprus","Czech Republic","Denmark","Estonia","Finland","France","Germany","Greece","Hungary","Iceland","Ireland","Italy","Kosovo","Latvia","Liechtenstein","Lithuania","Luxembourg","Malta","Moldova","Monaco","Montenegro","Netherlands","North Macedonia","Norway","Poland","Portugal","Romania","San Marino","Serbia","Slovakia","Slovenia","Spain","Sweden","Switzerland","Ukraine","United Kingdom","Vatican City"] },
+  { group: "North America", countries: ["United States","Canada"] },
+  { group: "Middle East", countries: ["Saudi Arabia","United Arab Emirates","Qatar"] },
+];
+
 /* ─── Page ─── */
 
 const Contact = () => {
   const [selectedType, setSelectedType] = useState<string | null>(null);
+  const [selectedCountry, setSelectedCountry] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
@@ -194,7 +201,7 @@ const Contact = () => {
                       name: (form.querySelector("#name") as HTMLInputElement).value.trim(),
                       email: (form.querySelector("#email") as HTMLInputElement).value.trim(),
                       company: (form.querySelector("#company") as HTMLInputElement).value.trim(),
-                      country: (form.querySelector("#country") as HTMLInputElement).value.trim(),
+                      country: selectedCountry,
                       teamSize: (form.querySelector("#team-size") as HTMLInputElement).value.trim(),
                       startDate: (form.querySelector("#start-date") as HTMLInputElement).value.trim(),
                       message: (form.querySelector("#message") as HTMLTextAreaElement).value.trim(),
@@ -205,6 +212,7 @@ const Contact = () => {
                     toast({ title: "Inquiry sent", description: "We'll get back to you within one business day." });
                     form.reset();
                     setSelectedType(null);
+                    setSelectedCountry("");
                   } catch (err: any) {
                     console.error("Submit error:", err);
                     toast({ title: "Something went wrong", description: "Please try again or email us directly at hello@komodo-consulting.pt.", variant: "destructive" });
@@ -231,15 +239,30 @@ const Contact = () => {
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div className="space-y-2">
                     <Label htmlFor="company" className="text-sm font-medium text-foreground">
-                      Company
+                      Company's Website
                     </Label>
-                    <Input id="company" placeholder="Company name" className="h-11" />
+                    <Input id="company" type="url" placeholder="https://yourcompany.com" className="h-11" />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="country" className="text-sm font-medium text-foreground">
                       Country
                     </Label>
-                    <Input id="country" placeholder="Where are you based?" className="h-11" />
+                    <select
+                      id="country"
+                      value={selectedCountry}
+                      onChange={(e) => setSelectedCountry(e.target.value)}
+                      className="flex h-11 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 text-foreground"
+                    >
+                      <option value="" disabled className="text-muted-foreground">Select your country</option>
+                      {countryOptions.map((group) => (
+                        <optgroup key={group.group} label={group.group}>
+                          {group.countries.map((c) => (
+                            <option key={c} value={c}>{c}</option>
+                          ))}
+                        </optgroup>
+                      ))}
+                      <option value="Other">Other</option>
+                    </select>
                   </div>
                 </div>
 

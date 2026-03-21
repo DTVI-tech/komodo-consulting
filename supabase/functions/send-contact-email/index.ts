@@ -48,7 +48,7 @@ serve(async (req) => {
       ? {
           "staff-aug": "Staff Augmentation",
           "dedicated-team": "Dedicated Team",
-          "project": "Project Delivery",
+          "project": "Nearshore Project",
           "consulting": "Consulting",
         }[data.inquiryType] || data.inquiryType
       : "Not specified";
@@ -96,8 +96,8 @@ serve(async (req) => {
         </div>
         <div class="grid">
           <div class="field">
-            <div class="field-label">Company</div>
-            <div class="field-value">${escapeHtml(data.company) || "—"}</div>
+            <div class="field-label">Company's Website</div>
+            <div class="field-value">${data.company?.trim() ? `<a href="${escapeHtml(data.company)}" style="color: #3b82f6;">${escapeHtml(data.company)}</a>` : "—"}</div>
           </div>
           <div class="field">
             <div class="field-label">Country</div>
