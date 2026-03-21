@@ -439,7 +439,7 @@ const WhyKomodo = () => (
 const faqs = [
   {
     q: "How quickly can you provide engineers?",
-    a: "For staff augmentation, we typically present vetted candidates within 5 business days. Dedicated teams take 2–4 weeks depending on team composition and requirements.",
+    a: "For staff augmentation, we typically present candidates within 5 business days. Dedicated teams take 2–4 weeks depending on team composition and requirements.",
   },
   {
     q: "What if a team member isn't the right fit?",
@@ -450,8 +450,8 @@ const faqs = [
     a: "Yes. Portugal's CET timezone provides 4–6 hours of overlap with US East Coast, and we structure communication to maximize collaborative time.",
   },
   {
-    q: "How do you vet your talent?",
-    a: "Every engineer goes through a multi-stage process: technical assessment, live coding review, cultural fit evaluation, and reference checks. Only about 1 in 8 applicants make it through.",
+    q: "How do you select your talent?",
+    a: "Every consultant goes through a multi-stage selection process covering professional experience, cultural fit, and reference checks. We maintain high standards — only a small percentage of applicants are accepted.",
   },
   {
     q: "What technologies do your teams cover?",
