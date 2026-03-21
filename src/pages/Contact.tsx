@@ -210,20 +210,36 @@ const Contact = () => {
                 onSubmit={async (e) => {
                   e.preventDefault();
                   if (isSubmitting || isSubmitted) return;
+
+                  const form = formRef.current!;
+                  const name = (form.querySelector("#name") as HTMLInputElement).value.trim();
+                  const email = (form.querySelector("#email") as HTMLInputElement).value.trim();
+                  const company = (form.querySelector("#company") as HTMLInputElement).value.trim();
+                  const teamSize = (form.querySelector("#team-size") as HTMLInputElement).value.trim();
+                  const startDate = (form.querySelector("#start-date") as HTMLInputElement).value.trim();
+                  const message = (form.querySelector("#message") as HTMLTextAreaElement).value.trim();
+
+                  const v: Record<string, string> = {};
+                  if (!selectedType) v.inquiryType = "Please select an inquiry type.";
+                  if (!name) v.name = "Name is required.";
+                  if (!email) v.email = "Work email is required.";
+                  else if (!isWorkEmail(email)) v.email = "Please use your work email address.";
+                  if (!company) v.company = "Company's website is required.";
+                  if (!selectedCountry) v.country = "Please select your country.";
+                  if (!teamSize) v.teamSize = "Team size / roles needed is required.";
+                  if (!startDate) v.startDate = "Desired start is required.";
+                  if (!message) v.message = "Please describe your needs.";
+
+                  if (Object.keys(v).length > 0) {
+                    setErrors(v);
+                    return;
+                  }
+                  setErrors({});
                   setIsSubmitting(true);
+
                   try {
-                    const form = formRef.current!;
-                    const payload = {
-                      inquiryType: selectedType,
-                      name: (form.querySelector("#name") as HTMLInputElement).value.trim(),
-                      email: (form.querySelector("#email") as HTMLInputElement).value.trim(),
-                      company: (form.querySelector("#company") as HTMLInputElement).value.trim(),
-                      country: selectedCountry,
-                      teamSize: (form.querySelector("#team-size") as HTMLInputElement).value.trim(),
-                      startDate: (form.querySelector("#start-date") as HTMLInputElement).value.trim(),
-                      message: (form.querySelector("#message") as HTMLTextAreaElement).value.trim(),
-                    };
-                    const { data, error } = await supabase.functions.invoke("send-contact-email", { body: payload });
+                    const payload = { inquiryType: selectedType, name, email, company, country: selectedCountry, teamSize, startDate, message };
+                    const { error } = await supabase.functions.invoke("send-contact-email", { body: payload });
                     if (error) throw error;
                     setIsSubmitted(true);
                     toast({ title: "Inquiry sent", description: "We'll get back to you within one business day." });
