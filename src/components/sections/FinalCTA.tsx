@@ -70,10 +70,10 @@ const FinalCTA = () => {
           className="text-center max-w-2xl mx-auto"
         >
           <h2 className="text-3xl md:text-[2.75rem] md:leading-[1.15] font-display font-bold tracking-tight mb-6">
-            Looking for a more reliable IT outsourcing partner?
+            Ready to strengthen your technology capability?
           </h2>
           <p className="text-secondary-foreground/50 mb-12 text-base md:text-lg leading-relaxed">
-            Let's discuss how Komodo Consulting can support your delivery goals with vetted talent, dedicated teams, and nearshore execution from Portugal.
+            Let's discuss how Komodo Consulting can support your goals with the right talent, team structure, and delivery approach.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link to="/contact">

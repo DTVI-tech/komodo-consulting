@@ -77,7 +77,7 @@ const Hero = () => {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="section-label mb-8"
             >
-              IT Outsourcing &amp; Nearshore from Portugal
+              IT Consulting &amp; Outsourcing
             </motion.p>
 
             <motion.h1
@@ -86,7 +86,7 @@ const Hero = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-[2.75rem] md:text-[3.5rem] lg:text-[3.25rem] xl:text-[3.75rem] font-display font-extrabold leading-[1.08] tracking-[-0.025em] text-foreground mb-7"
             >
-              Nearshore Teams from Portugal,{" "}
+              Technology Teams{" "}
               <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                 Built for Delivery
               </span>
@@ -98,7 +98,7 @@ const Hero = () => {
               transition={{ duration: 0.5, delay: 0.35 }}
               className="text-lg md:text-xl text-muted-foreground max-w-[580px] mb-12 leading-[1.7]"
             >
-              Scale with vetted IT talent, dedicated teams, and outsourcing support — without compromising speed, quality, or communication.
+              IT consulting and outsourcing for companies that need strong technical capability, dedicated teams, and reliable execution — in Portugal and internationally.
             </motion.p>
 
             <motion.div

@@ -55,12 +55,12 @@ const ServiceModels = () => (
         transition={{ duration: 0.5 }}
         className="text-center mb-14 md:mb-20"
       >
-        <span className="section-label">Service Models</span>
+        <span className="section-label">How We Engage</span>
         <h2 className="section-title mb-5">
-          Three models. One standard.
+          Flexible engagement models
         </h2>
         <p className="section-subtitle mx-auto">
-          Choose the engagement model that fits your needs — from individual specialists to full outsourced teams.
+          From individual specialists to fully structured teams — choose the model that fits your delivery needs.
         </p>
       </motion.div>
 

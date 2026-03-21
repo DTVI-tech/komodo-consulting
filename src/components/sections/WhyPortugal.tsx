@@ -106,12 +106,12 @@ const WhyPortugal = () => (
           transition={{ duration: 0.5 }}
           className="lg:sticky lg:top-32"
         >
-          <span className="section-label !text-accent">Nearshore Advantage</span>
+          <span className="section-label !text-accent">Portugal Advantage</span>
           <h2 className="text-3xl md:text-[2.75rem] md:leading-[1.15] font-display font-bold tracking-tight mb-6">
-            Why companies choose Portugal for nearshore IT
+            Why Portugal for IT delivery
           </h2>
           <p className="text-secondary-foreground/60 leading-relaxed max-w-lg text-base mb-8">
-            Portugal has become one of Europe's strongest nearshore hubs — combining deep technical talent, cultural alignment, and a mature business environment for reliable delivery at scale.
+            Portugal combines deep technical talent, strong cultural alignment, and a mature business environment — making it a compelling base for IT outsourcing and nearshore delivery across Europe and beyond.
           </p>
           
           <div className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-secondary-foreground/[0.06] border border-secondary-foreground/[0.08] mb-10">
