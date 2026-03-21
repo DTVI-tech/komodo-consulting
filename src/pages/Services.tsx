@@ -281,12 +281,12 @@ const ServiceModelCards = () => (
 /* ─── Comparison / Choosing the Right Model ─── */
 
 const comparisonRows = [
-  { label: "Your involvement", aug: "High — you manage", ded: "Medium — shared", mgd: "Low — we manage" },
-  { label: "Team structure", aug: "Individual roles", ded: "Full squads", mgd: "Project-based" },
-  { label: "Delivery ownership", aug: "Client", ded: "Shared", mgd: "Komodo" },
-  { label: "Scale flexibility", aug: "Per-role", ded: "Team-level", mgd: "Scope-based" },
-  { label: "Best for", aug: "Skill gaps", ded: "Product roadmaps", mgd: "Defined projects" },
-  { label: "Onboarding speed", aug: "1–2 weeks", ded: "2–4 weeks", mgd: "3–5 weeks" },
+  { label: "Your involvement", aug: "High — you manage directly", ded: "High — you set priorities", ns: "Varies by model" },
+  { label: "Team structure", aug: "Individual roles", ded: "Multi-role squads", ns: "Flexible" },
+  { label: "Delivery ownership", aug: "Client", ded: "Client", ns: "Client" },
+  { label: "Scale flexibility", aug: "Per-role", ded: "Team-level", ns: "Both" },
+  { label: "Best for", aug: "Skill gaps", ded: "Ongoing capacity", ns: "EU nearshore access" },
+  { label: "Onboarding speed", aug: "1–2 weeks", ded: "2–4 weeks", ns: "1–4 weeks" },
 ];
 
 const Comparison = () => (
@@ -317,7 +317,7 @@ const Comparison = () => (
         {/* Header */}
         <div className="grid grid-cols-4 border-b border-border">
           <div className="p-5 md:p-6" />
-          {["Staff Augmentation", "Dedicated Teams", "Managed Delivery"].map((title) => (
+          {["Staff Augmentation", "Dedicated Teams", "Nearshore Portugal"].map((title) => (
             <div key={title} className="p-5 md:p-6 text-center border-l border-border">
               <span className="text-xs md:text-sm font-display font-bold text-foreground">{title}</span>
             </div>
@@ -333,7 +333,7 @@ const Comparison = () => (
             <div className="p-4 md:p-5 flex items-center">
               <span className="text-xs md:text-sm font-semibold text-foreground">{row.label}</span>
             </div>
-            {[row.aug, row.ded, row.mgd].map((val, j) => (
+            {[row.aug, row.ded, row.ns].map((val, j) => (
               <div key={j} className="p-4 md:p-5 text-center border-l border-border flex items-center justify-center">
                 <span className="text-xs md:text-sm text-muted-foreground">{val}</span>
               </div>
