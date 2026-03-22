@@ -38,6 +38,7 @@ const App = () => (
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
+    </LanguageProvider>
   </QueryClientProvider>
 );
 
