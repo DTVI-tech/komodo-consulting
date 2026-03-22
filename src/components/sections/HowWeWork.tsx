@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Search, ListChecks, UserCheck, Rocket, HeartHandshake } from "lucide-react";
 
@@ -9,99 +10,142 @@ const steps = [
   { icon: HeartHandshake, number: "05", title: "Ongoing Support", description: "Continuous follow-up, performance tracking, and proactive collaboration management.", color: "from-primary to-primary" },
 ];
 
+const HowWeWork = () => {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
-const HowWeWork = () => (
-  <section className="section-padding bg-background relative overflow-hidden">
-    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full border border-border/50 pointer-events-none hidden lg:block" />
+  return (
+    <section className="section-padding bg-background relative overflow-hidden">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full border border-border/50 pointer-events-none hidden lg:block" />
 
-    <div className="container relative">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-        className="text-center mb-14 md:mb-20"
-      >
-        <span className="section-label">Process</span>
-        <h2 className="section-title mb-5">How we work</h2>
-        <p className="section-subtitle mx-auto">
-          A clear, structured process from initial conversation to ongoing delivery — designed for speed and low friction.
-        </p>
-      </motion.div>
+      <div className="container relative">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-14 md:mb-20"
+        >
+          <span className="section-label">Process</span>
+          <h2 className="section-title mb-5">How we work</h2>
+          <p className="section-subtitle mx-auto">
+            A clear, structured process from initial conversation to ongoing delivery — designed for speed and low friction.
+          </p>
+        </motion.div>
 
-      {/* Desktop: Horizontal process cards */}
-      <div className="hidden md:block">
-        <div className="grid grid-cols-5 gap-4">
+        {/* Desktop: Horizontal process cards */}
+        <div className="hidden md:block">
+          <div className="grid grid-cols-5 gap-4">
+            {steps.map((step, i) => {
+              const isHovered = hoveredIndex === i;
+              const isBeforeHovered = hoveredIndex !== null && i < hoveredIndex;
+              const isAfterHovered = hoveredIndex !== null && i > hoveredIndex;
+
+              return (
+                <motion.div
+                  key={step.number}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: i * 0.08 }}
+                  className="group relative"
+                  onMouseEnter={() => setHoveredIndex(i)}
+                  onMouseLeave={() => setHoveredIndex(null)}
+                >
+                  <motion.div
+                    animate={{
+                      y: isHovered ? -6 : 0,
+                      scale: isHovered ? 1.02 : 1,
+                    }}
+                    transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                    className={`p-6 rounded-xl border bg-card h-full relative overflow-hidden transition-all duration-300 ${
+                      isHovered
+                        ? "border-primary/30 shadow-lg shadow-primary/10"
+                        : isBeforeHovered
+                        ? "border-primary/15 opacity-90"
+                        : isAfterHovered
+                        ? "border-border opacity-60"
+                        : "border-border hover:border-primary/15 hover:shadow-md"
+                    }`}
+                  >
+                    {/* Subtle glow on hover */}
+                    <div
+                      className="absolute inset-0 rounded-xl opacity-0 transition-opacity duration-300 pointer-events-none"
+                      style={{
+                        background: "radial-gradient(ellipse at center, hsl(var(--primary) / 0.06), transparent 70%)",
+                        opacity: isHovered ? 1 : 0,
+                      }}
+                    />
+
+                    {/* Subtle pattern */}
+                    <div className="absolute top-0 right-0 w-12 h-12 pointer-events-none">
+                      <div className="absolute top-2 right-2 w-6 h-6 rounded border border-primary/[0.04]" />
+                      <div className="absolute top-3 right-3 w-4 h-4 rounded border border-accent/[0.03]" />
+                    </div>
+
+                    <div className="flex items-center gap-3 mb-4 relative z-10">
+                      <motion.div
+                        animate={{ scale: isHovered ? 1.1 : 1 }}
+                        transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                        className={`w-9 h-9 rounded-lg bg-gradient-to-br ${step.color} flex items-center justify-center flex-shrink-0`}
+                      >
+                        <step.icon className="h-4 w-4 text-primary-foreground" />
+                      </motion.div>
+                      <span className="text-xs font-bold text-muted-foreground/50 font-display">{step.number}</span>
+                    </div>
+                    <h3 className="font-display font-bold text-foreground text-[15px] mb-2 tracking-tight relative z-10">{step.title}</h3>
+                    <p className="text-[13px] text-muted-foreground leading-relaxed relative z-10">{step.description}</p>
+                  </motion.div>
+
+                  {/* Connector line between cards */}
+                  {i < steps.length - 1 && (
+                    <div
+                      className={`absolute top-1/2 -right-2 w-4 h-px hidden lg:block transition-colors duration-300 ${
+                        hoveredIndex !== null && i < hoveredIndex ? "bg-primary/40" : "bg-border"
+                      }`}
+                    />
+                  )}
+                </motion.div>
+              );
+            })}
+          </div>
+
+          <motion.div
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="mt-8 h-0.5 bg-gradient-to-r from-primary via-accent to-primary/30 rounded-full origin-left"
+          />
+        </div>
+
+        {/* Mobile: Vertical timeline */}
+        <div className="md:hidden max-w-sm mx-auto">
           {steps.map((step, i) => (
             <motion.div
               key={step.number}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -16 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.08 }}
-              className="group relative"
+              className="flex gap-5"
             >
-              <div className="p-6 rounded-xl border border-border bg-card hover:border-primary/15 hover:shadow-md transition-all duration-300 h-full relative overflow-hidden">
-                {/* Subtle pattern */}
-                <div className="absolute top-0 right-0 w-12 h-12 pointer-events-none">
-                  <div className="absolute top-2 right-2 w-6 h-6 rounded border border-primary/[0.04]" />
-                  <div className="absolute top-3 right-3 w-4 h-4 rounded border border-accent/[0.03]" />
+              <div className="flex flex-col items-center">
+                <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${step.color} flex items-center justify-center flex-shrink-0`}>
+                  <step.icon className="h-4 w-4 text-primary-foreground" />
                 </div>
-
-                <div className="flex items-center gap-3 mb-4">
-                  <div className={`w-9 h-9 rounded-lg bg-gradient-to-br ${step.color} flex items-center justify-center flex-shrink-0`}>
-                    <step.icon className="h-4 w-4 text-primary-foreground" />
-                  </div>
-                  <span className="text-xs font-bold text-muted-foreground/50 font-display">{step.number}</span>
-                </div>
-                <h3 className="font-display font-bold text-foreground text-[15px] mb-2 tracking-tight">{step.title}</h3>
-                <p className="text-[13px] text-muted-foreground leading-relaxed">{step.description}</p>
+                {i < steps.length - 1 && <div className="w-px flex-1 bg-border my-1" />}
               </div>
-
-              {i < steps.length - 1 && (
-                <div className="absolute top-1/2 -right-2 w-4 h-px bg-border hidden lg:block" />
-              )}
+              <div className="pb-8">
+                <span className="text-[10px] font-bold text-muted-foreground/40 uppercase tracking-wider">{step.number}</span>
+                <h3 className="font-display font-bold text-foreground text-base mb-1 tracking-tight">{step.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{step.description}</p>
+              </div>
             </motion.div>
           ))}
         </div>
-
-        <motion.div
-          initial={{ scaleX: 0 }}
-          whileInView={{ scaleX: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="mt-8 h-0.5 bg-gradient-to-r from-primary via-accent to-primary/30 rounded-full origin-left"
-        />
-
       </div>
-
-      {/* Mobile: Vertical timeline */}
-      <div className="md:hidden max-w-sm mx-auto">
-        {steps.map((step, i) => (
-          <motion.div
-            key={step.number}
-            initial={{ opacity: 0, x: -16 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: i * 0.08 }}
-            className="flex gap-5"
-          >
-            <div className="flex flex-col items-center">
-              <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${step.color} flex items-center justify-center flex-shrink-0`}>
-                <step.icon className="h-4 w-4 text-primary-foreground" />
-              </div>
-              {i < steps.length - 1 && <div className="w-px flex-1 bg-border my-1" />}
-            </div>
-            <div className="pb-8">
-              <span className="text-[10px] font-bold text-muted-foreground/40 uppercase tracking-wider">{step.number}</span>
-              <h3 className="font-display font-bold text-foreground text-base mb-1 tracking-tight">{step.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">{step.description}</p>
-            </div>
-          </motion.div>
-        ))}
-      </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default HowWeWork;
