@@ -23,6 +23,16 @@ interface LanguageContextType {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
+function detectDefaultLanguage(): Language {
+  const stored = localStorage.getItem("komodo-lang");
+  if (stored === "en" || stored === "pt") return stored;
+  const browserLang = navigator.language || (navigator as any).userLanguage || "";
+  if (browserLang.toLowerCase().startsWith("pt")) return "pt";
+  return "en";
+}
+
+const translations: Record<Language, Translations> = { en: en as unknown as Translations, pt: pt as unknown as Translations };
+
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   const [language, setLanguageState] = useState<Language>(detectDefaultLanguage);
 
