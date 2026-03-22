@@ -4,7 +4,16 @@ import { pt } from "./translations/pt";
 
 export type Language = "en" | "pt";
 
-type Translations = typeof en;
+// Use a deep string type to avoid literal type mismatch between en/pt
+type DeepStringify<T> = T extends string
+  ? string
+  : T extends readonly (infer U)[]
+  ? DeepStringify<U>[]
+  : T extends object
+  ? { [K in keyof T]: DeepStringify<T[K]> }
+  : T;
+
+type Translations = DeepStringify<typeof en>;
 
 interface LanguageContextType {
   language: Language;
@@ -13,21 +22,6 @@ interface LanguageContextType {
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
-
-function detectDefaultLanguage(): Language {
-  // 1. Check localStorage for previous selection
-  const stored = localStorage.getItem("komodo-lang");
-  if (stored === "en" || stored === "pt") return stored;
-
-  // 2. Check browser language
-  const browserLang = navigator.language || (navigator as any).userLanguage || "";
-  if (browserLang.toLowerCase().startsWith("pt")) return "pt";
-
-  // 3. Default to English
-  return "en";
-}
-
-const translations: Record<Language, Translations> = { en, pt };
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   const [language, setLanguageState] = useState<Language>(detectDefaultLanguage);
