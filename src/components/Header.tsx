@@ -2,20 +2,22 @@ import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/i18n";
 import logoDark from "@/assets/logo-dark.png";
-
-const navLinks = [
-  { label: "Services", href: "/services", isRoute: true },
-  { label: "Industries", href: "#industries", isRoute: false },
-  { label: "Technologies", href: "/technologies", isRoute: true },
-  { label: "About", href: "/about", isRoute: true },
-  { label: "Careers", href: "https://komodo-consulting.careers-page.com/", isExternal: true },
-];
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const { language, setLanguage, t } = useLanguage();
+
+  const navLinks = [
+    { label: t.nav.services, href: "/services", isRoute: true },
+    { label: t.nav.industries, href: "#industries", isRoute: false },
+    { label: t.nav.technologies, href: "/technologies", isRoute: true },
+    { label: t.nav.about, href: "/about", isRoute: true },
+    { label: t.nav.careers, href: "https://komodo-consulting.careers-page.com/", isExternal: true },
+  ];
 
   const handleAnchorClick = (href: string) => {
     setMobileOpen(false);
@@ -68,19 +70,43 @@ const Header = () => {
         </nav>
 
         <div className="hidden lg:flex items-center gap-2.5">
+          {/* Language switcher */}
+          <div className="flex items-center border border-border rounded-md overflow-hidden mr-2">
+            <button
+              onClick={() => setLanguage("en")}
+              className={`px-2.5 py-1 text-[11px] font-bold tracking-wide transition-colors ${
+                language === "en"
+                  ? "bg-primary text-primary-foreground"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              EN
+            </button>
+            <button
+              onClick={() => setLanguage("pt")}
+              className={`px-2.5 py-1 text-[11px] font-bold tracking-wide transition-colors ${
+                language === "pt"
+                  ? "bg-primary text-primary-foreground"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              PT
+            </button>
+          </div>
+
           <Link to="/contact">
             <Button variant="ghost" size="sm" className="text-[13px] text-muted-foreground hover:text-foreground">
-              Contact
+              {t.nav.contact}
             </Button>
           </Link>
           <Link to="/contact">
             <Button size="sm" className="text-[13px] h-9 px-5 shadow-sm shadow-primary/15">
-              Request Talent
+              {t.nav.requestTalent}
             </Button>
           </Link>
           <Link to="/consulting">
             <Button size="sm" className="text-[13px] h-9 px-6 bg-secondary text-secondary-foreground hover:bg-secondary/90 font-semibold tracking-wide shadow-md shadow-secondary/20">
-              Consulting
+              {t.nav.consulting}
             </Button>
           </Link>
         </div>
@@ -125,13 +151,38 @@ const Header = () => {
               </button>
             )
           )}
-          <div className="flex flex-col gap-2 pt-4">
+
+          {/* Mobile language switcher */}
+          <div className="flex items-center gap-2 pt-2 pb-2">
+            <button
+              onClick={() => setLanguage("en")}
+              className={`px-3 py-1.5 text-xs font-bold rounded-md transition-colors ${
+                language === "en"
+                  ? "bg-primary text-primary-foreground"
+                  : "bg-muted text-muted-foreground"
+              }`}
+            >
+              EN
+            </button>
+            <button
+              onClick={() => setLanguage("pt")}
+              className={`px-3 py-1.5 text-xs font-bold rounded-md transition-colors ${
+                language === "pt"
+                  ? "bg-primary text-primary-foreground"
+                  : "bg-muted text-muted-foreground"
+              }`}
+            >
+              PT
+            </button>
+          </div>
+
+          <div className="flex flex-col gap-2 pt-2">
             <Link to="/contact" onClick={() => setMobileOpen(false)}>
-              <Button size="sm" className="w-full">Request Talent</Button>
+              <Button size="sm" className="w-full">{t.nav.requestTalent}</Button>
             </Link>
             <Link to="/consulting">
               <Button size="sm" className="w-full bg-secondary text-secondary-foreground hover:bg-secondary/90 font-semibold tracking-wide">
-                Consulting
+                {t.nav.consulting}
               </Button>
             </Link>
           </div>
