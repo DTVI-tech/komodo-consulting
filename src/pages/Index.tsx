@@ -9,9 +9,15 @@ import HowWeWork from "@/components/sections/HowWeWork";
 import AboutPreview from "@/components/sections/AboutPreview";
 import ConsultingCallout from "@/components/sections/ConsultingCallout";
 import FinalCTA from "@/components/sections/FinalCTA";
+import SEOHead, { organizationSchema, websiteSchema } from "@/components/SEOHead";
 
 const Index = () => (
   <>
+    <SEOHead
+      title="Komodo Consulting — IT Consulting & Outsourcing | Technology Teams from Portugal"
+      description="IT Consulting and IT Outsourcing company providing technology teams, staff augmentation, dedicated teams, and nearshore delivery from Portugal."
+      jsonLd={[organizationSchema, websiteSchema]}
+    />
     <Header />
     <main>
       <Hero />

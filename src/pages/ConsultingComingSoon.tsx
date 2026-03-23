@@ -3,12 +3,23 @@ import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logoVertical from "@/assets/logo-vertical.png";
+import SEOHead, { buildBreadcrumbs } from "@/components/SEOHead";
 
 const ConsultingComingSoon = () => (
   <div
     className="dark min-h-screen flex flex-col items-center justify-center px-6 relative overflow-hidden"
     style={{ backgroundColor: "hsl(220 40% 6%)", color: "hsl(210 20% 96%)" }}
   >
+    <SEOHead
+      title="Strategy & Digital Transformation Consulting"
+      description="Komodo Consulting provides strategy and digital transformation consulting for companies and public entities in Portugal."
+      jsonLd={[
+        buildBreadcrumbs([
+          { name: "Home", path: "/" },
+          { name: "Consulting", path: "/consulting" },
+        ]),
+      ]}
+    />
     {/* Layered atmospheric gradients */}
     <div className="absolute inset-0 pointer-events-none">
       <div

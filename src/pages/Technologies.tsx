@@ -17,6 +17,7 @@ import {
 import { Button } from "@/components/ui/button";
 import PageShell from "@/components/PageShell";
 import PageHero from "@/components/PageHero";
+import SEOHead, { buildBreadcrumbs } from "@/components/SEOHead";
 
 /* ─── Capability Data ─── */
 
@@ -241,6 +242,16 @@ const outcomes = [
 
 const Technologies = () => (
   <PageShell>
+    <SEOHead
+      title="Technologies & Capabilities"
+      description="Software engineering, cloud & DevOps, data & AI, QA, cybersecurity, and more. Explore the technology domains Komodo Consulting covers."
+      jsonLd={[
+        buildBreadcrumbs([
+          { name: "Home", path: "/" },
+          { name: "Technologies", path: "/technologies" },
+        ]),
+      ]}
+    />
     {/* Hero */}
     <PageHero
       label="Technologies"

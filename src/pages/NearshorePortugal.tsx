@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import SEOHead, { buildBreadcrumbs, buildServiceSchema, buildFAQSchema } from "@/components/SEOHead";
 import {
   ArrowRight,
   GraduationCap,
@@ -729,6 +730,19 @@ const FinalCTA = () => (
 
 const NearshorePortugal = () => (
   <PageShell>
+    <SEOHead
+      title="Nearshore IT from Portugal"
+      description="Build your technology team in Portugal. Timezone-aligned nearshore IT outsourcing with 30–40% cost savings, EU compliance, and high-quality engineering talent."
+      jsonLd={[
+        buildBreadcrumbs([
+          { name: "Home", path: "/" },
+          { name: "Services", path: "/services" },
+          { name: "Nearshore Portugal", path: "/services/nearshore-portugal" },
+        ]),
+        buildServiceSchema("Nearshore IT from Portugal", "Portugal-based nearshore IT delivery with timezone alignment, EU compliance, and cost-efficient technology teams.", "/services/nearshore-portugal"),
+        buildFAQSchema(faqs.map((f) => ({ question: f.q, answer: f.a }))),
+      ]}
+    />
     <Hero />
     <WhyPortugal />
     <TalentSection />

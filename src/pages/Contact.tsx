@@ -3,6 +3,7 @@ import { useState, useRef } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { Link } from "react-router-dom";
+import SEOHead, { buildBreadcrumbs, buildFAQSchema } from "@/components/SEOHead";
 
 const BLOCKED_EMAIL_DOMAINS = [
   "gmail.com","googlemail.com","hotmail.com","outlook.com","live.com","yahoo.com",
@@ -148,6 +149,18 @@ const Contact = () => {
 
   return (
     <PageShell>
+      <SEOHead
+        title="Contact Komodo Consulting"
+        description="Get in touch with Komodo Consulting. Tell us about your IT consulting or outsourcing needs and we'll respond within one business day."
+        jsonLd={[
+          buildBreadcrumbs([
+            { name: "Home", path: "/" },
+            { name: "Contact", path: "/contact" },
+          ]),
+          { "@context": "https://schema.org", "@type": "ContactPage", name: "Contact Komodo Consulting", url: "https://komodo-consulting.pt/contact" },
+          buildFAQSchema(faqs.map((f) => ({ question: f.q, answer: f.a }))),
+        ]}
+      />
       {/* Hero */}
       <PageHero
         label="Contact"
