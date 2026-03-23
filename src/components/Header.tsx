@@ -76,6 +76,7 @@ const Header = () => {
         </nav>
 
         <div className="hidden lg:flex items-center gap-2.5">
+          <ThemeToggle />
           <Link to="/contact">
             <Button variant="ghost" size="sm" className="text-[13px] text-muted-foreground hover:text-foreground">
               Contact
