@@ -18,8 +18,12 @@ const navLinks = [
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const { resolvedTheme } = useTheme();
+
+  useEffect(() => setMounted(true), []);
 
   const handleAnchorClick = (href: string) => {
     setMobileOpen(false);
