@@ -596,8 +596,26 @@ const FinalCTA = () => (
 
 /* ─── Page ─── */
 
+const servicesJsonLd = [
+  buildBreadcrumbs([
+    { name: "Home", path: "/" },
+    { name: "Services", path: "/services" },
+  ]),
+  buildServiceSchema("Staff Augmentation", "Individual IT professionals integrated into your team and workflows.", "/services"),
+  buildServiceSchema("Dedicated Teams", "Outsourced technology teams assembled by Komodo Consulting for your project.", "/services"),
+  buildServiceSchema("Nearshore from Portugal", "Portugal-based nearshore IT delivery with timezone alignment and cost efficiency.", "/services"),
+  buildFAQSchema(
+    faqs.map((f) => ({ question: f.q, answer: f.a }))
+  ),
+];
+
 const Services = () => (
   <PageShell>
+    <SEOHead
+      title="IT Outsourcing Services"
+      description="Staff augmentation, dedicated teams, and nearshore delivery from Portugal. Flexible IT outsourcing models built for quality and reliability."
+      jsonLd={servicesJsonLd}
+    />
     <ServicesHero />
     <ServiceModelCards />
     <Comparison />
