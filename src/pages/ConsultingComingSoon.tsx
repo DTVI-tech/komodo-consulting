@@ -6,7 +6,8 @@ import logoVertical from "@/assets/logo-vertical.png";
 
 const ConsultingComingSoon = () => (
   <div
-    className="dark min-h-screen flex flex-col items-center justify-center px-6 relative overflow-hidden bg-background text-foreground"
+    className="dark min-h-screen flex flex-col items-center justify-center px-6 relative overflow-hidden"
+    style={{ backgroundColor: "hsl(220 40% 6%)", color: "hsl(210 20% 96%)" }}
   >
     {/* Layered atmospheric gradients */}
     <div className="absolute inset-0 pointer-events-none">
@@ -88,7 +89,7 @@ const ConsultingComingSoon = () => (
         <Link to="/contact">
           <Button
             size="lg"
-            className="text-base px-8 h-12 bg-white text-background hover:bg-white/90 shadow-lg shadow-primary/10 font-semibold"
+            className="text-base px-8 h-12 bg-white text-[hsl(220,40%,6%)] hover:bg-white/90 shadow-lg shadow-primary/10 font-semibold"
           >
             Talk to Our Team
             <ArrowRight className="ml-2 h-4 w-4" />

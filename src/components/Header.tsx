@@ -2,7 +2,11 @@ import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import ThemeToggle from "@/components/ThemeToggle";
 import logoDark from "@/assets/logo-dark.png";
+import logoWhite from "@/assets/logo-white.png";
+import { useTheme } from "next-themes";
+import { useEffect } from "react";
 
 const navLinks = [
   { label: "Services", href: "/services", isRoute: true },
@@ -14,8 +18,12 @@ const navLinks = [
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const { resolvedTheme } = useTheme();
+
+  useEffect(() => setMounted(true), []);
 
   const handleAnchorClick = (href: string) => {
     setMobileOpen(false);
@@ -31,7 +39,7 @@ const Header = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border/60">
       <div className="container flex items-center justify-between h-16 md:h-[72px]">
         <Link to="/" className="flex-shrink-0">
-          <img src={logoDark} alt="Komodo Consulting" className="h-7 md:h-8 w-auto" />
+          <img src={mounted && resolvedTheme === "dark" ? logoWhite : logoDark} alt="Komodo Consulting" className="h-7 md:h-8 w-auto" />
         </Link>
 
         {/* Desktop nav */}
@@ -68,6 +76,7 @@ const Header = () => {
         </nav>
 
         <div className="hidden lg:flex items-center gap-2.5">
+          <ThemeToggle />
           <Link to="/contact">
             <Button variant="ghost" size="sm" className="text-[13px] text-muted-foreground hover:text-foreground">
               Contact
@@ -86,9 +95,12 @@ const Header = () => {
         </div>
 
         {/* Mobile toggle */}
-        <button className="lg:hidden p-2" onClick={() => setMobileOpen(!mobileOpen)}>
-          {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </button>
+        <div className="lg:hidden flex items-center gap-1">
+          <ThemeToggle />
+          <button className="p-2" onClick={() => setMobileOpen(!mobileOpen)}>
+            {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}
