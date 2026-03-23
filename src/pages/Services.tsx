@@ -16,6 +16,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import PageShell from "@/components/PageShell";
+import SEOHead, { buildBreadcrumbs, buildServiceSchema, buildFAQSchema } from "@/components/SEOHead";
 
 /* ─── Hero ─── */
 
