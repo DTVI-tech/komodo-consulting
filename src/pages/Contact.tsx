@@ -149,6 +149,18 @@ const Contact = () => {
 
   return (
     <PageShell>
+      <SEOHead
+        title="Contact Komodo Consulting"
+        description="Get in touch with Komodo Consulting. Tell us about your IT consulting or outsourcing needs and we'll respond within one business day."
+        jsonLd={[
+          buildBreadcrumbs([
+            { name: "Home", path: "/" },
+            { name: "Contact", path: "/contact" },
+          ]),
+          { "@context": "https://schema.org", "@type": "ContactPage", name: "Contact Komodo Consulting", url: "https://komodo-consulting.pt/contact" },
+          buildFAQSchema(faqs.map((f) => ({ question: f.q, answer: f.a }))),
+        ]}
+      />
       {/* Hero */}
       <PageHero
         label="Contact"
