@@ -95,9 +95,12 @@ const Header = () => {
         </div>
 
         {/* Mobile toggle */}
-        <button className="lg:hidden p-2" onClick={() => setMobileOpen(!mobileOpen)}>
-          {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </button>
+        <div className="lg:hidden flex items-center gap-1">
+          <ThemeToggle />
+          <button className="p-2" onClick={() => setMobileOpen(!mobileOpen)}>
+            {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}

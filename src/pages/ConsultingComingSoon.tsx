@@ -89,7 +89,7 @@ const ConsultingComingSoon = () => (
         <Link to="/contact">
           <Button
             size="lg"
-            className="text-base px-8 h-12 bg-white text-background hover:bg-white/90 shadow-lg shadow-primary/10 font-semibold"
+            className="text-base px-8 h-12 bg-white text-[hsl(220,40%,6%)] hover:bg-white/90 shadow-lg shadow-primary/10 font-semibold"
           >
             Talk to Our Team
             <ArrowRight className="ml-2 h-4 w-4" />
