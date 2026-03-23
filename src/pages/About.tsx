@@ -655,6 +655,16 @@ const FinalCTA = () => (
 /* ─── Page ─── */
 const About = () => (
   <PageShell>
+    <SEOHead
+      title="About Komodo Consulting"
+      description="Learn about Komodo Consulting — an IT consulting and outsourcing company delivering technology teams from Portugal for companies across Europe and beyond."
+      jsonLd={[
+        buildBreadcrumbs([
+          { name: "Home", path: "/" },
+          { name: "About", path: "/about" },
+        ]),
+      ]}
+    />
     <Hero />
     <CompanyStory />
     <Values />
