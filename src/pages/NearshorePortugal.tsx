@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import SEOHead, { buildBreadcrumbs, buildServiceSchema, buildFAQSchema } from "@/components/SEOHead";
 import {
   ArrowRight,
   GraduationCap,
