@@ -17,6 +17,7 @@ import {
 import { Button } from "@/components/ui/button";
 import PageShell from "@/components/PageShell";
 import PageHero from "@/components/PageHero";
+import SEOHead, { buildBreadcrumbs } from "@/components/SEOHead";
 
 /* ─── Capability Data ─── */
 
