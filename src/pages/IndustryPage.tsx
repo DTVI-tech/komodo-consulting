@@ -173,9 +173,11 @@ const IndustryPage = () => {
               Let's discuss how we can support your specific delivery needs.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button size="lg" className="text-base px-8 h-12 shadow-lg shadow-primary/25">
-                Get Started <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
+              <Link to="/contact">
+                <Button size="lg" className="text-base px-8 h-12 shadow-lg shadow-primary/25">
+                  Get Started <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
               <Link to="/services">
                 <Button size="lg" variant="outlineDark" className="text-base px-8 h-12">
                   View Services
