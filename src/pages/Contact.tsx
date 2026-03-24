@@ -167,7 +167,7 @@ const Contact = () => {
         title="Let's build your team"
         subtitle="Tell us what you need. We'll respond within one business day with a tailored approach — no obligation, no fluff."
       >
-        <div className="flex items-center gap-6 mt-8">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 mt-8">
           {reassurance.map((item) => (
             <div key={item.text} className="flex items-center gap-2">
               <item.icon className="h-3.5 w-3.5 text-primary/70" />
