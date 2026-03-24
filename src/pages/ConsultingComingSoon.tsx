@@ -76,7 +76,7 @@ const ConsultingComingSoon = () => (
         transition={{ delay: 0.2, duration: 0.5 }}
         className="text-xs font-semibold uppercase tracking-[0.3em] text-primary mb-6"
       >
-        Strategy &amp; Digital Transformation
+        Strategy & Digital Transformation
       </motion.p>
 
       {/* Heading */}

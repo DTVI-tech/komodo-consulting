@@ -4,6 +4,7 @@ import { ArrowRight, ArrowLeft, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import PageShell from "@/components/PageShell";
 import PageHero from "@/components/PageHero";
+import SEOHead, { buildBreadcrumbs } from "@/components/SEOHead";
 
 const industryData: Record<string, { label: string; title: string; subtitle: string; capabilities: string[]; challenges: { title: string; description: string }[] }> = {
   fintech: {
@@ -70,11 +71,23 @@ const IndustryPage = () => {
 
   return (
     <PageShell>
+      <SEOHead
+        title={`${industry.label} — IT Outsourcing`}
+        description={industry.subtitle}
+        jsonLd={[
+          buildBreadcrumbs([
+            { name: "Home", path: "/" },
+            { name: industry.label, path: `/industries/${slug}` },
+          ]),
+        ]}
+      />
       <PageHero label={industry.label} title={industry.title} subtitle={industry.subtitle}>
         <div className="mt-8">
-          <Button size="lg" className="text-base px-8 h-12 shadow-lg shadow-primary/25">
-            Discuss Your Project <ArrowRight className="ml-2 h-4 w-4" />
-          </Button>
+          <Link to="/contact">
+            <Button size="lg" className="text-base px-8 h-12 shadow-lg shadow-primary/25">
+              Discuss Your Project <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+          </Link>
         </div>
       </PageHero>
 
@@ -160,9 +173,11 @@ const IndustryPage = () => {
               Let's discuss how we can support your specific delivery needs.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button size="lg" className="text-base px-8 h-12 shadow-lg shadow-primary/25">
-                Get Started <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
+              <Link to="/contact">
+                <Button size="lg" className="text-base px-8 h-12 shadow-lg shadow-primary/25">
+                  Get Started <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
               <Link to="/services">
                 <Button size="lg" variant="outlineDark" className="text-base px-8 h-12">
                   View Services
