@@ -4,6 +4,7 @@ import { ArrowRight, ArrowLeft, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import PageShell from "@/components/PageShell";
 import PageHero from "@/components/PageHero";
+import SEOHead, { buildBreadcrumbs } from "@/components/SEOHead";
 
 const industryData: Record<string, { label: string; title: string; subtitle: string; capabilities: string[]; challenges: { title: string; description: string }[] }> = {
   fintech: {
