@@ -2,10 +2,6 @@ import { Link } from "react-router-dom";
 import logoWhite from "@/assets/logo-white.png";
 
 const Footer = () => {
-  const scrollTo = (id: string) => {
-    document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
     <footer className="bg-secondary text-secondary-foreground" role="contentinfo">
       <div className="container py-14 md:py-20">
