@@ -475,7 +475,7 @@ const Technologies = () => (
                 Get in Touch <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
-            <Link to="/nearshore-portugal">
+            <Link to="/services/nearshore-portugal">
               <Button size="lg" variant="outline" className="text-base px-8 h-12">
                 Nearshore from Portugal
               </Button>
