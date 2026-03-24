@@ -20,9 +20,9 @@ const Footer = () => {
           <div className="space-y-4">
             <h4 className="text-xs font-bold font-display uppercase tracking-[0.15em] text-secondary-foreground/30">Services</h4>
             <ul className="space-y-2.5 text-[13px] text-secondary-foreground/50">
-              <li><button onClick={() => scrollTo("#services")} className="hover:text-secondary-foreground transition-colors">Staff Augmentation</button></li>
-              <li><button onClick={() => scrollTo("#services")} className="hover:text-secondary-foreground transition-colors">Dedicated Teams</button></li>
-              <li><button onClick={() => scrollTo("#services")} className="hover:text-secondary-foreground transition-colors">Nearshore Portugal</button></li>
+              <li><Link to="/services" className="hover:text-secondary-foreground transition-colors">Staff Augmentation</Link></li>
+              <li><Link to="/services" className="hover:text-secondary-foreground transition-colors">Dedicated Teams</Link></li>
+              <li><Link to="/services/nearshore-portugal" className="hover:text-secondary-foreground transition-colors">Nearshore Portugal</Link></li>
             </ul>
           </div>
 
