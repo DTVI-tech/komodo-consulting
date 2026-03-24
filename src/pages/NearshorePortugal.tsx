@@ -620,11 +620,11 @@ const faqs = [
   },
   {
     q: "Can I manage the team directly?",
-    a: "Absolutely. With Staff Augmentation and Dedicated Teams, you have direct access and management of your nearshore professionals. With Managed Delivery, we handle day-to-day execution with regular reporting.",
+    a: "Absolutely. With both Staff Augmentation and Dedicated Teams, you have direct access and management of your nearshore professionals. You set the priorities, direction, and workflows.",
   },
   {
     q: "What engagement models are available?",
-    a: "We offer Staff Augmentation, Dedicated Teams, and Managed Delivery — each designed for different levels of involvement and ownership. You can also combine models as needs evolve.",
+    a: "We offer Staff Augmentation, Dedicated Teams, and Nearshore from Portugal — each designed for different levels of scale and operational need. You can also combine models as needs evolve.",
   },
 ];
 

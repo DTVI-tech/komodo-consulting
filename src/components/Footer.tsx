@@ -2,10 +2,6 @@ import { Link } from "react-router-dom";
 import logoWhite from "@/assets/logo-white.png";
 
 const Footer = () => {
-  const scrollTo = (id: string) => {
-    document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
     <footer className="bg-secondary text-secondary-foreground" role="contentinfo">
       <div className="container py-14 md:py-20">
@@ -20,9 +16,9 @@ const Footer = () => {
           <div className="space-y-4">
             <h4 className="text-xs font-bold font-display uppercase tracking-[0.15em] text-secondary-foreground/30">Services</h4>
             <ul className="space-y-2.5 text-[13px] text-secondary-foreground/50">
-              <li><button onClick={() => scrollTo("#services")} className="hover:text-secondary-foreground transition-colors">Staff Augmentation</button></li>
-              <li><button onClick={() => scrollTo("#services")} className="hover:text-secondary-foreground transition-colors">Dedicated Teams</button></li>
-              <li><button onClick={() => scrollTo("#services")} className="hover:text-secondary-foreground transition-colors">Nearshore Portugal</button></li>
+              <li><Link to="/services" className="hover:text-secondary-foreground transition-colors">Staff Augmentation</Link></li>
+              <li><Link to="/services" className="hover:text-secondary-foreground transition-colors">Dedicated Teams</Link></li>
+              <li><Link to="/services/nearshore-portugal" className="hover:text-secondary-foreground transition-colors">Nearshore Portugal</Link></li>
             </ul>
           </div>
 
@@ -30,7 +26,7 @@ const Footer = () => {
             <h4 className="text-xs font-bold font-display uppercase tracking-[0.15em] text-secondary-foreground/30">Company</h4>
             <ul className="space-y-2.5 text-[13px] text-secondary-foreground/50">
               <li><Link to="/about" className="hover:text-secondary-foreground transition-colors">About</Link></li>
-              <li><button onClick={() => scrollTo("#industries")} className="hover:text-secondary-foreground transition-colors">Industries</button></li>
+              <li><Link to="/services" className="hover:text-secondary-foreground transition-colors">Services</Link></li>
               <li><Link to="/technologies" className="hover:text-secondary-foreground transition-colors">Technologies</Link></li>
               <li><Link to="/contact" className="hover:text-secondary-foreground transition-colors">Contact</Link></li>
             </ul>
