@@ -1,4 +1,5 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
 const ALLOWED_ORIGINS = [
   "https://komodo-consulting.lovable.app",
@@ -38,20 +39,42 @@ const MAX_FIELD_LENGTH = 500;
 const MAX_MESSAGE_LENGTH = 5000;
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-// In-memory rate limiter (best-effort per instance)
-const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
 const RATE_LIMIT_MAX = 5;
-const RATE_LIMIT_WINDOW_MS = 15 * 60 * 1000;
+const RATE_LIMIT_WINDOW_MINUTES = 15;
 
-function isRateLimited(ip: string): boolean {
-  const now = Date.now();
-  const entry = rateLimitMap.get(ip);
-  if (!entry || now > entry.resetAt) {
-    rateLimitMap.set(ip, { count: 1, resetAt: now + RATE_LIMIT_WINDOW_MS });
-    return false;
+function getSupabaseAdmin() {
+  return createClient(
+    Deno.env.get("SUPABASE_URL")!,
+    Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!
+  );
+}
+
+async function isRateLimited(ip: string): Promise<boolean> {
+  const supabaseAdmin = getSupabaseAdmin();
+  const windowStart = new Date(Date.now() - RATE_LIMIT_WINDOW_MINUTES * 60 * 1000).toISOString();
+
+  // Count recent submissions from this IP
+  const { count, error } = await supabaseAdmin
+    .from("contact_rate_limit")
+    .select("*", { count: "exact", head: true })
+    .eq("client_ip", ip)
+    .gte("created_at", windowStart);
+
+  if (error) {
+    console.error("Rate limit check error:", error);
+    return false; // fail open to not block legitimate users
   }
-  entry.count++;
-  return entry.count > RATE_LIMIT_MAX;
+
+  return (count ?? 0) >= RATE_LIMIT_MAX;
+}
+
+async function recordSubmission(ip: string): Promise<void> {
+  const supabaseAdmin = getSupabaseAdmin();
+  await supabaseAdmin.from("contact_rate_limit").insert({ client_ip: ip });
+
+  // Clean up old entries (older than the window)
+  const windowStart = new Date(Date.now() - RATE_LIMIT_WINDOW_MINUTES * 60 * 1000).toISOString();
+  await supabaseAdmin.from("contact_rate_limit").delete().lt("created_at", windowStart);
 }
 
 function truncate(str: string | undefined | null, max: number): string {
@@ -76,7 +99,7 @@ serve(async (req) => {
   }
 
   const clientIp = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
-  if (isRateLimited(clientIp)) {
+  if (await isRateLimited(clientIp)) {
     return new Response(
       JSON.stringify({ error: "Too many requests. Please try again later." }),
       { status: 429, headers: { ...corsHeaders, "Content-Type": "application/json" } }
@@ -244,6 +267,9 @@ serve(async (req) => {
       console.error("Resend error:", resendData);
       throw new Error("Failed to send email");
     }
+
+    // Record successful submission for rate limiting
+    await recordSubmission(clientIp);
 
     return new Response(
       JSON.stringify({ success: true }),
