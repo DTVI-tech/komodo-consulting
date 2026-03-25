@@ -99,7 +99,7 @@ serve(async (req) => {
   }
 
   const clientIp = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
-  if (isRateLimited(clientIp)) {
+  if (await isRateLimited(clientIp)) {
     return new Response(
       JSON.stringify({ error: "Too many requests. Please try again later." }),
       { status: 429, headers: { ...corsHeaders, "Content-Type": "application/json" } }
