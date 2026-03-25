@@ -1,10 +1,20 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 
-const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers":
-    "authorization, x-client-info, apikey, content-type",
-};
+const ALLOWED_ORIGINS = [
+  "https://komodo-consulting.lovable.app",
+  "https://www.komodo-consulting.pt",
+  "https://komodo-consulting.pt",
+];
+
+function getCorsHeaders(req: Request) {
+  const origin = req.headers.get("origin") || "";
+  const allowedOrigin = ALLOWED_ORIGINS.includes(origin) ? origin : ALLOWED_ORIGINS[0];
+  return {
+    "Access-Control-Allow-Origin": allowedOrigin,
+    "Access-Control-Allow-Headers":
+      "authorization, x-client-info, apikey, content-type",
+  };
+}
 
 interface ContactFormData {
   inquiryType: string | null;
@@ -17,7 +27,18 @@ interface ContactFormData {
   message: string;
 }
 
-// Simple in-memory rate limiter: max 5 requests per IP per 15 minutes
+const ALLOWED_INQUIRY_TYPES: Record<string, string> = {
+  "staff-aug": "Staff Augmentation",
+  "dedicated-team": "Dedicated Team",
+  "project": "Nearshore Project",
+  "consulting": "Consulting",
+};
+
+const MAX_FIELD_LENGTH = 500;
+const MAX_MESSAGE_LENGTH = 5000;
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+// In-memory rate limiter (best-effort per instance)
 const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
 const RATE_LIMIT_MAX = 5;
 const RATE_LIMIT_WINDOW_MS = 15 * 60 * 1000;
@@ -33,12 +54,27 @@ function isRateLimited(ip: string): boolean {
   return entry.count > RATE_LIMIT_MAX;
 }
 
+function truncate(str: string | undefined | null, max: number): string {
+  if (!str) return "";
+  return str.length > max ? str.slice(0, max) : str;
+}
+
+function isValidUrl(url: string): boolean {
+  try {
+    const parsed = new URL(url);
+    return ["http:", "https:"].includes(parsed.protocol);
+  } catch {
+    return false;
+  }
+}
+
 serve(async (req) => {
+  const corsHeaders = getCorsHeaders(req);
+
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
   }
 
-  // Rate limiting
   const clientIp = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
   if (isRateLimited(clientIp)) {
     return new Response(
@@ -55,29 +91,59 @@ serve(async (req) => {
 
     const data: ContactFormData = await req.json();
 
-    // Validate required fields
-    if (!data.name?.trim() || !data.email?.trim()) {
+    // --- Server-side validation ---
+    const name = truncate(data.name?.trim(), MAX_FIELD_LENGTH);
+    const email = truncate(data.email?.trim(), 255);
+    const company = truncate(data.company?.trim(), MAX_FIELD_LENGTH);
+    const country = truncate(data.country?.trim(), MAX_FIELD_LENGTH);
+    const teamSize = truncate(data.teamSize?.trim(), MAX_FIELD_LENGTH);
+    const startDate = truncate(data.startDate?.trim(), MAX_FIELD_LENGTH);
+    const message = truncate(data.message?.trim(), MAX_MESSAGE_LENGTH);
+
+    if (!name || !email) {
       return new Response(
         JSON.stringify({ error: "Name and email are required" }),
         { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
 
+    if (!EMAIL_REGEX.test(email)) {
+      return new Response(
+        JSON.stringify({ error: "Invalid email address" }),
+        { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
+
+    // Validate company URL scheme if provided
+    if (company && !isValidUrl(company) && !isValidUrl(`https://${company}`)) {
+      return new Response(
+        JSON.stringify({ error: "Invalid company website URL" }),
+        { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
+
+    // Normalize company URL for safe href
+    let safeCompanyUrl = "";
+    if (company) {
+      safeCompanyUrl = isValidUrl(company) ? company : `https://${company}`;
+    }
+
+    // Validate inquiry type
+    if (data.inquiryType && !ALLOWED_INQUIRY_TYPES[data.inquiryType]) {
+      return new Response(
+        JSON.stringify({ error: "Invalid inquiry type" }),
+        { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
+    const inquiryLabel = data.inquiryType
+      ? ALLOWED_INQUIRY_TYPES[data.inquiryType]
+      : "Not specified";
+
     const timestamp = new Date().toLocaleString("en-GB", {
       timeZone: "Europe/Lisbon",
       dateStyle: "full",
       timeStyle: "short",
     });
-
-    const allowedInquiryTypes: Record<string, string> = {
-      "staff-aug": "Staff Augmentation",
-      "dedicated-team": "Dedicated Team",
-      "project": "Nearshore Project",
-      "consulting": "Consulting",
-    };
-    const inquiryLabel = data.inquiryType
-      ? allowedInquiryTypes[data.inquiryType] ?? escapeHtml(data.inquiryType)
-      : "Not specified";
 
     const htmlBody = `
 <!DOCTYPE html>
@@ -113,38 +179,38 @@ serve(async (req) => {
         <div class="grid">
           <div class="field">
             <div class="field-label">Name</div>
-            <div class="field-value">${escapeHtml(data.name)}</div>
+            <div class="field-value">${escapeHtml(name)}</div>
           </div>
           <div class="field">
             <div class="field-label">Work Email</div>
-            <div class="field-value"><a href="mailto:${escapeHtml(data.email)}" style="color: #3b82f6;">${escapeHtml(data.email)}</a></div>
+            <div class="field-value"><a href="mailto:${escapeHtml(email)}" style="color: #3b82f6;">${escapeHtml(email)}</a></div>
           </div>
         </div>
         <div class="grid">
           <div class="field">
             <div class="field-label">Company's Website</div>
-            <div class="field-value">${data.company?.trim() ? `<a href="${escapeHtml(data.company)}" style="color: #3b82f6;">${escapeHtml(data.company)}</a>` : "—"}</div>
+            <div class="field-value">${safeCompanyUrl ? `<a href="${escapeHtml(safeCompanyUrl)}" style="color: #3b82f6;">${escapeHtml(company)}</a>` : "—"}</div>
           </div>
           <div class="field">
             <div class="field-label">Country</div>
-            <div class="field-value">${escapeHtml(data.country) || "—"}</div>
+            <div class="field-value">${escapeHtml(country) || "—"}</div>
           </div>
         </div>
         <div class="grid">
           <div class="field">
             <div class="field-label">Team Size / Roles</div>
-            <div class="field-value">${escapeHtml(data.teamSize) || "—"}</div>
+            <div class="field-value">${escapeHtml(teamSize) || "—"}</div>
           </div>
           <div class="field">
             <div class="field-label">Desired Start</div>
-            <div class="field-value">${escapeHtml(data.startDate) || "—"}</div>
+            <div class="field-value">${escapeHtml(startDate) || "—"}</div>
           </div>
         </div>
-        ${data.message?.trim() ? `
+        ${message ? `
         <div class="field">
           <div class="field-label">Message</div>
           <div class="message-box">
-            <div class="field-value">${escapeHtml(data.message).replace(/\n/g, "<br>")}</div>
+            <div class="field-value">${escapeHtml(message).replace(/\n/g, "<br>")}</div>
           </div>
         </div>
         ` : ""}
@@ -168,7 +234,7 @@ serve(async (req) => {
         to: ["paulo.bartolomeu@komodo-consulting.pt"],
         subject: "New Komodo Consulting website inquiry",
         html: htmlBody,
-        reply_to: data.email,
+        reply_to: email,
       }),
     });
 
@@ -176,7 +242,7 @@ serve(async (req) => {
 
     if (!resendRes.ok) {
       console.error("Resend error:", resendData);
-      throw new Error(resendData.message || "Failed to send email");
+      throw new Error("Failed to send email");
     }
 
     return new Response(
