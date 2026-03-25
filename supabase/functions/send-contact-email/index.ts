@@ -268,6 +268,9 @@ serve(async (req) => {
       throw new Error("Failed to send email");
     }
 
+    // Record successful submission for rate limiting
+    await recordSubmission(clientIp);
+
     return new Response(
       JSON.stringify({ success: true }),
       { headers: { ...corsHeaders, "Content-Type": "application/json" } }
