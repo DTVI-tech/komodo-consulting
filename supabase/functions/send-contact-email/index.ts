@@ -44,13 +44,14 @@ serve(async (req) => {
       timeStyle: "short",
     });
 
+    const allowedInquiryTypes: Record<string, string> = {
+      "staff-aug": "Staff Augmentation",
+      "dedicated-team": "Dedicated Team",
+      "project": "Nearshore Project",
+      "consulting": "Consulting",
+    };
     const inquiryLabel = data.inquiryType
-      ? {
-          "staff-aug": "Staff Augmentation",
-          "dedicated-team": "Dedicated Team",
-          "project": "Nearshore Project",
-          "consulting": "Consulting",
-        }[data.inquiryType] || data.inquiryType
+      ? allowedInquiryTypes[data.inquiryType] ?? escapeHtml(data.inquiryType)
       : "Not specified";
 
     const htmlBody = `
@@ -158,9 +159,9 @@ serve(async (req) => {
       { headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );
   } catch (error) {
-    console.error("Error:", error);
+    console.error("Contact form error:", error);
     return new Response(
-      JSON.stringify({ error: error.message || "Failed to send inquiry" }),
+      JSON.stringify({ error: "Failed to send inquiry. Please try again later." }),
       { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );
   }
