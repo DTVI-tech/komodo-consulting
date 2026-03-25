@@ -98,12 +98,8 @@ serve(async (req) => {
     return new Response(null, { headers: corsHeaders });
   }
 
-  // Prefer Cloudflare's verified real-IP header (cannot be spoofed by clients)
-  const clientIp =
-    req.headers.get("cf-connecting-ip") ||
-    req.headers.get("x-real-ip") ||
-    req.headers.get("x-forwarded-for")?.split(",").pop()?.trim() ||
-    "unknown";
+  // Only trust Cloudflare's verified header; treat all other traffic as one bucket
+  const clientIp = req.headers.get("cf-connecting-ip") || "direct";
   if (await isRateLimited(clientIp)) {
     return new Response(
       JSON.stringify({ error: "Too many requests. Please try again later." }),
