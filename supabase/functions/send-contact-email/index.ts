@@ -98,8 +98,12 @@ serve(async (req) => {
     return new Response(null, { headers: corsHeaders });
   }
 
-  // Only trust Cloudflare's verified header; treat all other traffic as one bucket
-  const clientIp = req.headers.get("cf-connecting-ip") || "direct";
+  // Trust Cloudflare's verified header first; fall back to the last
+  // x-forwarded-for entry (appended by the infrastructure proxy, not client-controlled)
+  const clientIp =
+    req.headers.get("cf-connecting-ip") ||
+    req.headers.get("x-forwarded-for")?.split(",").pop()?.trim() ||
+    "direct";
   if (await isRateLimited(clientIp)) {
     return new Response(
       JSON.stringify({ error: "Too many requests. Please try again later." }),
