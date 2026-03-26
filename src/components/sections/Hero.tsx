@@ -97,7 +97,7 @@ const Hero = () => {
 
           {/* Right — image placeholder (visible on mobile too, smaller) */}
           <div className="flex flex-1 justify-center lg:justify-end mt-16 lg:mt-0">
-            <HeroImagePlaceholder />
+            <HeroImage />
           </div>
         </div>
       </div>
