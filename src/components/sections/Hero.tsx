@@ -2,54 +2,28 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import heroImage from "@/assets/hero-image.jpg";
 
-const HeroImagePlaceholder = () => (
+const HeroImage = () => (
   <motion.div
     initial={{ opacity: 0, scale: 0.96 }}
     animate={{ opacity: 1, scale: 1 }}
     transition={{ duration: 0.9, delay: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
     className="relative w-full aspect-square sm:aspect-[4/3] lg:aspect-[3/4] xl:aspect-square max-w-[400px] sm:max-w-[520px] mx-auto lg:mx-0"
   >
-    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-secondary/[0.03] to-primary/[0.06] border border-border/60 overflow-hidden">
-      {/* Grid texture */}
-      <div
-        className="absolute inset-0 opacity-[0.035]"
-        style={{
-          backgroundImage:
-            "linear-gradient(hsl(var(--primary)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)",
-          backgroundSize: "40px 40px",
-        }}
+    <div className="absolute inset-0 rounded-2xl border border-border/60 overflow-hidden">
+      <img
+        src={heroImage}
+        alt="Technology team collaborating on digital solutions"
+        className="absolute inset-0 w-full h-full object-cover"
+        loading="eager"
       />
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.04] via-transparent to-accent/[0.06]" />
-
-      {/* Abstract interface blocks */}
-      <div className="absolute top-8 left-8 right-8 h-3 rounded-full bg-primary/[0.06]" />
-      <div className="absolute top-14 left-8 w-[60%] h-3 rounded-full bg-accent/[0.05]" />
-      <div className="absolute top-20 left-8 w-[40%] h-3 rounded-full bg-primary/[0.04]" />
-
-      {/* Geometric composition */}
-      <div className="absolute top-[35%] left-[15%] w-16 h-16 rounded-xl border border-primary/10 rotate-12" />
-      <div className="absolute top-[38%] left-[18%] w-16 h-16 rounded-xl border border-accent/[0.07] rotate-12" />
-      <div className="absolute bottom-[20%] right-[15%] w-24 h-24 rounded-full border border-primary/[0.08]" />
-      <div className="absolute bottom-[22%] right-[17%] w-20 h-20 rounded-full border border-accent/[0.06]" />
-      <div className="absolute bottom-[26%] right-[21%] w-3 h-3 rounded-full bg-primary/20" />
-
-      {/* Floating dot grid */}
-      <div className="absolute bottom-8 left-8 grid grid-cols-4 gap-2">
-        {Array.from({ length: 12 }).map((_, i) => (
-          <div key={i} className="w-1.5 h-1.5 rounded-full bg-primary/[0.08]" />
-        ))}
-      </div>
-
-      {/* Accent lines */}
-      <div className="absolute top-[50%] left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/[0.06] to-transparent" />
-      <div className="absolute top-[70%] left-0 w-full h-px bg-gradient-to-r from-transparent via-accent/[0.05] to-transparent" />
-
-      {/* Corner glows */}
-      <div className="absolute -bottom-12 -right-12 w-48 h-48 rounded-full bg-primary/[0.06] blur-3xl" />
-      <div className="absolute -top-8 -left-8 w-32 h-32 rounded-full bg-accent/[0.04] blur-2xl" />
+      {/* Subtle overlay for polish */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.08] via-transparent to-secondary/[0.12]" />
+      {/* Bottom fade */}
+      <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-background/20 to-transparent" />
     </div>
-    <div className="absolute -inset-px rounded-2xl border border-primary/[0.04]" />
+    <div className="absolute -inset-px rounded-2xl border border-primary/[0.06]" />
   </motion.div>
 );
 
