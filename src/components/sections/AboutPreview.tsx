@@ -51,7 +51,7 @@ const AboutPreview = () => (
 
           {/* Culture placeholder on desktop */}
           <div className="hidden lg:block">
-            <CulturePlaceholder />
+            <AboutImage />
           </div>
         </motion.div>
 
@@ -77,7 +77,7 @@ const AboutPreview = () => (
 
           {/* Culture placeholder on mobile */}
           <div className="lg:hidden mt-6">
-            <CulturePlaceholder />
+            <AboutImage />
           </div>
         </div>
       </div>
