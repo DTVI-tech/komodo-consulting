@@ -65,7 +65,7 @@ const FinalCTA = () => {
           </div>
 
           {/* Contact interface placeholder */}
-          <ContactPlaceholder />
+          <CTAImage />
         </motion.div>
       </div>
     </section>
