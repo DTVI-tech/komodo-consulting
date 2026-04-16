@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
-import { Clock, GraduationCap, MessageCircle, TrendingDown, MapPin } from "lucide-react";
+import { Clock, GraduationCap, MessageCircle, TrendingDown, MapPin, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 const reasons = [
   {
@@ -118,6 +120,12 @@ const WhyPortugal = () => (
             <MapPin className="h-4 w-4 text-accent" />
             <span className="text-sm font-medium text-secondary-foreground/70">Lisbon · Porto · Remote</span>
           </div>
+
+          <Button variant="outlineDark" className="mt-2" asChild>
+            <Link to="/nearshore-portugal">
+              Explore Nearshore <ArrowRight className="ml-1 h-4 w-4" />
+            </Link>
+          </Button>
 
           {/* Map placeholder */}
           <div className="hidden lg:block">
