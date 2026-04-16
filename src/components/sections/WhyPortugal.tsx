@@ -121,6 +121,12 @@ const WhyPortugal = () => (
             <span className="text-sm font-medium text-secondary-foreground/70">Lisbon · Porto · Remote</span>
           </div>
 
+          <Button variant="outlineDark" className="mt-2" asChild>
+            <Link to="/nearshore-portugal">
+              Explore Nearshore <ArrowRight className="ml-1 h-4 w-4" />
+            </Link>
+          </Button>
+
           {/* Map placeholder */}
           <div className="hidden lg:block">
             <MapPlaceholder />
