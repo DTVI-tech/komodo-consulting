@@ -121,11 +121,6 @@ const WhyPortugal = () => (
             <span className="text-sm font-medium text-secondary-foreground/70">Lisbon · Porto · Remote</span>
           </div>
 
-          <Button variant="outlineDark" className="mt-2" asChild>
-            <Link to="/nearshore-portugal">
-              Explore Nearshore <ArrowRight className="ml-1 h-4 w-4" />
-            </Link>
-          </Button>
 
           {/* Map placeholder */}
           <div className="hidden lg:block">
@@ -153,6 +148,15 @@ const WhyPortugal = () => (
                 </div>
               </motion.div>
             ))}
+          </div>
+
+          {/* CTA */}
+          <div className="flex justify-start mt-2">
+            <Button variant="outlineDark" asChild>
+              <Link to="/nearshore-portugal">
+                Explore Nearshore <ArrowRight className="ml-1 h-4 w-4" />
+              </Link>
+            </Button>
           </div>
 
           {/* Mobile map */}
