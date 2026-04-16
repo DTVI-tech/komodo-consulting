@@ -108,7 +108,7 @@ const WhyPortugal = () => (
         >
           <span className="section-label !text-accent">Nearshore Delivery</span>
           <h2 className="text-3xl md:text-[2.75rem] md:leading-[1.15] font-display font-bold tracking-tight mb-6">
-            Considering nearshore? Why Portugal stands out
+            Considering Nearshore? Why Portugal stands out
           </h2>
           <p className="text-secondary-foreground/60 leading-relaxed max-w-lg text-base mb-8">
             For companies evaluating nearshore delivery models, Portugal offers a compelling mix of technical talent, business compatibility, and time-zone alignment — one of the reasons many organisations choose it as a base for outsourced technology teams.
