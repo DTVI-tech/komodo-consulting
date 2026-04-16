@@ -151,7 +151,7 @@ const WhyPortugal = () => (
           </div>
 
           {/* CTA */}
-          <div className="flex justify-start mt-6">
+          <div className="flex justify-start mt-12">
             <Button variant="outlineDark" asChild>
               <Link to="/nearshore-portugal">
                 Explore Nearshore <ArrowRight className="ml-1 h-4 w-4" />
