@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
-import { Clock, GraduationCap, MessageCircle, TrendingDown, MapPin } from "lucide-react";
+import { Clock, GraduationCap, MessageCircle, TrendingDown, MapPin, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 const reasons = [
   {
