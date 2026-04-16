@@ -121,7 +121,11 @@ const WhyPortugal = () => (
             <span className="text-sm font-medium text-secondary-foreground/70">Lisbon · Porto · Remote</span>
           </div>
 
-          
+          <Button variant="outlineDark" className="mt-2" asChild>
+            <Link to="/nearshore-portugal">
+              Explore Nearshore <ArrowRight className="ml-1 h-4 w-4" />
+            </Link>
+          </Button>
 
           {/* Map placeholder */}
           <div className="hidden lg:block">
@@ -129,7 +133,7 @@ const WhyPortugal = () => (
           </div>
         </motion.div>
 
-        <div>
+        <div className="space-y-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {reasons.map((reason, i) => (
               <motion.div
@@ -149,14 +153,6 @@ const WhyPortugal = () => (
                 </div>
               </motion.div>
             ))}
-          </div>
-
-          <div className="mt-5">
-            <Button variant="outline" className="border-accent/30 text-accent hover:bg-accent/10 hover:border-accent/50 bg-accent/[0.06] transition-all" asChild>
-              <Link to="/nearshore-portugal">
-                Explore Nearshore <ArrowRight className="ml-1.5 h-4 w-4" />
-              </Link>
-            </Button>
           </div>
 
           {/* Mobile map */}
