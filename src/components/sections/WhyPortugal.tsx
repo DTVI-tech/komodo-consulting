@@ -129,7 +129,7 @@ const WhyPortugal = () => (
           </div>
         </motion.div>
 
-        <div className="space-y-4">
+        <div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {reasons.map((reason, i) => (
               <motion.div
@@ -151,9 +151,8 @@ const WhyPortugal = () => (
             ))}
           </div>
 
-          {/* CTA below stat boxes */}
-          <div className="flex justify-start mt-6">
-            <Button variant="outline" className="border-accent/40 text-accent hover:bg-accent/10 hover:border-accent/60 transition-all" asChild>
+          <div className="mt-5">
+            <Button variant="outline" className="border-accent/30 text-accent hover:bg-accent/10 hover:border-accent/50 bg-accent/[0.06] transition-all" asChild>
               <Link to="/nearshore-portugal">
                 Explore Nearshore <ArrowRight className="ml-1.5 h-4 w-4" />
               </Link>
