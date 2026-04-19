@@ -20,6 +20,10 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import PageShell from "@/components/PageShell";
+import aboutHero from "@/assets/about-hero.jpg";
+import aboutStory from "@/assets/about-story.jpg";
+import aboutDelivery from "@/assets/about-delivery.jpg";
+import aboutMap from "@/assets/about-map.jpg";
 
 /* ─── Fade-in wrapper ─── */
 const Reveal = ({
@@ -121,39 +125,14 @@ const HeroVisual = () => (
     transition={{ duration: 0.9, delay: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
     className="relative w-full aspect-square sm:aspect-[4/3] lg:aspect-[3/4] xl:aspect-square max-w-[400px] sm:max-w-[480px] mx-auto lg:mx-0"
   >
-    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/[0.06] to-accent/[0.04] border border-secondary-foreground/[0.08] overflow-hidden">
-      <div
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage:
-            "linear-gradient(hsl(0 0% 100%) 1px, transparent 1px), linear-gradient(90deg, hsl(0 0% 100%) 1px, transparent 1px)",
-          backgroundSize: "36px 36px",
-        }}
+    <div className="absolute inset-0 rounded-2xl border border-secondary-foreground/[0.08] overflow-hidden">
+      <img
+        src={aboutHero}
+        alt="Komodo Consulting team collaborating on code"
+        className="w-full h-full object-cover"
+        loading="eager"
       />
-      {/* Abstract geometric composition */}
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div className="relative">
-          <div className="w-24 h-24 rounded-2xl bg-gradient-to-br from-primary/[0.12] to-accent/[0.08] border border-primary/[0.1] flex items-center justify-center rotate-3">
-            <div className="w-10 h-10 rounded-xl bg-primary/15 -rotate-3" />
-          </div>
-          {[
-            { top: "-52px", left: "-64px", size: "w-12 h-12", rotate: "-6deg" },
-            { top: "-56px", left: "64px", size: "w-8 h-8", rotate: "12deg" },
-            { top: "60px", left: "-68px", size: "w-9 h-9", rotate: "-3deg" },
-            { top: "56px", left: "62px", size: "w-7 h-7", rotate: "8deg" },
-            { top: "2px", left: "-96px", size: "w-7 h-7", rotate: "-10deg" },
-            { top: "2px", left: "94px", size: "w-8 h-8", rotate: "5deg" },
-          ].map((node, i) => (
-            <div
-              key={i}
-              className={`absolute ${node.size} rounded-lg border border-primary/[0.06] bg-primary/[0.03]`}
-              style={{ top: node.top, left: node.left, transform: `rotate(${node.rotate})` }}
-            />
-          ))}
-        </div>
-      </div>
-      <div className="absolute -bottom-12 -right-12 w-40 h-40 rounded-full bg-primary/[0.06] blur-3xl" />
-      <div className="absolute -top-8 -left-8 w-32 h-32 rounded-full bg-accent/[0.04] blur-2xl" />
+      <div className="absolute inset-0 bg-gradient-to-t from-secondary/40 via-transparent to-transparent" />
     </div>
   </motion.div>
 );
