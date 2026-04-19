@@ -414,33 +414,11 @@ const Contact = () => {
                 ))}
               </div>
 
-              {/* Markets served */}
-              <div className="mb-10">
-                <h4 className="text-sm font-display font-bold text-foreground mb-4 flex items-center gap-2">
-                  <Globe className="h-4 w-4 text-primary" />
-                  Markets We Serve
-                </h4>
-                {markets.map((m) => (
-                  <div key={m.region} className="mb-3 last:mb-0">
-                    <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1.5">
-                      {m.region}
-                    </p>
-                    <div className="flex flex-wrap gap-1.5">
-                      {m.locations.map((loc) => (
-                        <span
-                          key={loc}
-                          className="text-xs px-2.5 py-1 rounded-md bg-muted text-muted-foreground border border-border"
-                        >
-                          {loc}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Map placeholder */}
-              <div className="rounded-xl border border-border bg-muted/50 h-44 flex items-center justify-center overflow-hidden relative">
+              {/* Image placeholder */}
+              <div
+                className="rounded-xl border border-border bg-muted/50 aspect-[4/3] w-full overflow-hidden relative"
+                aria-hidden="true"
+              >
                 <div
                   className="absolute inset-0 opacity-[0.03]"
                   style={{
@@ -449,11 +427,6 @@ const Contact = () => {
                     backgroundSize: "12px 12px",
                   }}
                 />
-                <div className="relative text-center">
-                  <MapPin className="h-6 w-6 text-primary/30 mx-auto mb-2" />
-                  <p className="text-xs text-muted-foreground font-medium">Lisbon, Portugal</p>
-                  <p className="text-[10px] text-muted-foreground/60 mt-0.5">Operating across Europe</p>
-                </div>
               </div>
             </motion.div>
           </div>
