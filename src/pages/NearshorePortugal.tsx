@@ -25,6 +25,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import PageShell from "@/components/PageShell";
+import nearshoreHero from "@/assets/nearshore-hero.jpg";
 
 /* ─── Hero ─── */
 
@@ -35,55 +36,29 @@ const HeroVisual = () => (
     transition={{ duration: 0.9, delay: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
     className="relative w-full aspect-square sm:aspect-[4/3] lg:aspect-[3/4] xl:aspect-square max-w-[400px] sm:max-w-[480px] mx-auto lg:mx-0"
   >
-    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-accent/[0.06] to-primary/[0.04] border border-border/60 overflow-hidden">
-      {/* Grid texture */}
-      <div
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage:
-            "linear-gradient(hsl(var(--primary)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)",
-          backgroundSize: "40px 40px",
-        }}
+    <div className="absolute inset-0 rounded-2xl border border-border/60 overflow-hidden">
+      <img
+        src={nearshoreHero}
+        alt="Nearshore software development team collaborating in Portugal"
+        className="absolute inset-0 w-full h-full object-cover"
+        loading="eager"
       />
-
-      {/* Abstract Europe shapes */}
-      <div className="absolute top-[12%] left-[15%] w-[55%] h-[50%]">
-        <div className="absolute top-0 left-[15%] w-[65%] h-[45%] rounded-[40%] border border-primary/[0.06] bg-primary/[0.02]" />
-        <div className="absolute top-[20%] left-[5%] w-[40%] h-[55%] rounded-[30%] border border-primary/[0.05] bg-primary/[0.015]" />
-        <div className="absolute top-[30%] right-0 w-[35%] h-[40%] rounded-[35%] border border-primary/[0.04] bg-primary/[0.01]" />
-      </div>
-
-      {/* Portugal pin */}
-      <div className="absolute top-[42%] left-[22%] flex flex-col items-center z-10">
-        <div className="w-5 h-5 rounded-full bg-accent/40 animate-pulse" />
-        <div className="w-2.5 h-2.5 rounded-full bg-accent mt-[-4px]" />
-        <span className="mt-2 text-[10px] font-bold text-accent tracking-wider uppercase">Portugal</span>
-      </div>
-
-      {/* Connection lines */}
-      <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 400 400">
-        <line x1="100" y1="180" x2="200" y2="100" stroke="hsl(var(--accent))" strokeWidth="0.6" strokeDasharray="4 4" opacity="0.2" />
-        <line x1="100" y1="180" x2="280" y2="140" stroke="hsl(var(--accent))" strokeWidth="0.6" strokeDasharray="4 4" opacity="0.15" />
-        <line x1="100" y1="180" x2="320" y2="200" stroke="hsl(var(--accent))" strokeWidth="0.6" strokeDasharray="4 4" opacity="0.12" />
-        <circle cx="200" cy="100" r="3" fill="hsl(var(--muted-foreground))" opacity="0.15" />
-        <circle cx="280" cy="140" r="3" fill="hsl(var(--muted-foreground))" opacity="0.12" />
-        <circle cx="320" cy="200" r="3" fill="hsl(var(--muted-foreground))" opacity="0.1" />
-      </svg>
+      <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent" />
 
       {/* Floating badges */}
-      <div className="absolute top-5 right-5 px-3 py-1.5 rounded-lg bg-primary/[0.06] border border-primary/[0.08]">
+      <div className="absolute top-5 right-5 px-3 py-1.5 rounded-lg bg-background/80 backdrop-blur-sm border border-border/60">
         <span className="text-[10px] font-bold text-primary">CET / WET</span>
       </div>
-      <div className="absolute bottom-5 left-5 px-3 py-1.5 rounded-lg bg-accent/[0.06] border border-accent/[0.08]">
+      <div className="absolute bottom-5 left-5 px-3 py-1.5 rounded-lg bg-background/80 backdrop-blur-sm border border-border/60">
         <span className="text-[10px] font-bold text-accent">EU · GDPR</span>
       </div>
-      <div className="absolute bottom-5 right-5 px-3 py-1.5 rounded-lg bg-primary/[0.06] border border-primary/[0.08]">
+      <div className="absolute bottom-5 right-5 px-3 py-1.5 rounded-lg bg-background/80 backdrop-blur-sm border border-border/60">
         <span className="text-[10px] font-bold text-primary">30–40% savings</span>
       </div>
 
       {/* Glows */}
-      <div className="absolute -bottom-12 -left-12 w-48 h-48 rounded-full bg-accent/[0.08] blur-3xl" />
-      <div className="absolute -top-8 -right-8 w-32 h-32 rounded-full bg-primary/[0.06] blur-2xl" />
+      <div className="absolute -bottom-12 -left-12 w-48 h-48 rounded-full bg-accent/[0.08] blur-3xl pointer-events-none" />
+      <div className="absolute -top-8 -right-8 w-32 h-32 rounded-full bg-primary/[0.06] blur-2xl pointer-events-none" />
     </div>
     <div className="absolute -inset-px rounded-2xl border border-primary/[0.04]" />
   </motion.div>
