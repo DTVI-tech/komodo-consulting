@@ -20,6 +20,8 @@ import SEOHead, { buildBreadcrumbs, buildServiceSchema, buildFAQSchema } from "@
 
 /* ─── Hero ─── */
 
+import servicesHero from "@/assets/services-hero.jpg";
+
 const HeroVisual = () => (
   <motion.div
     initial={{ opacity: 0, scale: 0.96 }}
@@ -27,42 +29,17 @@ const HeroVisual = () => (
     transition={{ duration: 0.9, delay: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
     className="relative w-full aspect-square sm:aspect-[4/3] lg:aspect-[3/4] xl:aspect-square max-w-[400px] sm:max-w-[480px] mx-auto lg:mx-0"
   >
-    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-secondary/[0.03] to-primary/[0.06] border border-border/60 overflow-hidden">
-      <div
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage:
-            "linear-gradient(hsl(var(--primary)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)",
-          backgroundSize: "40px 40px",
-        }}
+    <div className="absolute inset-0 rounded-2xl overflow-hidden border border-border/60 shadow-xl shadow-primary/[0.06]">
+      <img
+        src={servicesHero}
+        alt="Komodo Consulting team collaborating on a software delivery project"
+        loading="eager"
+        decoding="async"
+        className="absolute inset-0 w-full h-full object-cover"
       />
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.04] via-transparent to-accent/[0.06]" />
-
-      {/* Abstract service blocks */}
-      <div className="absolute top-[12%] left-[10%] right-[10%] space-y-3">
-        {[85, 65, 45, 75].map((w, i) => (
-          <div key={i} className="flex items-center gap-3">
-            <div className="w-5 h-5 rounded-md border border-primary/[0.08] bg-primary/[0.04] flex-shrink-0" />
-            <div className="h-2.5 rounded-full bg-primary/[0.05]" style={{ width: `${w}%` }} />
-          </div>
-        ))}
-      </div>
-
-      {/* Geometric accents */}
-      <div className="absolute bottom-[18%] right-[12%] w-20 h-20 rounded-full border border-accent/[0.08]" />
-      <div className="absolute bottom-[22%] right-[16%] w-12 h-12 rounded-full border border-primary/[0.06]" />
-      <div className="absolute bottom-[25%] right-[19%] w-3 h-3 rounded-full bg-primary/20" />
-
-      <div className="absolute bottom-8 left-8 grid grid-cols-5 gap-1.5">
-        {Array.from({ length: 15 }).map((_, i) => (
-          <div key={i} className="w-1.5 h-1.5 rounded-full bg-primary/[0.06]" />
-        ))}
-      </div>
-
-      <div className="absolute -bottom-12 -right-12 w-48 h-48 rounded-full bg-primary/[0.06] blur-3xl" />
-      <div className="absolute -top-8 -left-8 w-32 h-32 rounded-full bg-accent/[0.04] blur-2xl" />
+      <div className="absolute inset-0 bg-gradient-to-tr from-secondary/20 via-transparent to-primary/[0.08] pointer-events-none" />
     </div>
-    <div className="absolute -inset-px rounded-2xl border border-primary/[0.04]" />
+    <div className="absolute -inset-px rounded-2xl border border-primary/[0.04] pointer-events-none" />
   </motion.div>
 );
 
