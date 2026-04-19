@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Clock, GraduationCap, MessageCircle, TrendingDown, MapPin, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import portugalImage from "@/assets/portugal-lisbon.jpg";
 
 const reasons = [
   {
@@ -34,61 +35,23 @@ const reasons = [
   },
 ];
 
-/* Abstract map / infographic placeholder */
+/* Lisbon, Portugal visual */
 const MapPlaceholder = () => (
   <motion.div
     initial={{ opacity: 0, scale: 0.95 }}
     whileInView={{ opacity: 1, scale: 1 }}
     viewport={{ once: true }}
     transition={{ duration: 0.7, delay: 0.2 }}
-    className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden border border-secondary-foreground/[0.06] bg-secondary-foreground/[0.03]"
+    className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden border border-secondary-foreground/[0.08]"
   >
-    {/* Grid texture */}
-    <div
-      className="absolute inset-0 opacity-[0.025]"
-      style={{
-        backgroundImage:
-          "linear-gradient(hsl(var(--accent)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--accent)) 1px, transparent 1px)",
-        backgroundSize: "32px 32px",
-      }}
+    <img
+      src={portugalImage}
+      alt="Lisbon, Portugal — view of São Jorge Castle and the Tagus river"
+      className="absolute inset-0 w-full h-full object-cover"
+      loading="lazy"
     />
-
-    {/* Abstract Europe silhouette — geometric shapes */}
-    <div className="absolute top-[15%] left-[20%] w-[55%] h-[65%]">
-      {/* Simplified landmass shapes */}
-      <div className="absolute top-0 left-[20%] w-[60%] h-[40%] rounded-[40%] border border-secondary-foreground/[0.06] bg-secondary-foreground/[0.02]" />
-      <div className="absolute top-[25%] left-[10%] w-[45%] h-[50%] rounded-[30%] border border-secondary-foreground/[0.05] bg-secondary-foreground/[0.015]" />
-      <div className="absolute top-[35%] right-[5%] w-[35%] h-[35%] rounded-[35%] border border-secondary-foreground/[0.04] bg-secondary-foreground/[0.01]" />
-    </div>
-
-    {/* Portugal highlight pin */}
-    <div className="absolute top-[52%] left-[28%] flex flex-col items-center">
-      <div className="w-4 h-4 rounded-full bg-accent/40 animate-pulse" />
-      <div className="w-2 h-2 rounded-full bg-accent mt-[-3px]" />
-      <span className="mt-2 text-[10px] font-bold text-accent tracking-wider uppercase">Portugal</span>
-    </div>
-
-    {/* Connection lines to other regions */}
-    <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 400 300">
-      <line x1="120" y1="165" x2="220" y2="100" stroke="hsl(var(--accent))" strokeWidth="0.5" strokeDasharray="4 4" opacity="0.2" />
-      <line x1="120" y1="165" x2="300" y2="130" stroke="hsl(var(--accent))" strokeWidth="0.5" strokeDasharray="4 4" opacity="0.15" />
-      <line x1="120" y1="165" x2="350" y2="180" stroke="hsl(var(--accent))" strokeWidth="0.5" strokeDasharray="4 4" opacity="0.1" />
-      {/* Destination dots */}
-      <circle cx="220" cy="100" r="3" fill="hsl(var(--secondary-foreground))" opacity="0.15" />
-      <circle cx="300" cy="130" r="3" fill="hsl(var(--secondary-foreground))" opacity="0.12" />
-      <circle cx="350" cy="180" r="3" fill="hsl(var(--secondary-foreground))" opacity="0.1" />
-    </svg>
-
-    {/* Stat badges floating */}
-    <div className="absolute top-4 right-4 px-3 py-1.5 rounded-lg bg-secondary-foreground/[0.05] border border-secondary-foreground/[0.08]">
-      <span className="text-[10px] font-bold text-accent">CET/WET</span>
-    </div>
-    <div className="absolute bottom-4 left-4 px-3 py-1.5 rounded-lg bg-secondary-foreground/[0.05] border border-secondary-foreground/[0.08]">
-      <span className="text-[10px] font-bold text-accent">30-40% cost advantage</span>
-    </div>
-
-    {/* Corner glow */}
-    <div className="absolute -bottom-16 -left-16 w-48 h-48 rounded-full bg-accent/[0.08] blur-3xl" />
+    <div className="absolute inset-0 bg-gradient-to-t from-secondary/30 via-transparent to-transparent" />
+    <div className="absolute -bottom-16 -left-16 w-48 h-48 rounded-full bg-accent/[0.08] blur-3xl pointer-events-none" />
   </motion.div>
 );
 
