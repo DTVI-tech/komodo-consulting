@@ -96,7 +96,7 @@ const Hero = () => {
           </motion.div>
 
           {/* Right — image placeholder (visible on mobile too, smaller) */}
-          <div className="flex flex-1 justify-center lg:justify-end mt-16 lg:mt-0">
+          <div className="flex flex-1 justify-center lg:justify-end mt-10 sm:mt-12 lg:mt-0">
             <HeroImage />
           </div>
         </div>

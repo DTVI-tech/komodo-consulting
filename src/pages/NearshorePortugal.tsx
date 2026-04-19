@@ -34,7 +34,7 @@ const HeroVisual = () => (
     initial={{ opacity: 0, scale: 0.96 }}
     animate={{ opacity: 1, scale: 1 }}
     transition={{ duration: 0.9, delay: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-    className="relative w-full aspect-square sm:aspect-[4/3] lg:aspect-[3/4] xl:aspect-square max-w-[400px] sm:max-w-[480px] mx-auto lg:mx-0"
+    className="relative w-full aspect-[4/3] sm:aspect-[4/3] lg:aspect-[3/4] xl:aspect-square max-w-[320px] sm:max-w-[440px] lg:max-w-[480px] mx-auto lg:mx-0"
   >
     <div className="absolute inset-0 rounded-2xl border border-border/60 overflow-hidden">
       <img
