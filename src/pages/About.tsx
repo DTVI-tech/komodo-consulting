@@ -20,6 +20,10 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import PageShell from "@/components/PageShell";
+import aboutHero from "@/assets/about-hero.jpg";
+import aboutStory from "@/assets/about-story.jpg";
+import aboutDelivery from "@/assets/about-delivery.jpg";
+import aboutMap from "@/assets/about-map.jpg";
 
 /* ─── Fade-in wrapper ─── */
 const Reveal = ({
@@ -121,39 +125,14 @@ const HeroVisual = () => (
     transition={{ duration: 0.9, delay: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
     className="relative w-full aspect-square sm:aspect-[4/3] lg:aspect-[3/4] xl:aspect-square max-w-[400px] sm:max-w-[480px] mx-auto lg:mx-0"
   >
-    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/[0.06] to-accent/[0.04] border border-secondary-foreground/[0.08] overflow-hidden">
-      <div
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage:
-            "linear-gradient(hsl(0 0% 100%) 1px, transparent 1px), linear-gradient(90deg, hsl(0 0% 100%) 1px, transparent 1px)",
-          backgroundSize: "36px 36px",
-        }}
+    <div className="absolute inset-0 rounded-2xl border border-secondary-foreground/[0.08] overflow-hidden">
+      <img
+        src={aboutHero}
+        alt="Komodo Consulting team collaborating on code"
+        className="w-full h-full object-cover"
+        loading="eager"
       />
-      {/* Abstract geometric composition */}
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div className="relative">
-          <div className="w-24 h-24 rounded-2xl bg-gradient-to-br from-primary/[0.12] to-accent/[0.08] border border-primary/[0.1] flex items-center justify-center rotate-3">
-            <div className="w-10 h-10 rounded-xl bg-primary/15 -rotate-3" />
-          </div>
-          {[
-            { top: "-52px", left: "-64px", size: "w-12 h-12", rotate: "-6deg" },
-            { top: "-56px", left: "64px", size: "w-8 h-8", rotate: "12deg" },
-            { top: "60px", left: "-68px", size: "w-9 h-9", rotate: "-3deg" },
-            { top: "56px", left: "62px", size: "w-7 h-7", rotate: "8deg" },
-            { top: "2px", left: "-96px", size: "w-7 h-7", rotate: "-10deg" },
-            { top: "2px", left: "94px", size: "w-8 h-8", rotate: "5deg" },
-          ].map((node, i) => (
-            <div
-              key={i}
-              className={`absolute ${node.size} rounded-lg border border-primary/[0.06] bg-primary/[0.03]`}
-              style={{ top: node.top, left: node.left, transform: `rotate(${node.rotate})` }}
-            />
-          ))}
-        </div>
-      </div>
-      <div className="absolute -bottom-12 -right-12 w-40 h-40 rounded-full bg-primary/[0.06] blur-3xl" />
-      <div className="absolute -top-8 -left-8 w-32 h-32 rounded-full bg-accent/[0.04] blur-2xl" />
+      <div className="absolute inset-0 bg-gradient-to-t from-secondary/40 via-transparent to-transparent" />
     </div>
   </motion.div>
 );
@@ -243,37 +222,15 @@ const CompanyStory = () => (
           </div>
         </Reveal>
         <Reveal delay={0.15}>
-          <VisualPlaceholder aspect="4/3">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="relative">
-                <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-primary/[0.12] to-accent/[0.08] border border-primary/[0.1] flex items-center justify-center">
-                  <div className="w-8 h-8 rounded-lg bg-primary/20" />
-                </div>
-                {[
-                  { top: "-48px", left: "-60px", size: "w-10 h-10" },
-                  { top: "-52px", left: "60px", size: "w-7 h-7" },
-                  { top: "56px", left: "-65px", size: "w-8 h-8" },
-                  { top: "52px", left: "58px", size: "w-6 h-6" },
-                  { top: "0px", left: "-90px", size: "w-6 h-6" },
-                  { top: "0px", left: "88px", size: "w-7 h-7" },
-                ].map((node, i) => (
-                  <div
-                    key={i}
-                    className={`absolute ${node.size} rounded-lg border border-primary/[0.08] bg-primary/[0.04]`}
-                    style={{ top: node.top, left: node.left }}
-                  />
-                ))}
-              </div>
-            </div>
-            <svg className="absolute inset-0 w-full h-full pointer-events-none">
-              <line x1="50%" y1="50%" x2="35%" y2="32%" stroke="hsl(var(--primary))" strokeWidth="0.5" opacity="0.08" />
-              <line x1="50%" y1="50%" x2="65%" y2="30%" stroke="hsl(var(--primary))" strokeWidth="0.5" opacity="0.06" />
-              <line x1="50%" y1="50%" x2="32%" y2="65%" stroke="hsl(var(--accent))" strokeWidth="0.5" opacity="0.06" />
-              <line x1="50%" y1="50%" x2="66%" y2="64%" stroke="hsl(var(--accent))" strokeWidth="0.5" opacity="0.05" />
-            </svg>
-            <div className="absolute -bottom-12 -right-12 w-40 h-40 rounded-full bg-primary/[0.05] blur-3xl" />
-            <div className="absolute -top-8 -left-8 w-32 h-32 rounded-full bg-accent/[0.04] blur-2xl" />
-          </VisualPlaceholder>
+          <div className="relative w-full rounded-2xl overflow-hidden border border-border" style={{ aspectRatio: "4/3" }}>
+            <img
+              src={aboutStory}
+              alt="Komodo Consulting team working together"
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-background/10 to-transparent" />
+          </div>
         </Reveal>
       </div>
     </div>
@@ -383,18 +340,14 @@ const DeliveryPhilosophy = () => (
             Every partnership is built around predictability and operational rigour, so you can focus on your product while we handle execution.
           </p>
           {/* Process visual placeholder */}
-          <VisualPlaceholder aspect="16/9" className="max-w-sm">
-            <div className="absolute inset-0 flex items-center justify-center gap-3 px-8">
-              {[1, 2, 3, 4].map((step) => (
-                <div key={step} className="flex flex-col items-center gap-2 flex-1">
-                  <div className="w-8 h-8 rounded-full bg-primary/[0.08] border border-primary/[0.1] flex items-center justify-center">
-                    <span className="text-xs font-bold text-primary/40">{step}</span>
-                  </div>
-                  <div className="w-full h-px bg-primary/[0.06]" />
-                </div>
-              ))}
-            </div>
-          </VisualPlaceholder>
+          <div className="relative w-full rounded-2xl overflow-hidden border border-border max-w-sm" style={{ aspectRatio: "16/9" }}>
+            <img
+              src={aboutDelivery}
+              alt="Delivery principles illustration"
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
         </Reveal>
 
         <div className="lg:col-span-3 space-y-5">
@@ -505,41 +458,14 @@ const WhereWeOperate = () => (
 
         {/* Map placeholder */}
         <Reveal delay={0.15} className="hidden lg:block">
-          <DarkVisualPlaceholder aspect="1/1">
-            {/* Abstract geographic composition */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="relative w-[70%] h-[70%]">
-                {/* Abstract continent shapes */}
-                <div className="absolute top-[10%] left-[20%] w-[55%] h-[40%] rounded-[40%] border border-primary/[0.06] bg-primary/[0.02]" />
-                <div className="absolute top-[25%] left-[10%] w-[35%] h-[50%] rounded-[30%] border border-primary/[0.05] bg-primary/[0.015]" />
-                <div className="absolute top-[30%] right-[10%] w-[30%] h-[35%] rounded-[35%] border border-primary/[0.04] bg-primary/[0.01]" />
-                {/* Portugal pin */}
-                <div className="absolute top-[45%] left-[25%] flex flex-col items-center z-10">
-                  <div className="w-4 h-4 rounded-full bg-accent/40 animate-pulse" />
-                  <div className="w-2 h-2 rounded-full bg-accent mt-[-3px]" />
-                  <span className="mt-1.5 text-[9px] font-bold text-accent tracking-wider uppercase">PT</span>
-                </div>
-                {/* Connection lines */}
-                <svg className="absolute inset-0 w-full h-full pointer-events-none">
-                  <line x1="30%" y1="48%" x2="55%" y2="35%" stroke="hsl(var(--primary))" strokeWidth="0.5" opacity="0.08" strokeDasharray="4 4" />
-                  <line x1="30%" y1="48%" x2="70%" y2="45%" stroke="hsl(var(--accent))" strokeWidth="0.5" opacity="0.06" strokeDasharray="4 4" />
-                  <line x1="30%" y1="48%" x2="60%" y2="60%" stroke="hsl(var(--primary))" strokeWidth="0.5" opacity="0.06" strokeDasharray="4 4" />
-                </svg>
-                {/* Destination dots */}
-                {[
-                  { top: "33%", left: "53%", label: "EU" },
-                  { top: "43%", left: "68%", label: "UK" },
-                  { top: "58%", left: "58%", label: "US" },
-                ].map((dot, i) => (
-                  <div key={i} className="absolute flex flex-col items-center" style={{ top: dot.top, left: dot.left }}>
-                    <div className="w-2.5 h-2.5 rounded-full bg-primary/20 border border-primary/[0.15]" />
-                    <span className="mt-1 text-[8px] font-semibold text-secondary-foreground/30 tracking-wider">{dot.label}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="absolute -bottom-10 -right-10 w-36 h-36 rounded-full bg-primary/[0.04] blur-3xl" />
-          </DarkVisualPlaceholder>
+          <div className="relative w-full rounded-2xl overflow-hidden border border-secondary-foreground/[0.08]" style={{ aspectRatio: "1/1" }}>
+            <img
+              src={aboutMap}
+              alt="Portugal connecting to global markets"
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
         </Reveal>
       </div>
     </div>
