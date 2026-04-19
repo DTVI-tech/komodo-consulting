@@ -302,12 +302,13 @@ const Comparison = () => (
         </p>
       </motion.div>
 
+      {/* Desktop / tablet table */}
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.15 }}
-        className="rounded-xl border border-border bg-card overflow-hidden"
+        className="hidden md:block rounded-xl border border-border bg-card overflow-hidden"
       >
         {/* Header */}
         <div className="grid grid-cols-4 border-b border-border">
@@ -336,6 +337,43 @@ const Comparison = () => (
           </div>
         ))}
       </motion.div>
+
+      {/* Mobile stacked cards */}
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.15 }}
+        className="md:hidden space-y-4"
+      >
+        {[
+          { title: "Staff Augmentation", key: "aug" as const },
+          { title: "Dedicated Teams", key: "ded" as const },
+          { title: "Nearshore Portugal", key: "ns" as const },
+        ].map((col) => (
+          <div
+            key={col.title}
+            className="rounded-xl border border-border bg-card overflow-hidden"
+          >
+            <div className="px-5 py-4 border-b border-border bg-muted/30">
+              <span className="text-sm font-display font-bold text-foreground">{col.title}</span>
+            </div>
+            <dl className="divide-y divide-border">
+              {comparisonRows.map((row) => (
+                <div key={row.label} className="px-5 py-3.5 flex items-start justify-between gap-4">
+                  <dt className="text-xs font-semibold text-foreground/80 flex-shrink-0 max-w-[40%]">
+                    {row.label}
+                  </dt>
+                  <dd className="text-xs text-muted-foreground text-right leading-relaxed">
+                    {row[col.key]}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        ))}
+      </motion.div>
+
 
       <motion.p
         initial={{ opacity: 0 }}
