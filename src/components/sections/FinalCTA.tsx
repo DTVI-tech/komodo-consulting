@@ -11,7 +11,7 @@ const ContactPlaceholder = () => (
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ duration: 0.6, delay: 0.3 }}
-    className="mt-16 max-w-xl mx-auto relative"
+    className="mt-16 max-w-[16rem] sm:max-w-[20rem] md:max-w-xl mx-auto relative"
   >
     <div className="absolute inset-0 -z-10 bg-accent/[0.06] blur-3xl rounded-full" />
     <img

@@ -27,7 +27,7 @@ const HeroVisual = () => (
     initial={{ opacity: 0, scale: 0.96 }}
     animate={{ opacity: 1, scale: 1 }}
     transition={{ duration: 0.9, delay: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-    className="relative w-full aspect-[4/3] sm:aspect-[16/10] lg:aspect-[3/4] xl:aspect-square max-w-[320px] sm:max-w-[520px] lg:max-w-[480px] mx-auto sm:mx-0 lg:mx-0"
+    className="relative w-full aspect-[16/10] lg:aspect-[3/4] xl:aspect-square max-w-full sm:max-w-none lg:max-w-[480px] mx-auto sm:mx-0 lg:mx-0"
   >
     <div className="absolute inset-0 rounded-2xl overflow-hidden border border-border/60 shadow-xl shadow-primary/[0.06]">
       <img
@@ -98,16 +98,16 @@ const ServicesHero = () => {
               <Button
                 size="lg"
                 onClick={() => scrollTo("#service-models")}
-                className="text-base px-8 h-12 shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all"
+                className="w-full sm:w-auto text-base px-8 h-12 shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all"
               >
                 Explore Models
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
-              <Link to="/contact">
+              <Link to="/contact" className="w-full sm:w-auto">
                 <Button
                   size="lg"
                   variant="outline"
-                  className="text-base px-8 h-12"
+                  className="w-full sm:w-auto text-base px-8 h-12"
                 >
                   Request Talent
                 </Button>
