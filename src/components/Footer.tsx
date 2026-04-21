@@ -37,15 +37,13 @@ const Footer = () => {
             <ul className="space-y-2.5 text-[13px] text-secondary-foreground/50">
               <li><Link to="/consulting" className="hover:text-secondary-foreground transition-colors">Consulting</Link></li>
               <li><a href="https://komodo-consulting.careers-page.com/" target="_blank" rel="noopener noreferrer" className="hover:text-secondary-foreground transition-colors">Careers</a></li>
-              <li><a href="#" className="hover:text-secondary-foreground transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="hover:text-secondary-foreground transition-colors">Terms of Service</a></li>
+              <li><Link to="/contact" className="hover:text-secondary-foreground transition-colors">Contact</Link></li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-14 pt-6 border-t border-secondary-foreground/[0.06] flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="mt-14 pt-6 border-t border-secondary-foreground/[0.06] flex items-center justify-center md:justify-start gap-4">
           <p className="text-xs text-secondary-foreground/30">© {new Date().getFullYear()} Komodo Consulting. All rights reserved.</p>
-          <a href="#" className="text-xs text-secondary-foreground/30 hover:text-secondary-foreground transition-colors">LinkedIn</a>
         </div>
       </div>
     </footer>
