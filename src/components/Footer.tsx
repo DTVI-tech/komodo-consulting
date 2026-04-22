@@ -16,8 +16,8 @@ const Footer = () => {
           <div className="space-y-4">
             <h4 className="text-xs font-bold font-display uppercase tracking-[0.15em] text-secondary-foreground/30">Services</h4>
             <ul className="space-y-2.5 text-[13px] text-secondary-foreground/50">
-              <li><Link to="/services" className="hover:text-secondary-foreground transition-colors">Staff Augmentation</Link></li>
-              <li><Link to="/services" className="hover:text-secondary-foreground transition-colors">Dedicated Teams</Link></li>
+              <li><Link to="/services#staff-augmentation" className="hover:text-secondary-foreground transition-colors">Staff Augmentation</Link></li>
+              <li><Link to="/services#dedicated-teams" className="hover:text-secondary-foreground transition-colors">Dedicated Teams</Link></li>
               <li><Link to="/services/nearshore-portugal" className="hover:text-secondary-foreground transition-colors">Nearshore Portugal</Link></li>
             </ul>
           </div>
@@ -37,7 +37,6 @@ const Footer = () => {
             <ul className="space-y-2.5 text-[13px] text-secondary-foreground/50">
               <li><Link to="/consulting" className="hover:text-secondary-foreground transition-colors">Consulting</Link></li>
               <li><a href="https://komodo-consulting.careers-page.com/" target="_blank" rel="noopener noreferrer" className="hover:text-secondary-foreground transition-colors">Careers</a></li>
-              <li><Link to="/contact" className="hover:text-secondary-foreground transition-colors">Contact</Link></li>
             </ul>
           </div>
         </div>
