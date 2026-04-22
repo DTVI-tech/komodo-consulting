@@ -200,7 +200,8 @@ const ServiceModelCards = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: i * 0.08 }}
-            className="group relative bg-card rounded-xl border border-border p-8 md:p-10 hover:border-primary/20 hover:shadow-lg hover:shadow-primary/[0.04] transition-all duration-300 overflow-hidden"
+            id={service.slug}
+            className="group relative bg-card rounded-xl border border-border p-8 md:p-10 hover:border-primary/20 hover:shadow-lg hover:shadow-primary/[0.04] transition-all duration-300 overflow-hidden scroll-mt-28"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
