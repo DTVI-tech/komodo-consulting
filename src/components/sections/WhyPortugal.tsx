@@ -116,7 +116,7 @@ const WhyPortugal = () => (
           {/* CTA */}
           <div className="mt-8 flex justify-start">
             <Button variant="outlineDark" asChild>
-              <Link to="/nearshore-portugal">
+              <Link to="/services/nearshore-portugal">
                 Explore Nearshore <ArrowRight className="ml-1 h-4 w-4" />
               </Link>
             </Button>
