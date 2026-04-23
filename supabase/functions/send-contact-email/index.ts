@@ -190,6 +190,39 @@ serve(async (req) => {
       ? ALLOWED_INQUIRY_TYPES[data.inquiryType]
       : "Not specified";
 
+    // --- Privacy consent validation (mandatory, auditable) ---
+    if (data.privacyConsent !== true) {
+      return new Response(
+        JSON.stringify({ error: "Privacy Policy consent is required" }),
+        { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
+    const consentAtRaw = (data.privacyConsentAt ?? "").trim();
+    const consentAtDate = consentAtRaw ? new Date(consentAtRaw) : null;
+    if (!consentAtDate || isNaN(consentAtDate.getTime())) {
+      return new Response(
+        JSON.stringify({ error: "Invalid privacy consent timestamp" }),
+        { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
+    const consentSource = truncate(data.consentSource?.trim(), 100) || "contact_form";
+    if (!ALLOWED_CONSENT_SOURCES.has(consentSource)) {
+      return new Response(
+        JSON.stringify({ error: "Invalid consent source" }),
+        { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
+    const policyEffectiveDate = truncate(
+      data.privacyPolicyEffectiveDate?.trim() || CURRENT_PRIVACY_POLICY_EFFECTIVE_DATE,
+      32
+    );
+    const consentAtIso = consentAtDate.toISOString();
+    const consentAtDisplay = consentAtDate.toLocaleString("en-GB", {
+      timeZone: "Europe/Lisbon",
+      dateStyle: "full",
+      timeStyle: "long",
+    });
+
     const timestamp = new Date().toLocaleString("en-GB", {
       timeZone: "Europe/Lisbon",
       dateStyle: "full",
