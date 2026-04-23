@@ -267,7 +267,20 @@ const Contact = () => {
                   setIsSubmitting(true);
 
                   try {
-                    const payload = { inquiryType: selectedType, name, email, company: normalizeWebsite(company), country: selectedCountry, teamSize, startDate, message };
+                    const payload = {
+                      inquiryType: selectedType,
+                      name,
+                      email,
+                      company: normalizeWebsite(company),
+                      country: selectedCountry,
+                      teamSize,
+                      startDate,
+                      message,
+                      privacyConsent: true,
+                      privacyConsentAt: new Date().toISOString(),
+                      consentSource: "contact_form",
+                      privacyPolicyEffectiveDate: "2026-04-23",
+                    };
                     const { error } = await supabase.functions.invoke("send-contact-email", { body: payload });
                     if (error) throw error;
                     setIsSubmitted(true);
