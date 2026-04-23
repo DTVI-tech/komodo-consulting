@@ -42,7 +42,14 @@ interface ContactFormData {
   teamSize: string;
   startDate: string;
   message: string;
+  privacyConsent?: boolean;
+  privacyConsentAt?: string;
+  consentSource?: string;
+  privacyPolicyEffectiveDate?: string;
 }
+
+const CURRENT_PRIVACY_POLICY_EFFECTIVE_DATE = "2026-04-23";
+const ALLOWED_CONSENT_SOURCES = new Set(["contact_form"]);
 
 const ALLOWED_INQUIRY_TYPES: Record<string, string> = {
   "staff-aug": "Staff Augmentation",
