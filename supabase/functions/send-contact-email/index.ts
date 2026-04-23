@@ -42,7 +42,14 @@ interface ContactFormData {
   teamSize: string;
   startDate: string;
   message: string;
+  privacyConsent?: boolean;
+  privacyConsentAt?: string;
+  consentSource?: string;
+  privacyPolicyEffectiveDate?: string;
 }
+
+const CURRENT_PRIVACY_POLICY_EFFECTIVE_DATE = "2026-04-23";
+const ALLOWED_CONSENT_SOURCES = new Set(["contact_form"]);
 
 const ALLOWED_INQUIRY_TYPES: Record<string, string> = {
   "staff-aug": "Staff Augmentation",
@@ -183,6 +190,39 @@ serve(async (req) => {
       ? ALLOWED_INQUIRY_TYPES[data.inquiryType]
       : "Not specified";
 
+    // --- Privacy consent validation (mandatory, auditable) ---
+    if (data.privacyConsent !== true) {
+      return new Response(
+        JSON.stringify({ error: "Privacy Policy consent is required" }),
+        { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
+    const consentAtRaw = (data.privacyConsentAt ?? "").trim();
+    const consentAtDate = consentAtRaw ? new Date(consentAtRaw) : null;
+    if (!consentAtDate || isNaN(consentAtDate.getTime())) {
+      return new Response(
+        JSON.stringify({ error: "Invalid privacy consent timestamp" }),
+        { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
+    const consentSource = truncate(data.consentSource?.trim(), 100) || "contact_form";
+    if (!ALLOWED_CONSENT_SOURCES.has(consentSource)) {
+      return new Response(
+        JSON.stringify({ error: "Invalid consent source" }),
+        { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
+    const policyEffectiveDate = truncate(
+      data.privacyPolicyEffectiveDate?.trim() || CURRENT_PRIVACY_POLICY_EFFECTIVE_DATE,
+      32
+    );
+    const consentAtIso = consentAtDate.toISOString();
+    const consentAtDisplay = consentAtDate.toLocaleString("en-GB", {
+      timeZone: "Europe/Lisbon",
+      dateStyle: "full",
+      timeStyle: "long",
+    });
+
     const timestamp = new Date().toLocaleString("en-GB", {
       timeZone: "Europe/Lisbon",
       dateStyle: "full",
@@ -258,9 +298,19 @@ serve(async (req) => {
           </div>
         </div>
         ` : ""}
+        <div class="field" style="margin-top: 24px; padding-top: 20px; border-top: 1px solid #e5e7eb;">
+          <div class="field-label">Privacy Policy Consent</div>
+          <div class="field-value" style="font-size: 13px; line-height: 1.6;">
+            ✓ Accepted<br>
+            <span style="color: #6b7280;">Timestamp:</span> ${escapeHtml(consentAtDisplay)}<br>
+            <span style="color: #6b7280;">ISO:</span> <code style="font-family: ui-monospace, SFMono-Regular, monospace; font-size: 12px;">${escapeHtml(consentAtIso)}</code><br>
+            <span style="color: #6b7280;">Source:</span> ${escapeHtml(consentSource)}<br>
+            <span style="color: #6b7280;">Policy effective date:</span> ${escapeHtml(policyEffectiveDate)}
+          </div>
+        </div>
       </div>
       <div class="footer">
-        This inquiry was submitted via the Komodo Consulting website contact form.
+        This inquiry was submitted via the Komodo Consulting website contact form. The privacy consent record above is the auditable proof that the user accepted the Privacy Policy at submission time.
       </div>
     </div>
   </div>
@@ -291,6 +341,18 @@ serve(async (req) => {
 
     // Record successful submission for rate limiting
     await recordSubmission(clientIp);
+
+    // Append-only audit trail in function logs (immutable, infra-timestamped)
+    console.log(JSON.stringify({
+      event: "privacy_consent_recorded",
+      email,
+      privacyConsent: true,
+      privacyConsentAt: consentAtIso,
+      consentSource,
+      privacyPolicyEffectiveDate: policyEffectiveDate,
+      clientIp,
+      receivedAt: new Date().toISOString(),
+    }));
 
     return new Response(
       JSON.stringify({ success: true }),
