@@ -257,6 +257,7 @@ const Contact = () => {
                   if (!teamSize) v.teamSize = "Team size / roles needed is required.";
                   if (!startDate) v.startDate = "Desired start is required.";
                   if (!message) v.message = "Please describe your needs.";
+                  if (!privacyAccepted) v.privacy = "Please accept the Privacy Policy to continue.";
 
                   if (Object.keys(v).length > 0) {
                     setErrors(v);
@@ -274,6 +275,7 @@ const Contact = () => {
                     form.reset();
                     setSelectedType(null);
                     setSelectedCountry("");
+                    setPrivacyAccepted(false);
                   } catch (err: any) {
                     console.error("Submit error:", err);
                     toast({ title: "Something went wrong", description: "Please try again or email us directly at hello@komodo-consulting.pt.", variant: "destructive" });
