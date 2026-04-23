@@ -140,6 +140,7 @@ const countryOptions = [
 const Contact = () => {
   const [selectedType, setSelectedType] = useState<string | null>(null);
   const [selectedCountry, setSelectedCountry] = useState("");
+  const [privacyAccepted, setPrivacyAccepted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
