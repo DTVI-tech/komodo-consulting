@@ -342,6 +342,18 @@ serve(async (req) => {
     // Record successful submission for rate limiting
     await recordSubmission(clientIp);
 
+    // Append-only audit trail in function logs (immutable, infra-timestamped)
+    console.log(JSON.stringify({
+      event: "privacy_consent_recorded",
+      email,
+      privacyConsent: true,
+      privacyConsentAt: consentAtIso,
+      consentSource,
+      privacyPolicyEffectiveDate: policyEffectiveDate,
+      clientIp,
+      receivedAt: new Date().toISOString(),
+    }));
+
     return new Response(
       JSON.stringify({ success: true }),
       { headers: { ...corsHeaders, "Content-Type": "application/json" } }
