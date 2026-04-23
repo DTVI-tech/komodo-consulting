@@ -298,9 +298,19 @@ serve(async (req) => {
           </div>
         </div>
         ` : ""}
+        <div class="field" style="margin-top: 24px; padding-top: 20px; border-top: 1px solid #e5e7eb;">
+          <div class="field-label">Privacy Policy Consent</div>
+          <div class="field-value" style="font-size: 13px; line-height: 1.6;">
+            ✓ Accepted<br>
+            <span style="color: #6b7280;">Timestamp:</span> ${escapeHtml(consentAtDisplay)}<br>
+            <span style="color: #6b7280;">ISO:</span> <code style="font-family: ui-monospace, SFMono-Regular, monospace; font-size: 12px;">${escapeHtml(consentAtIso)}</code><br>
+            <span style="color: #6b7280;">Source:</span> ${escapeHtml(consentSource)}<br>
+            <span style="color: #6b7280;">Policy effective date:</span> ${escapeHtml(policyEffectiveDate)}
+          </div>
+        </div>
       </div>
       <div class="footer">
-        This inquiry was submitted via the Komodo Consulting website contact form.
+        This inquiry was submitted via the Komodo Consulting website contact form. The privacy consent record above is the auditable proof that the user accepted the Privacy Policy at submission time.
       </div>
     </div>
   </div>
