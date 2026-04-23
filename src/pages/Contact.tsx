@@ -364,6 +364,28 @@ const Contact = () => {
                   {errors.message && <p className="text-xs text-destructive">{errors.message}</p>}
                 </div>
 
+                <div className="space-y-2 pt-1">
+                  <label htmlFor="privacy-consent" className="flex items-start gap-3 cursor-pointer group">
+                    <input
+                      id="privacy-consent"
+                      type="checkbox"
+                      checked={privacyAccepted}
+                      onChange={(e) => { setPrivacyAccepted(e.target.checked); if (e.target.checked) clearError("privacy"); }}
+                      className={`mt-0.5 h-4 w-4 shrink-0 rounded border ${errors.privacy ? "border-destructive" : "border-input"} text-primary accent-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 cursor-pointer`}
+                      aria-invalid={!!errors.privacy}
+                      aria-describedby={errors.privacy ? "privacy-error" : undefined}
+                    />
+                    <span className="text-sm text-muted-foreground leading-relaxed">
+                      I have read and accept the{" "}
+                      <Link to="/privacy-policy" className="text-primary font-medium underline underline-offset-2 hover:text-primary/80 transition-colors">
+                        Privacy Policy
+                      </Link>
+                      <span className="text-destructive ml-0.5">*</span>
+                    </span>
+                  </label>
+                  {errors.privacy && <p id="privacy-error" className="text-xs text-destructive pl-7">{errors.privacy}</p>}
+                </div>
+
                 <div className="flex items-center gap-4 pt-2">
                   <Button
                     type="submit"
