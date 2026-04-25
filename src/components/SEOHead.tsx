@@ -43,7 +43,8 @@ const SEOHead = ({
     };
 
     setMeta("name", "description", description);
-    setMeta("name", "robots", noindex ? "noindex, nofollow" : "index, follow");
+    const isStaging = typeof window !== "undefined" && window.location.hostname === "komodo-consulting.lovable.app";
+    setMeta("name", "robots", isStaging || noindex ? "noindex, nofollow" : "index, follow");
 
     // Open Graph
     setMeta("property", "og:title", fullTitle);
@@ -103,7 +104,7 @@ export const organizationSchema = {
   url: "https://komodo-consulting.pt",
   logo: "https://komodo-consulting.pt/logo.png",
   description:
-    "IT Consulting and IT Outsourcing company providing technology teams, staff augmentation, dedicated teams, and nearshore delivery from Portugal.",
+    "Komodo Consulting is a premium IT consulting and outsourcing partner — helping companies scale technology delivery, build stronger teams, and grow with confidence.",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Lisbon",
