@@ -97,7 +97,12 @@ const Header = () => {
         {/* Mobile toggle */}
         <div className="lg:hidden flex items-center gap-1">
           <ThemeToggle />
-          <button className="p-2" onClick={() => setMobileOpen(!mobileOpen)}>
+          <button
+            className="p-2"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            aria-expanded={mobileOpen}
+          >
             {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
