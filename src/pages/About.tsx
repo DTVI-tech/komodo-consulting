@@ -168,7 +168,7 @@ const Hero = () => (
             </span>
           </h1>
           <p className="text-secondary-foreground/50 text-base md:text-lg leading-relaxed max-w-lg mb-10">
-            Komodo Consulting is a premium IT outsourcing and nearshore partner from Portugal — focused on quality, clarity, and commercially grounded collaboration.
+            Komodo Consulting is a premium IT consulting and outsourcing partner — focused on delivery, quality, and the kind of collaboration that drives real growth.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Link to="/contact">
@@ -211,7 +211,7 @@ const CompanyStory = () => (
           </h2>
           <div className="space-y-4 text-muted-foreground text-base leading-relaxed">
             <p>
-              Komodo Consulting is a premium IT outsourcing and nearshore delivery partner headquartered in Portugal. We exist to solve a specific problem: companies that need strong technical talent, fast onboarding, and reliable collaboration — without the overhead of traditional outsourcing.
+              Komodo Consulting is a premium IT consulting and outsourcing partner. We help companies scale technology delivery, strengthen their teams, and grow with confidence — with nearshore capability from Portugal as one of our key delivery strengths.
             </p>
             <p>
               We don't operate as a staffing agency. We build delivery-ready teams that integrate with your workflows, tools, and standards from day one. Every engagement is structured around outcomes, not just headcount.
