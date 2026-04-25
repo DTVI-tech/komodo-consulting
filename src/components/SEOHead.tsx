@@ -12,7 +12,7 @@ interface SEOHeadProps {
 }
 
 const SITE_URL = "https://komodo-consulting.pt";
-const DEFAULT_OG_IMAGE = "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/4ad4d0b2-e4b3-42e8-a641-95257b2187dd/id-preview-830f0e37--fe7ad64f-1b89-4302-add7-0f00f83e382d.lovable.app-1774352077671.png";
+const DEFAULT_OG_IMAGE = "/og-image.png";
 const SITE_NAME = "Komodo Consulting";
 
 const SEOHead = ({
