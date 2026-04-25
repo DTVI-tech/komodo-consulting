@@ -9,7 +9,7 @@ const Footer = () => {
           <div className="space-y-4">
             <img src={logoWhite} alt="Komodo Consulting" className="h-7 w-auto" />
             <p className="text-[13px] text-secondary-foreground/40 max-w-[260px] leading-relaxed">
-              Premium IT outsourcing and nearshore delivery from Portugal for companies that need dependable execution.
+              The technology partner for companies built to grow.
             </p>
           </div>
 

@@ -15,7 +15,7 @@ const Index = () => (
   <>
     <SEOHead
       title="Komodo Consulting — IT Consulting & Outsourcing | Technology Teams from Portugal"
-      description="IT Consulting and IT Outsourcing company providing technology teams, staff augmentation, dedicated teams, and nearshore delivery from Portugal."
+      description="Komodo Consulting is a premium IT consulting and outsourcing partner — helping companies scale technology delivery, build stronger teams, and grow with confidence."
       jsonLd={[organizationSchema, websiteSchema]}
     />
     <Header />
