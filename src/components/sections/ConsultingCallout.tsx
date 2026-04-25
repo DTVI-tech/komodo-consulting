@@ -18,9 +18,9 @@ const ConsultingCallout = () => (
         
         <div className="relative">
           <span className="section-label">Consulting</span>
-          <h3 className="text-2xl md:text-3xl font-display font-bold text-foreground tracking-tight mb-3">
+          <h2 className="text-2xl md:text-3xl font-display font-bold text-foreground tracking-tight mb-3">
             Looking for Consulting instead?
-          </h3>
+          </h2>
           <p className="text-muted-foreground max-w-lg text-base leading-relaxed">
             Our Consulting practice supports strategy, transformation, and advisory engagements. Explore our dedicated Consulting offering.
           </p>
