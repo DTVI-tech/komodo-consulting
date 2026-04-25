@@ -42,9 +42,8 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-14 pt-6 border-t border-secondary-foreground/[0.06] flex flex-col md:flex-row items-center justify-center md:justify-between gap-4">
+        <div className="mt-14 pt-6 border-t border-secondary-foreground/[0.06] flex items-center justify-center">
           <p className="text-xs text-secondary-foreground/30">© {new Date().getFullYear()} Komodo Consulting. All rights reserved.</p>
-          <Link to="/privacy-policy" className="text-xs text-secondary-foreground/30 hover:text-secondary-foreground/60 transition-colors">Privacy Policy</Link>
         </div>
       </div>
     </footer>

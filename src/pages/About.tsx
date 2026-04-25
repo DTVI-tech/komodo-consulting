@@ -443,7 +443,7 @@ const WhereWeOperate = () => (
           </div>
 
           <Reveal delay={0.3} className="flex flex-wrap gap-4 mt-10">
-            <Link to="/services">
+            <Link to="/services/nearshore-portugal">
               <Button variant="outlineDark" size="lg" className="text-base px-8 h-12">
                 Nearshore from Portugal
               </Button>
