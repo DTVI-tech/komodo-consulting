@@ -1,6 +1,26 @@
+import { useEffect, useRef } from "react";
 import PageShell from "@/components/PageShell";
 import PageHero from "@/components/PageHero";
 import SEOHead, { buildBreadcrumbs } from "@/components/SEOHead";
+
+const CookieDeclaration = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+    const script = document.createElement("script");
+    script.id = "CookieDeclaration";
+    script.src = "https://consent.cookiebot.com/decb2f98-205a-499a-8238-551595294750/cd.js";
+    script.type = "text/javascript";
+    script.async = true;
+    containerRef.current.appendChild(script);
+    return () => {
+      script.remove();
+    };
+  }, []);
+
+  return <div ref={containerRef} />;
+};
 
 const EFFECTIVE_DATE = "23 April 2026";
 
@@ -78,6 +98,8 @@ const sections: { heading: string; body: React.ReactNode }[] = [
           You can manage or disable cookies through your browser settings. Where legally required, non-essential
           cookies should be subject to your consent preferences.
         </p>
+        <h3 style={{ fontSize: '1rem', fontWeight: '600', marginTop: '1.5rem', marginBottom: '0.75rem' }}>Cookie Declaration</h3>
+        <CookieDeclaration />
       </>
     ),
   },
