@@ -98,6 +98,8 @@ const sections: { heading: string; body: React.ReactNode }[] = [
           You can manage or disable cookies through your browser settings. Where legally required, non-essential
           cookies should be subject to your consent preferences.
         </p>
+        <h3 style={{ fontSize: '1rem', fontWeight: '600', marginTop: '1.5rem', marginBottom: '0.75rem' }}>Cookie Declaration</h3>
+        <CookieDeclaration />
       </>
     ),
   },
