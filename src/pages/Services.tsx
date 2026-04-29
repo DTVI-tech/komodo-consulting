@@ -628,8 +628,8 @@ const servicesJsonLd = [
 const Services = () => (
   <PageShell>
     <SEOHead
-      title="IT Outsourcing Services"
-      description="Staff augmentation, dedicated teams, and nearshore delivery from Portugal. Flexible IT outsourcing models built for quality and reliability."
+      title="IT Outsourcing Services — Staff Augmentation & Dedicated Teams"
+      description="Staff augmentation, dedicated development teams, and flexible IT outsourcing models for companies that need technical capability without the overhead. Three models, one standard of quality."
       jsonLd={servicesJsonLd}
     />
     <ServicesHero />

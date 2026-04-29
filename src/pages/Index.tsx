@@ -14,8 +14,8 @@ import SEOHead, { organizationSchema, websiteSchema } from "@/components/SEOHead
 const Index = () => (
   <>
     <SEOHead
-      title="Komodo Consulting — IT Consulting & Outsourcing | Technology Teams from Portugal"
-      description="Komodo Consulting is a premium IT consulting and outsourcing partner — helping companies scale technology delivery, build stronger teams, and grow with confidence."
+      title="IT Consulting & Outsourcing | Komodo Consulting"
+      description="Komodo Consulting provides IT consulting and outsourcing services for companies that need strong technical capability, dedicated teams, and reliable delivery — flexible models built around your needs."
       jsonLd={[organizationSchema, websiteSchema]}
     />
     <Header />

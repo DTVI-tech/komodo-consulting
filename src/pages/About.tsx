@@ -582,8 +582,8 @@ const FinalCTA = () => (
 const About = () => (
   <PageShell>
     <SEOHead
-      title="About Komodo Consulting"
-      description="Learn about Komodo Consulting — an IT consulting and outsourcing company delivering technology teams from Portugal for companies across Europe and beyond."
+      title="About Komodo Consulting | IT Consulting & Outsourcing Partner"
+      description="Komodo Consulting is a premium IT consulting and outsourcing partner — focused on delivery quality, structured collaboration, and building technology teams that integrate and perform from day one."
       jsonLd={[
         buildBreadcrumbs([
           { name: "Home", path: "/" },
