@@ -243,8 +243,8 @@ const outcomes = [
 const Technologies = () => (
   <PageShell>
     <SEOHead
-      title="Technologies & Capabilities"
-      description="Software engineering, cloud & DevOps, data & AI, QA, cybersecurity, and more. Explore the technology domains Komodo Consulting covers."
+      title="Software Engineering, Cloud, Data & IT Capabilities | Komodo Consulting"
+      description="Access technology teams across software engineering, cloud & DevOps, data & AI, QA automation, cybersecurity, ERP, and delivery management. Technical depth built for real delivery."
       jsonLd={[
         buildBreadcrumbs([
           { name: "Home", path: "/" },
