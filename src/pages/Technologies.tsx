@@ -17,7 +17,7 @@ import {
 import { Button } from "@/components/ui/button";
 import PageShell from "@/components/PageShell";
 import PageHero from "@/components/PageHero";
-import SEOHead, { buildBreadcrumbs } from "@/components/SEOHead";
+import SEOHead, { buildBreadcrumbs, buildServiceSchema } from "@/components/SEOHead";
 
 /* ─── Capability Data ─── */
 
@@ -250,6 +250,14 @@ const Technologies = () => (
           { name: "Home", path: "/" },
           { name: "Technologies", path: "/technologies" },
         ]),
+        buildServiceSchema("Software Engineering", "Full-stack, frontend, backend, and mobile engineering across modern frameworks and languages.", "/technologies"),
+        buildServiceSchema("Cloud & DevOps", "Infrastructure automation, CI/CD pipelines, container orchestration, and cloud-native architecture.", "/technologies"),
+        buildServiceSchema("Data & AI", "Data engineering, analytics pipelines, machine learning, and AI-powered product features.", "/technologies"),
+        buildServiceSchema("QA & Test Automation", "End-to-end quality assurance with automated testing frameworks and performance testing.", "/technologies"),
+        buildServiceSchema("Cybersecurity", "Application security, vulnerability management, compliance auditing, and secure development practices.", "/technologies"),
+        buildServiceSchema("ERP & Business Applications", "Enterprise application development, CRM and ERP customization, and business process automation.", "/technologies"),
+        buildServiceSchema("IT Support & Infrastructure", "Managed IT services, infrastructure monitoring, system administration, and help desk operations.", "/technologies"),
+        buildServiceSchema("Product & Project Delivery", "Technical product management, agile coaching, delivery leadership, and program management.", "/technologies"),
       ]}
     />
     {/* Hero */}

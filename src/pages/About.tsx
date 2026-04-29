@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import SEOHead, { buildBreadcrumbs } from "@/components/SEOHead";
+import SEOHead, { buildBreadcrumbs, organizationSchema } from "@/components/SEOHead";
 import {
   ArrowRight,
   Target,
@@ -589,6 +589,7 @@ const About = () => (
           { name: "Home", path: "/" },
           { name: "About", path: "/about" },
         ]),
+        organizationSchema,
       ]}
     />
     <Hero />

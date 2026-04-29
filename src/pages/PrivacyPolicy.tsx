@@ -199,6 +199,7 @@ const PrivacyPolicy = () => {
           { name: "Home", path: "/" },
           { name: "Privacy Policy", path: "/privacy-policy" },
         ])}
+        noindex={true}
       />
 
       <PageHero label="Legal" title="Privacy Policy">
