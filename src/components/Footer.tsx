@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Linkedin } from "lucide-react";
 import logoWhite from "@/assets/logo-white.png";
 
 const Footer = () => {
@@ -11,6 +12,15 @@ const Footer = () => {
             <p className="text-[13px] text-secondary-foreground/60 max-w-[260px] leading-relaxed">
               The technology partner for companies built to grow.
             </p>
+            <a
+              href="https://www.linkedin.com/company/komodoconsulting/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-secondary-foreground/50 hover:text-secondary-foreground transition-colors inline-block"
+              aria-label="LinkedIn"
+            >
+              <Linkedin size={20} />
+            </a>
           </div>
 
           <div className="space-y-4">
