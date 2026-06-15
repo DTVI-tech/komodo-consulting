@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import App from '../App';
+
+const breadcrumbs = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://komodo-consulting.pt" },
+    { "@type": "ListItem", position: 2, name: "Contact", item: "https://komodo-consulting.pt/contact" },
+  ],
+};
+
+const contactPage = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  name: "Contact Komodo Consulting",
+  url: "https://komodo-consulting.pt/contact",
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    { "@type": "Question", name: "How quickly can you start?", acceptedAnswer: { "@type": "Answer", text: "For staff augmentation, we can typically present candidates within 5–10 business days. Dedicated teams begin with a short scoping phase, usually 1–2 weeks." } },
+    { "@type": "Question", name: "What is the minimum engagement?", acceptedAnswer: { "@type": "Answer", text: "Our standard minimum engagement is 6 months. This ensures enough time to build momentum, deliver meaningful results, and establish a strong working relationship." } },
+    { "@type": "Question", name: "What happens after I submit the form?", acceptedAnswer: { "@type": "Answer", text: "A senior member of our team will review your inquiry and respond within one business day. We'll schedule a brief discovery call to understand your needs before proposing a solution." } },
+  ],
+};
+---
+
+<BaseLayout
+  title="Contact Komodo Consulting"
+  description="Get in touch with Komodo Consulting. Tell us about your IT consulting or outsourcing needs and we'll respond within one business day."
+  canonicalPath="/contact"
+>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(breadcrumbs)} />
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(contactPage)} />
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <App client:only="react" />
+</BaseLayout>

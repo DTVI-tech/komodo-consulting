@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import App from '../App';
+
+const breadcrumbs = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://komodo-consulting.pt" },
+    { "@type": "ListItem", position: 2, name: "Services", item: "https://komodo-consulting.pt/services" },
+  ],
+};
+
+const serviceSchemas = [
+  { name: "Staff Augmentation", description: "Individual IT professionals integrated into your team and workflows.", url: "/services" },
+  { name: "Dedicated Teams", description: "Outsourced technology teams assembled by Komodo Consulting for your project.", url: "/services" },
+  { name: "Nearshore from Portugal", description: "Portugal-based nearshore IT delivery with timezone alignment and cost efficiency.", url: "/services" },
+].map(({ name, description, url }) => ({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name,
+  description,
+  provider: { "@type": "ProfessionalService", name: "Komodo Consulting", url: "https://komodo-consulting.pt" },
+  url: `https://komodo-consulting.pt${url}`,
+  areaServed: "Europe",
+}));
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    { "@type": "Question", name: "How quickly can you provide engineers?", acceptedAnswer: { "@type": "Answer", text: "For staff augmentation, we typically present candidates within 5 business days. Dedicated teams take 2–4 weeks depending on team composition and requirements." } },
+    { "@type": "Question", name: "What if a team member isn't the right fit?", acceptedAnswer: { "@type": "Answer", text: "We offer a replacement guarantee. If a resource doesn't meet expectations within the first 30 days, we replace them at no additional cost." } },
+    { "@type": "Question", name: "Do you work with US-based companies?", acceptedAnswer: { "@type": "Answer", text: "Yes. Portugal's CET timezone provides 4–6 hours of overlap with US East Coast, and we structure communication to maximize collaborative time." } },
+    { "@type": "Question", name: "Who retains IP ownership?", acceptedAnswer: { "@type": "Answer", text: "You do. In all engagement models, full intellectual property ownership is retained by the client. This is contractually guaranteed." } },
+  ],
+};
+---
+
+<BaseLayout
+  title="IT Outsourcing Services: Staff Augmentation & Teams"
+  description="Staff augmentation, dedicated development teams, and flexible IT outsourcing models for companies that need technical capability without the overhead. Three models, one standard of quality."
+  canonicalPath="/services"
+>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(breadcrumbs)} />
+  {serviceSchemas.map(schema => (
+    <script slot="head" type="application/ld+json" set:html={JSON.stringify(schema)} />
+  ))}
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <App client:only="react" />
+</BaseLayout>

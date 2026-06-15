@@ -8,18 +8,18 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import ScrollToTop from "./components/ScrollToTop";
 
 // Eager-load the homepage for instant first paint
-import Index from "./pages/Index";
+import Index from "./react-pages/Index";
 
 // Lazy-load all other routes
-const Services = lazy(() => import("./pages/Services"));
-const IndustryPage = lazy(() => import("./pages/IndustryPage"));
-const NearshorePortugal = lazy(() => import("./pages/NearshorePortugal"));
-const Technologies = lazy(() => import("./pages/Technologies"));
-const Contact = lazy(() => import("./pages/Contact"));
-const About = lazy(() => import("./pages/About"));
-const ConsultingComingSoon = lazy(() => import("./pages/ConsultingComingSoon"));
-const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
-const NotFound = lazy(() => import("./pages/NotFound"));
+const Services = lazy(() => import("./react-pages/Services"));
+const IndustryPage = lazy(() => import("./react-pages/IndustryPage"));
+const NearshorePortugal = lazy(() => import("./react-pages/NearshorePortugal"));
+const Technologies = lazy(() => import("./react-pages/Technologies"));
+const Contact = lazy(() => import("./react-pages/Contact"));
+const About = lazy(() => import("./react-pages/About"));
+const ConsultingComingSoon = lazy(() => import("./react-pages/ConsultingComingSoon"));
+const PrivacyPolicy = lazy(() => import("./react-pages/PrivacyPolicy"));
+const NotFound = lazy(() => import("./react-pages/NotFound"));
 
 const queryClient = new QueryClient();
 

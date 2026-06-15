@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import App from '../App';
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "Komodo Consulting",
+  url: "https://komodo-consulting.pt",
+  logo: "https://komodo-consulting.pt/logo.png",
+  description: "Komodo Consulting is a premium IT consulting and outsourcing partner — helping companies scale technology delivery, build stronger teams, and grow with confidence.",
+  address: { "@type": "PostalAddress", addressLocality: "Lisbon", addressCountry: "PT" },
+  email: "hello@komodo-consulting.pt",
+  areaServed: [
+    { "@type": "Country", name: "Portugal" },
+    { "@type": "Continent", name: "Europe" },
+    { "@type": "Place", name: "International" },
+  ],
+  serviceType: ["IT Consulting", "IT Outsourcing", "Staff Augmentation", "Dedicated Teams", "Nearshore IT Services"],
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Komodo Consulting",
+  url: "https://komodo-consulting.pt",
+  publisher: { "@type": "Organization", name: "Komodo Consulting" },
+};
+---
+
+<BaseLayout
+  title="IT Consulting & Outsourcing | Komodo Consulting"
+  description="Komodo Consulting provides IT consulting and outsourcing services for companies that need strong technical capability, dedicated teams, and reliable delivery — flexible models built around your needs."
+  canonicalPath="/"
+>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+  <App client:only="react" />
+</BaseLayout>

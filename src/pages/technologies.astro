@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import App from '../App';
+
+const breadcrumbs = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://komodo-consulting.pt" },
+    { "@type": "ListItem", position: 2, name: "Technologies", item: "https://komodo-consulting.pt/technologies" },
+  ],
+};
+
+const serviceSchemas = [
+  "Software Engineering",
+  "Cloud & DevOps",
+  "Data & AI",
+  "QA & Test Automation",
+  "Cybersecurity",
+  "ERP & Business Applications",
+  "IT Support & Infrastructure",
+  "Product & Project Delivery",
+].map(name => ({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name,
+  provider: { "@type": "ProfessionalService", name: "Komodo Consulting", url: "https://komodo-consulting.pt" },
+  url: "https://komodo-consulting.pt/technologies",
+  areaServed: "Europe",
+}));
+---
+
+<BaseLayout
+  title="Software Engineering, Cloud, Data & IT Capabilities | Komodo Consulting"
+  description="Access technology teams across software engineering, cloud & DevOps, data & AI, QA automation, cybersecurity, ERP, and delivery management. Technical depth built for real delivery."
+  canonicalPath="/technologies"
+>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(breadcrumbs)} />
+  {serviceSchemas.map(schema => (
+    <script slot="head" type="application/ld+json" set:html={JSON.stringify(schema)} />
+  ))}
+  <App client:only="react" />
+</BaseLayout>

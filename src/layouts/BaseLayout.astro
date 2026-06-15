@@ -1,0 +1,70 @@
+---
+import '../index.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  /** URL path, e.g. "/about". Omit to derive from request URL. */
+  canonicalPath?: string;
+  noindex?: boolean;
+  ogImage?: string;
+  ogType?: string;
+}
+
+const SITE_URL = 'https://komodo-consulting.pt';
+const SITE_NAME = 'Komodo Consulting';
+const DEFAULT_OG_IMAGE = '/og-image.png';
+
+const {
+  title,
+  description = '',
+  canonicalPath,
+  noindex = false,
+  ogImage = DEFAULT_OG_IMAGE,
+  ogType = 'website',
+} = Astro.props;
+
+const pathname = new URL(Astro.request.url).pathname.replace(/\/$/, '') || '/';
+const canonical = canonicalPath != null ? `${SITE_URL}${canonicalPath}` : `${SITE_URL}${pathname === '/' ? '' : pathname}`;
+const isHome = pathname === '/';
+const fullTitle = isHome ? title : `${title} — ${SITE_NAME}`;
+const fullOgImage = ogImage.startsWith('http') ? ogImage : `${SITE_URL}${ogImage}`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
+
+    <link rel="canonical" href={canonical} />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={fullOgImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content={SITE_NAME} />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={fullOgImage} />
+
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <title>{fullTitle}</title>
+
+    <!-- JSON-LD and any extra head tags injected per-page -->
+    <slot name="head" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
