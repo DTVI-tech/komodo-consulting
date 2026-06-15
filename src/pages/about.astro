@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import App from '../App';
+
+const breadcrumbs = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://komodo-consulting.pt" },
+    { "@type": "ListItem", position: 2, name: "About", item: "https://komodo-consulting.pt/about" },
+  ],
+};
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "Komodo Consulting",
+  url: "https://komodo-consulting.pt",
+};
+---
+
+<BaseLayout
+  title="About Us | IT Consulting & Outsourcing Partner"
+  description="Komodo Consulting is a premium IT consulting and outsourcing partner — focused on delivery quality, structured collaboration, and building technology teams that integrate and perform from day one."
+  canonicalPath="/about"
+>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(breadcrumbs)} />
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+  <App client:load serverLocation="/about" />
+</BaseLayout>

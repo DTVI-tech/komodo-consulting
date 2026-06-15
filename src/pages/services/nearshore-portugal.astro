@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import App from '../../App';
+
+const breadcrumbs = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://komodo-consulting.pt" },
+    { "@type": "ListItem", position: 2, name: "Services", item: "https://komodo-consulting.pt/services" },
+    { "@type": "ListItem", position: 3, name: "Nearshore Portugal", item: "https://komodo-consulting.pt/services/nearshore-portugal" },
+  ],
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Nearshore IT from Portugal",
+  description: "Portugal-based nearshore IT delivery with timezone alignment, EU compliance, and cost-efficient technology teams.",
+  provider: { "@type": "ProfessionalService", name: "Komodo Consulting", url: "https://komodo-consulting.pt" },
+  url: "https://komodo-consulting.pt/services/nearshore-portugal",
+  areaServed: "Europe",
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    { "@type": "Question", name: "What types of roles can I hire from Portugal?", acceptedAnswer: { "@type": "Answer", text: "We provide engineers, architects, cloud & DevOps specialists, data professionals, QA engineers, designers, product managers, and delivery leads — across all seniority levels." } },
+    { "@type": "Question", name: "Is Portugal GDPR-compliant?", acceptedAnswer: { "@type": "Answer", text: "Yes. Portugal is an EU member state, so all data handling, employment, and contractual frameworks are fully GDPR-compliant by default." } },
+    { "@type": "Question", name: "How does nearshore pricing compare?", acceptedAnswer: { "@type": "Answer", text: "Portugal offers a 30–40% cost advantage compared to Western European and US rates, while maintaining comparable quality standards and full timezone alignment." } },
+  ],
+};
+---
+
+<BaseLayout
+  title="Nearshore IT from Portugal"
+  description="Build your technology team in Portugal. Timezone-aligned nearshore IT outsourcing with 30–40% cost savings, EU compliance, and high-quality engineering talent."
+  canonicalPath="/services/nearshore-portugal"
+>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(breadcrumbs)} />
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <App client:load serverLocation="/services/nearshore-portugal" />
+</BaseLayout>

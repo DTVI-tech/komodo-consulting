@@ -1,60 +1,72 @@
-import { lazy, Suspense } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { StaticRouter } from "react-router-dom/server";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import ScrollToTop from "./components/ScrollToTop";
 
-// Eager-load the homepage for instant first paint
-import Index from "./pages/Index";
-
-// Lazy-load all other routes
-const Services = lazy(() => import("./pages/Services"));
-const IndustryPage = lazy(() => import("./pages/IndustryPage"));
-const NearshorePortugal = lazy(() => import("./pages/NearshorePortugal"));
-const Technologies = lazy(() => import("./pages/Technologies"));
-const Contact = lazy(() => import("./pages/Contact"));
-const About = lazy(() => import("./pages/About"));
-const ConsultingComingSoon = lazy(() => import("./pages/ConsultingComingSoon"));
-const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
-const NotFound = lazy(() => import("./pages/NotFound"));
+// Eager imports — required for server-side pre-rendering with client:load.
+// Lazy loading with Suspense only renders the fallback spinner during SSR.
+import Index from "./react-pages/Index";
+import Services from "./react-pages/Services";
+import IndustryPage from "./react-pages/IndustryPage";
+import NearshorePortugal from "./react-pages/NearshorePortugal";
+import Technologies from "./react-pages/Technologies";
+import Contact from "./react-pages/Contact";
+import About from "./react-pages/About";
+import ConsultingComingSoon from "./react-pages/ConsultingComingSoon";
+import PrivacyPolicy from "./react-pages/PrivacyPolicy";
+import NotFound from "./react-pages/NotFound";
 
 const queryClient = new QueryClient();
 
-const PageFallback = () => (
-  <div className="min-h-screen flex items-center justify-center bg-background">
-    <div className="w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin" />
-  </div>
-);
-
-const App = () => (
+const AppContent = () => (
   <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <BrowserRouter>
-          <ScrollToTop />
-          <Suspense fallback={<PageFallback />}>
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/consulting" element={<ConsultingComingSoon />} />
-              <Route path="/services" element={<Services />} />
-              <Route path="/services/nearshore-portugal" element={<NearshorePortugal />} />
-              <Route path="/industries/:slug" element={<IndustryPage />} />
-              <Route path="/technologies" element={<Technologies />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </Suspense>
-        </BrowserRouter>
+        <ScrollToTop />
+        <Routes>
+          <Route path="/" element={<Index />} />
+          <Route path="/consulting" element={<ConsultingComingSoon />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/services/nearshore-portugal" element={<NearshorePortugal />} />
+          <Route path="/industries/:slug" element={<IndustryPage />} />
+          <Route path="/technologies" element={<Technologies />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </TooltipProvider>
     </QueryClientProvider>
   </ThemeProvider>
 );
+
+interface AppProps {
+  /** Current page path passed from Astro for SSR routing (e.g. "/about"). */
+  serverLocation?: string;
+}
+
+const App = ({ serverLocation }: AppProps) => {
+  // During Astro's static pre-render (SSR), window is undefined.
+  // Use StaticRouter so React Router can match routes without browser APIs.
+  if (typeof window === "undefined") {
+    return (
+      <StaticRouter location={serverLocation || "/"}>
+        <AppContent />
+      </StaticRouter>
+    );
+  }
+
+  return (
+    <BrowserRouter>
+      <AppContent />
+    </BrowserRouter>
+  );
+};
 
 export default App;

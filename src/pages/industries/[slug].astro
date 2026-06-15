@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import App from '../../App';
+
+export function getStaticPaths() {
+  return [
+    {
+      params: { slug: 'fintech' },
+      props: {
+        title: 'Fintech & Banking — IT Outsourcing',
+        description: 'Secure, compliant, and high-performance engineering teams for banking, payments, insurance, and financial platforms.',
+      },
+    },
+    {
+      params: { slug: 'healthcare' },
+      props: {
+        title: 'Healthcare & Life Sciences — IT Outsourcing',
+        description: 'HIPAA-aware, detail-oriented engineering for healthtech platforms, clinical systems, and life sciences applications.',
+      },
+    },
+    {
+      params: { slug: 'saas' },
+      props: {
+        title: 'SaaS & Technology — IT Outsourcing',
+        description: 'Product-minded engineers for SaaS companies that need to ship faster without compromising quality.',
+      },
+    },
+  ];
+}
+
+const { slug } = Astro.params;
+const { title, description } = Astro.props;
+
+const breadcrumbs = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://komodo-consulting.pt" },
+    { "@type": "ListItem", position: 2, name: title.split(' — ')[0], item: `https://komodo-consulting.pt/industries/${slug}` },
+  ],
+};
+---
+
+<BaseLayout
+  {title}
+  {description}
+  canonicalPath={`/industries/${slug}`}
+>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(breadcrumbs)} />
+  <App client:load serverLocation={`/industries/${slug}`} />
+</BaseLayout>
