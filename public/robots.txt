@@ -33,4 +33,4 @@ Disallow: /
 User-agent: Bytespider
 Disallow: /
 
-Sitemap: https://komodo-consulting.pt/sitemap.xml
+Sitemap: https://komodo-consulting.pt/sitemap-index.xml
