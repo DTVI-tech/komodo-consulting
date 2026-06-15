@@ -52,6 +52,8 @@ const SEOHead = ({
     setMeta("property", "og:type", ogType);
     setMeta("property", "og:url", fullCanonical);
     setMeta("property", "og:image", image);
+    setMeta("property", "og:image:width", "1200");
+    setMeta("property", "og:image:height", "630");
     setMeta("property", "og:site_name", SITE_NAME);
     setMeta("property", "og:locale", "en_US");
 
