@@ -39,8 +39,8 @@
   <url>
     <loc>https://komodo-consulting.pt/consulting</loc>
     <lastmod>2026-05-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <changefreq>yearly</changefreq>
+    <priority>0.1</priority>
   </url>
   <url>
     <loc>https://komodo-consulting.pt/industries/fintech</loc>
