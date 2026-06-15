@@ -20,7 +20,7 @@ import SEOHead, { buildBreadcrumbs, buildServiceSchema, buildFAQSchema } from "@
 
 /* ─── Hero ─── */
 
-import servicesHero from "@/assets/services-hero.jpg";
+const servicesHero = "/assets/services-hero.jpg";
 
 const HeroVisual = () => (
   <motion.div
