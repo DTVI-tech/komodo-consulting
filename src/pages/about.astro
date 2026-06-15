@@ -26,5 +26,5 @@ const organizationSchema = {
 >
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(breadcrumbs)} />
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
-  <App client:only="react" />
+  <App client:load serverLocation="/about" />
 </BaseLayout>

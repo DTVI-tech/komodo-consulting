@@ -2,12 +2,10 @@ import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
-
-// @astrojs/image is deprecated since Astro 3 — use astro:assets (built-in) instead.
-// It has been installed per request but is not included here as it is incompatible with Astro 6.
+import path from 'path';
 
 export default defineConfig({
-  site: 'https://komodo-consulting.com', // update with your actual domain
+  site: 'https://komodo-consulting.pt',
   output: 'static',
   integrations: [
     react(),
@@ -19,4 +17,11 @@ export default defineConfig({
     }),
     sitemap(),
   ],
+  vite: {
+    resolve: {
+      alias: {
+        '@': path.resolve('./src'),
+      },
+    },
+  },
 });

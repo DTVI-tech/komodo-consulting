@@ -18,5 +18,5 @@ const breadcrumbs = {
   canonicalPath="/consulting"
 >
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(breadcrumbs)} />
-  <App client:only="react" />
+  <App client:load serverLocation="/consulting" />
 </BaseLayout>

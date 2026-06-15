@@ -47,5 +47,5 @@ const faqSchema = {
     <script slot="head" type="application/ld+json" set:html={JSON.stringify(schema)} />
   ))}
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
-  <App client:only="react" />
+  <App client:load serverLocation="/services" />
 </BaseLayout>

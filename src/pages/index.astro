@@ -35,5 +35,5 @@ const websiteSchema = {
 >
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
-  <App client:only="react" />
+  <App client:load serverLocation="/" />
 </BaseLayout>

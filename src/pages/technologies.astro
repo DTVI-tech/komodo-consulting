@@ -39,5 +39,5 @@ const serviceSchemas = [
   {serviceSchemas.map(schema => (
     <script slot="head" type="application/ld+json" set:html={JSON.stringify(schema)} />
   ))}
-  <App client:only="react" />
+  <App client:load serverLocation="/technologies" />
 </BaseLayout>
