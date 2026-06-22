@@ -3,7 +3,6 @@ import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
 const ALLOWED_ORIGINS = [
   "https://komodo-consulting.lovable.app",
-  "https://www.komodo-consulting.pt",
   "https://komodo-consulting.pt",
 ];
 
