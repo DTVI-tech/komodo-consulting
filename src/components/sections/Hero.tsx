@@ -19,6 +19,7 @@ const HeroImage = () => (
         height={1000}
         className="absolute inset-0 w-full h-full object-cover"
         loading="eager"
+        fetchpriority="high"
       />
       {/* Subtle overlay for polish */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.08] via-transparent to-secondary/[0.12]" />
