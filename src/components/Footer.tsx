@@ -25,7 +25,7 @@ const Footer = () => {
           </div>
 
           <div className="space-y-4">
-            <h4 className="text-xs font-bold font-display uppercase tracking-[0.15em] text-secondary-foreground/50">Services</h4>
+            <h3 className="text-xs font-bold font-display uppercase tracking-[0.15em] text-secondary-foreground/50">Services</h3>
             <ul className="space-y-2.5 text-[13px] text-secondary-foreground/50">
               <li><Link to="/services#staff-augmentation" className="hover:text-secondary-foreground transition-colors">Staff Augmentation</Link></li>
               <li><Link to="/services#dedicated-teams" className="hover:text-secondary-foreground transition-colors">Dedicated Teams</Link></li>
@@ -34,7 +34,7 @@ const Footer = () => {
           </div>
 
           <div className="space-y-4">
-            <h4 className="text-xs font-bold font-display uppercase tracking-[0.15em] text-secondary-foreground/50">Company</h4>
+            <h3 className="text-xs font-bold font-display uppercase tracking-[0.15em] text-secondary-foreground/50">Company</h3>
             <ul className="space-y-2.5 text-[13px] text-secondary-foreground/50">
               <li><Link to="/about" className="hover:text-secondary-foreground transition-colors">About</Link></li>
               <li><Link to="/services" className="hover:text-secondary-foreground transition-colors">Services</Link></li>
@@ -44,7 +44,7 @@ const Footer = () => {
           </div>
 
           <div className="space-y-4">
-            <h4 className="text-xs font-bold font-display uppercase tracking-[0.15em] text-secondary-foreground/50">Other</h4>
+            <h3 className="text-xs font-bold font-display uppercase tracking-[0.15em] text-secondary-foreground/50">Other</h3>
             <ul className="space-y-2.5 text-[13px] text-secondary-foreground/50">
               <li><Link to="/consulting" className="hover:text-secondary-foreground transition-colors">Consulting</Link></li>
               <li><a href="https://komodo-consulting.careers-page.com/" target="_blank" rel="noopener noreferrer" className="hover:text-secondary-foreground transition-colors">Careers</a></li>
