@@ -1,4 +1,12 @@
 {
   "installCommand": "bun install",
-  "buildCommand": "bun run build"
+  "buildCommand": "bun run build",
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.komodo-consulting.pt" }],
+      "destination": "https://komodo-consulting.pt/:path*",
+      "permanent": true
+    }
+  ]
 }
