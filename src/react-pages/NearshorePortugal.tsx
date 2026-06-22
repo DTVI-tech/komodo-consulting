@@ -25,7 +25,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import PageShell from "@/components/PageShell";
-import nearshoreHeroSrc from "@/assets/nearshore-hero.jpg";
+import nearshoreHeroSrc from "@/assets/nearshore-hero.webp";
 
 /* ─── Hero ─── */
 

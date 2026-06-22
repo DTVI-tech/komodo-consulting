@@ -4,7 +4,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { Link } from "react-router-dom";
 import SEOHead, { buildBreadcrumbs, buildFAQSchema } from "@/components/SEOHead";
-import contactImageSrc from "@/assets/contact-image.jpg";
+import contactImageSrc from "@/assets/contact-image.webp";
 
 const BLOCKED_EMAIL_DOMAINS = [
   "gmail.com","googlemail.com","hotmail.com","outlook.com","live.com","yahoo.com",

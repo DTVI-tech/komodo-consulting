@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logoVerticalSrc from "@/assets/logo-vertical.png";
+import logoVerticalSrc from "@/assets/logo-vertical.webp";
 import SEOHead, { buildBreadcrumbs } from "@/components/SEOHead";
 
 const ConsultingComingSoon = () => (
