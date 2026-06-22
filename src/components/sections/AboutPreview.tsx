@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Target, Handshake, Eye } from "lucide-react";
-const aboutImage = "/assets/about-preview-image.jpg";
+const aboutImage = "/assets/about-preview-image.webp";
 
 const values = [
   { icon: Target, title: "Delivery Focus", description: "We prioritise execution. Our teams are built around outcomes, not just headcount.", gradient: "from-primary to-primary" },

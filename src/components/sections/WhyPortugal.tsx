@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Clock, GraduationCap, MessageCircle, TrendingDown, MapPin, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-const portugalImage = "/assets/portugal-lisbon.jpg";
+const portugalImage = "/assets/portugal-lisbon.webp";
 
 const reasons = [
   {

@@ -25,7 +25,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import PageShell from "@/components/PageShell";
-const nearshoreHero = "/assets/nearshore-hero.jpg";
+const nearshoreHero = "/assets/nearshore-hero.webp";
 
 /* ─── Hero ─── */
 
