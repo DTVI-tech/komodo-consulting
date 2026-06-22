@@ -17,6 +17,8 @@ const ContactPlaceholder = () => (
     <img
       src={ctaGraphicSrc.src}
       alt="Komodo Consulting — talent, partnership, and trust"
+      width={736}
+      height={371}
       className="w-full h-auto object-contain mx-auto"
       loading="lazy"
     />

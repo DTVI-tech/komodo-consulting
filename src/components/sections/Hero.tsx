@@ -15,6 +15,8 @@ const HeroImage = () => (
       <img
         src={heroImageSrc.src}
         alt="Technology team collaborating on digital solutions"
+        width={1400}
+        height={1000}
         className="absolute inset-0 w-full h-full object-cover"
         loading="eager"
       />

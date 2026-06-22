@@ -129,6 +129,8 @@ const HeroVisual = () => (
       <img
         src={aboutHeroSrc.src}
         alt="Komodo Consulting team collaborating on code"
+        width={1000}
+        height={1000}
         className="w-full h-full object-cover"
         loading="eager"
       />
@@ -226,6 +228,8 @@ const CompanyStory = () => (
             <img
               src={aboutStorySrc.src}
               alt="Komodo Consulting team working together"
+              width={1000}
+              height={1000}
               className="w-full h-full object-cover"
               loading="lazy"
             />
@@ -344,6 +348,8 @@ const DeliveryPhilosophy = () => (
             <img
               src={aboutDeliverySrc.src}
               alt="Delivery principles illustration"
+              width={636}
+              height={323}
               className="w-full h-full object-cover"
               loading="lazy"
             />
@@ -462,6 +468,8 @@ const WhereWeOperate = () => (
             <img
               src={aboutMapSrc.src}
               alt="Portugal connecting to global markets"
+              width={1000}
+              height={1000}
               className="w-full h-full object-cover"
               loading="lazy"
             />

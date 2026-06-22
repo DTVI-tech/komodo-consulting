@@ -47,6 +47,8 @@ const MapPlaceholder = () => (
     <img
       src={portugalImageSrc.src}
       alt="Lisbon, Portugal — view of São Jorge Castle and the Tagus river"
+      width={1200}
+      height={1000}
       className="absolute inset-0 w-full h-full object-cover"
       loading="lazy"
     />

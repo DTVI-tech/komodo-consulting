@@ -40,6 +40,8 @@ const HeroVisual = () => (
       <img
         src={nearshoreHeroSrc.src}
         alt="Nearshore software development team collaborating in Portugal"
+        width={1000}
+        height={1000}
         className="absolute inset-0 w-full h-full object-cover"
         loading="eager"
       />

@@ -33,6 +33,8 @@ const HeroVisual = () => (
       <img
         src={servicesHeroSrc.src}
         alt="Komodo Consulting team collaborating on a software delivery project"
+        width={1000}
+        height={1000}
         loading="eager"
         decoding="async"
         className="absolute inset-0 w-full h-full object-cover"

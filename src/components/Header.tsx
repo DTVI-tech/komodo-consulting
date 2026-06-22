@@ -39,7 +39,7 @@ const Header = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border/60">
       <div className="container flex items-center justify-between h-16 md:h-[72px]">
         <Link to="/" className="flex-shrink-0">
-          <img src={mounted && resolvedTheme === "dark" ? logoWhiteImg.src : logoDarkImg.src} alt="Komodo Consulting" className="h-7 md:h-8 w-auto" />
+          <img src={mounted && resolvedTheme === "dark" ? logoWhiteImg.src : logoDarkImg.src} alt="Komodo Consulting" width={1764} height={420} className="h-7 md:h-8 w-auto" />
         </Link>
 
         {/* Desktop nav */}

@@ -65,6 +65,8 @@ const ConsultingComingSoon = () => (
         <img
           src={logoVerticalSrc.src}
           alt="Komodo Consulting"
+          width={1240}
+          height={1068}
           className="h-24 md:h-28 w-auto mx-auto opacity-95 group-hover:opacity-100 transition-opacity"
         />
       </Link>

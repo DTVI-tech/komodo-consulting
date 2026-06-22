@@ -19,6 +19,8 @@ const AboutImage = () => (
     <img
       src={aboutImageSrc.src}
       alt="Team collaborating in a modern workspace"
+      width={1200}
+      height={1000}
       className="w-full h-full object-cover object-center"
       loading="lazy"
     />

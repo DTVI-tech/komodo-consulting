@@ -458,6 +458,8 @@ const Contact = () => {
                 <img
                   src={contactImageSrc.src}
                   alt="Komodo Consulting workspace in Lisbon"
+                  width={1220}
+                  height={760}
                   loading="lazy"
                   decoding="async"
                   className="w-full h-full object-cover"
