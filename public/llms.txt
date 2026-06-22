@@ -11,12 +11,6 @@ Komodo Consulting operates within EU timezone, culture, and legal framework, pro
 - [Dedicated Teams](https://komodo-consulting.pt/services): End-to-end development teams that integrate and perform from day one.
 - [Nearshore Portugal](https://komodo-consulting.pt/services/nearshore-portugal): Access top-tier engineering talent in Portugal, within EU timezone, culture, and legal framework.
 
-## Industries
-
-- [Fintech](https://komodo-consulting.pt/industries/fintech): Technology teams for financial services, payments, and banking products.
-- [Healthcare](https://komodo-consulting.pt/industries/healthcare): Engineering support for digital health platforms and medical software.
-- [SaaS](https://komodo-consulting.pt/industries/saas): Scalable development capacity for SaaS companies at any growth stage.
-
 ## Optional
 
 - [About](https://komodo-consulting.pt/about): Company background, mission, and team.

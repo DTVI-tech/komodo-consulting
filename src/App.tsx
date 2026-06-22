@@ -11,7 +11,6 @@ import ScrollToTop from "./components/ScrollToTop";
 // Lazy loading with Suspense only renders the fallback spinner during SSR.
 import Index from "./react-pages/Index";
 import Services from "./react-pages/Services";
-import IndustryPage from "./react-pages/IndustryPage";
 import NearshorePortugal from "./react-pages/NearshorePortugal";
 import Technologies from "./react-pages/Technologies";
 import Contact from "./react-pages/Contact";
@@ -34,7 +33,6 @@ const AppContent = () => (
           <Route path="/consulting" element={<ConsultingComingSoon />} />
           <Route path="/services" element={<Services />} />
           <Route path="/services/nearshore-portugal" element={<NearshorePortugal />} />
-          <Route path="/industries/:slug" element={<IndustryPage />} />
           <Route path="/technologies" element={<Technologies />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
