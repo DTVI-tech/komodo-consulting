@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Target, Handshake, Eye } from "lucide-react";
-const aboutImage = "/assets/about-preview-image.jpg";
+import aboutImageSrc from "@/assets/about-preview-image.jpg";
 
 const values = [
   { icon: Target, title: "Delivery Focus", description: "We prioritise execution. Our teams are built around outcomes, not just headcount.", gradient: "from-primary to-primary" },
@@ -17,7 +17,7 @@ const AboutImage = () => (
     className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden border border-border"
   >
     <img
-      src={aboutImage}
+      src={aboutImageSrc.src}
       alt="Team collaborating in a modern workspace"
       className="w-full h-full object-cover object-center"
       loading="lazy"

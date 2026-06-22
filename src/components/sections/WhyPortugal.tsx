@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Clock, GraduationCap, MessageCircle, TrendingDown, MapPin, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-const portugalImage = "/assets/portugal-lisbon.jpg";
+import portugalImageSrc from "@/assets/portugal-lisbon.jpg";
 
 const reasons = [
   {
@@ -45,7 +45,7 @@ const MapPlaceholder = () => (
     className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden border border-secondary-foreground/[0.08]"
   >
     <img
-      src={portugalImage}
+      src={portugalImageSrc.src}
       alt="Lisbon, Portugal — view of São Jorge Castle and the Tagus river"
       className="absolute inset-0 w-full h-full object-cover"
       loading="lazy"

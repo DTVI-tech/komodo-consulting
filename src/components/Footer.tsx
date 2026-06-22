@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-const logoWhite = "/assets/logo-white.png";
+import logoWhiteImg from "@/assets/logo-white.png";
 
 const Footer = () => {
   return (
@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="container py-14 md:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
           <div className="space-y-4">
-            <img src={logoWhite} alt="Komodo Consulting" className="h-7 w-auto" />
+            <img src={logoWhiteImg.src} alt="Komodo Consulting" className="h-7 w-auto" />
             <p className="text-[13px] text-secondary-foreground/60 max-w-[260px] leading-relaxed">
               The technology partner for companies built to grow.
             </p>

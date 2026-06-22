@@ -20,7 +20,7 @@ import SEOHead, { buildBreadcrumbs, buildServiceSchema, buildFAQSchema } from "@
 
 /* ─── Hero ─── */
 
-const servicesHero = "/assets/services-hero.jpg";
+import servicesHeroSrc from "@/assets/services-hero.jpg";
 
 const HeroVisual = () => (
   <motion.div
@@ -31,7 +31,7 @@ const HeroVisual = () => (
   >
     <div className="absolute inset-0 rounded-2xl overflow-hidden border border-border/60 shadow-xl shadow-primary/[0.06]">
       <img
-        src={servicesHero}
+        src={servicesHeroSrc.src}
         alt="Komodo Consulting team collaborating on a software delivery project"
         loading="eager"
         decoding="async"

@@ -25,7 +25,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import PageShell from "@/components/PageShell";
-const nearshoreHero = "/assets/nearshore-hero.jpg";
+import nearshoreHeroSrc from "@/assets/nearshore-hero.jpg";
 
 /* ─── Hero ─── */
 
@@ -38,7 +38,7 @@ const HeroVisual = () => (
   >
     <div className="absolute inset-0 rounded-2xl border border-border/60 overflow-hidden">
       <img
-        src={nearshoreHero}
+        src={nearshoreHeroSrc.src}
         alt="Nearshore software development team collaborating in Portugal"
         className="absolute inset-0 w-full h-full object-cover"
         loading="eager"

@@ -20,10 +20,10 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import PageShell from "@/components/PageShell";
-const aboutHero = "/assets/about-hero.jpg";
-const aboutStory = "/assets/about-story.jpg";
-const aboutDelivery = "/assets/about-delivery.jpg";
-const aboutMap = "/assets/about-map.jpg";
+import aboutHeroSrc from "@/assets/about-hero.jpg";
+import aboutStorySrc from "@/assets/about-story.jpg";
+import aboutDeliverySrc from "@/assets/about-delivery.jpg";
+import aboutMapSrc from "@/assets/about-map.jpg";
 
 /* ─── Fade-in wrapper ─── */
 const Reveal = ({
@@ -127,7 +127,7 @@ const HeroVisual = () => (
   >
     <div className="absolute inset-0 rounded-2xl border border-secondary-foreground/[0.08] overflow-hidden">
       <img
-        src={aboutHero}
+        src={aboutHeroSrc.src}
         alt="Komodo Consulting team collaborating on code"
         className="w-full h-full object-cover"
         loading="eager"
@@ -224,7 +224,7 @@ const CompanyStory = () => (
         <Reveal delay={0.15}>
           <div className="relative w-full rounded-2xl overflow-hidden border border-border" style={{ aspectRatio: "4/3" }}>
             <img
-              src={aboutStory}
+              src={aboutStorySrc.src}
               alt="Komodo Consulting team working together"
               className="w-full h-full object-cover"
               loading="lazy"
@@ -342,7 +342,7 @@ const DeliveryPhilosophy = () => (
           {/* Process visual placeholder */}
           <div className="relative w-full rounded-2xl overflow-hidden border border-border max-w-sm" style={{ aspectRatio: "16/9" }}>
             <img
-              src={aboutDelivery}
+              src={aboutDeliverySrc.src}
               alt="Delivery principles illustration"
               className="w-full h-full object-cover"
               loading="lazy"
@@ -460,7 +460,7 @@ const WhereWeOperate = () => (
         <Reveal delay={0.15} className="hidden lg:block">
           <div className="relative w-full rounded-2xl overflow-hidden border border-secondary-foreground/[0.08]" style={{ aspectRatio: "1/1" }}>
             <img
-              src={aboutMap}
+              src={aboutMapSrc.src}
               alt="Portugal connecting to global markets"
               className="w-full h-full object-cover"
               loading="lazy"

@@ -4,7 +4,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { Link } from "react-router-dom";
 import SEOHead, { buildBreadcrumbs, buildFAQSchema } from "@/components/SEOHead";
-const contactImage = "/assets/contact-image.jpg";
+import contactImageSrc from "@/assets/contact-image.jpg";
 
 const BLOCKED_EMAIL_DOMAINS = [
   "gmail.com","googlemail.com","hotmail.com","outlook.com","live.com","yahoo.com",
@@ -456,7 +456,7 @@ const Contact = () => {
               {/* Workspace image */}
               <div className="rounded-xl border border-border bg-muted/50 aspect-[4/3] w-full overflow-hidden relative">
                 <img
-                  src={contactImage}
+                  src={contactImageSrc.src}
                   alt="Komodo Consulting workspace in Lisbon"
                   loading="lazy"
                   decoding="async"

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-const logoVertical = "/assets/logo-vertical.png";
+import logoVerticalSrc from "@/assets/logo-vertical.png";
 import SEOHead, { buildBreadcrumbs } from "@/components/SEOHead";
 
 const ConsultingComingSoon = () => (
@@ -63,7 +63,7 @@ const ConsultingComingSoon = () => (
       {/* Logo */}
       <Link to="/" className="inline-block mb-14 group">
         <img
-          src={logoVertical}
+          src={logoVerticalSrc.src}
           alt="Komodo Consulting"
           className="h-24 md:h-28 w-auto mx-auto opacity-95 group-hover:opacity-100 transition-opacity"
         />

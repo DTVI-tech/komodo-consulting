@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-const heroImage = "/assets/hero-image.jpg";
+import heroImageSrc from "@/assets/hero-image.jpg";
 
 const HeroImage = () => (
   <motion.div
@@ -13,7 +13,7 @@ const HeroImage = () => (
   >
     <div className="absolute inset-0 rounded-2xl border border-border/60 overflow-hidden">
       <img
-        src={heroImage}
+        src={heroImageSrc.src}
         alt="Technology team collaborating on digital solutions"
         className="absolute inset-0 w-full h-full object-cover"
         loading="eager"

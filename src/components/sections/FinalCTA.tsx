@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-const ctaGraphic = "/assets/final-cta-graphic.png";
+import ctaGraphicSrc from "@/assets/final-cta-graphic.png";
 
 /* Brand graphic */
 const ContactPlaceholder = () => (
@@ -15,7 +15,7 @@ const ContactPlaceholder = () => (
   >
     <div className="absolute inset-0 -z-10 bg-accent/[0.06] blur-3xl rounded-full" />
     <img
-      src={ctaGraphic}
+      src={ctaGraphicSrc.src}
       alt="Komodo Consulting — talent, partnership, and trust"
       className="w-full h-auto object-contain mx-auto"
       loading="lazy"
