@@ -1,27 +1,24 @@
 # Komodo Consulting
 
-Komodo Consulting is a premium IT outsourcing and consulting partner based in Portugal, helping European companies scale their technology teams through staff augmentation, dedicated development teams, and nearshore delivery.
+> Komodo Consulting is a premium IT outsourcing and consulting partner based in Portugal, helping European companies scale their technology teams through staff augmentation, dedicated development teams, and nearshore delivery.
+
+Komodo Consulting operates within EU timezone, culture, and legal framework, providing access to top-tier engineering talent in Portugal.
 
 ## Services
 
-- **IT Outsourcing** — Flexible outsourcing models for companies that need technical capability without the overhead of full-time hiring.
-- **Staff Augmentation** — Embed pre-vetted engineers directly into your existing team and workflows.
-- **Dedicated Teams** — End-to-end development teams that integrate and perform from day one.
-- **Nearshore Portugal** — Access top-tier engineering talent in Portugal, within EU timezone, culture, and legal framework.
+- [IT Outsourcing](https://komodo-consulting.pt/services): Flexible outsourcing models for companies that need technical capability without the overhead of full-time hiring.
+- [Staff Augmentation](https://komodo-consulting.pt/services): Embed pre-vetted engineers directly into your existing team and workflows.
+- [Dedicated Teams](https://komodo-consulting.pt/services): End-to-end development teams that integrate and perform from day one.
+- [Nearshore Portugal](https://komodo-consulting.pt/services/nearshore-portugal): Access top-tier engineering talent in Portugal, within EU timezone, culture, and legal framework.
 
 ## Industries
 
-- **Fintech** — Technology teams for financial services, payments, and banking products.
-- **Healthcare** — Engineering support for digital health platforms and medical software.
-- **SaaS** — Scalable development capacity for SaaS companies at any growth stage.
+- [Fintech](https://komodo-consulting.pt/industries/fintech): Technology teams for financial services, payments, and banking products.
+- [Healthcare](https://komodo-consulting.pt/industries/healthcare): Engineering support for digital health platforms and medical software.
+- [SaaS](https://komodo-consulting.pt/industries/saas): Scalable development capacity for SaaS companies at any growth stage.
 
-## Key Pages
+## Optional
 
-- Services: https://komodo-consulting.pt/services
-- Nearshore Portugal: https://komodo-consulting.pt/services/nearshore-portugal
-- Fintech: https://komodo-consulting.pt/industries/fintech
-- Healthcare: https://komodo-consulting.pt/industries/healthcare
-- SaaS: https://komodo-consulting.pt/industries/saas
-- About: https://komodo-consulting.pt/about
-- Technologies: https://komodo-consulting.pt/technologies
-- Contact: https://komodo-consulting.pt/contact
+- [About](https://komodo-consulting.pt/about): Company background, mission, and team.
+- [Technologies](https://komodo-consulting.pt/technologies): Technology stack and engineering capabilities.
+- [Contact](https://komodo-consulting.pt/contact): Get in touch to discuss your project.
