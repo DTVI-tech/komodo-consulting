@@ -20,10 +20,10 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import PageShell from "@/components/PageShell";
-const aboutHero = "/assets/about-hero.webp";
-const aboutStory = "/assets/about-story.webp";
-const aboutDelivery = "/assets/about-delivery.webp";
-const aboutMap = "/assets/about-map.webp";
+const aboutHero = "/assets/about-hero.jpg";
+const aboutStory = "/assets/about-story.jpg";
+const aboutDelivery = "/assets/about-delivery.jpg";
+const aboutMap = "/assets/about-map.jpg";
 
 /* ─── Fade-in wrapper ─── */
 const Reveal = ({

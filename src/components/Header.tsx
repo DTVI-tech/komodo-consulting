@@ -3,8 +3,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ThemeToggle from "@/components/ThemeToggle";
-const logoDark = "/assets/logo-dark.webp";
-const logoWhite = "/assets/logo-white.webp";
+const logoDark = "/assets/logo-dark.png";
+const logoWhite = "/assets/logo-white.png";
 import { useTheme } from "next-themes";
 import { useEffect } from "react";
 

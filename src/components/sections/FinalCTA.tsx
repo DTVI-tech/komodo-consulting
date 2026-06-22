@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-const ctaGraphic = "/assets/final-cta-graphic.webp";
+const ctaGraphic = "/assets/final-cta-graphic.png";
 
 /* Brand graphic */
 const ContactPlaceholder = () => (
