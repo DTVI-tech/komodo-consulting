@@ -119,7 +119,7 @@ const HowWeWork = () => {
         </div>
 
         {/* Mobile: Vertical timeline */}
-        <div className="md:hidden max-w-sm mx-auto">
+        <div className="md:hidden max-w-sm mx-auto" aria-hidden="true">
           {steps.map((step, i) => (
             <motion.div
               key={step.number}
