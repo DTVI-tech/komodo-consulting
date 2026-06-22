@@ -1,9 +1,6 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { StaticRouter } from "react-router-dom/server";
-import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
-import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -19,28 +16,21 @@ import ConsultingComingSoon from "./react-pages/ConsultingComingSoon";
 import PrivacyPolicy from "./react-pages/PrivacyPolicy";
 import NotFound from "./react-pages/NotFound";
 
-const queryClient = new QueryClient();
-
 const AppContent = () => (
   <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/consulting" element={<ConsultingComingSoon />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/services/nearshore-portugal" element={<NearshorePortugal />} />
-          <Route path="/technologies" element={<Technologies />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </TooltipProvider>
-    </QueryClientProvider>
+    <Toaster />
+    <ScrollToTop />
+    <Routes>
+      <Route path="/" element={<Index />} />
+      <Route path="/consulting" element={<ConsultingComingSoon />} />
+      <Route path="/services" element={<Services />} />
+      <Route path="/services/nearshore-portugal" element={<NearshorePortugal />} />
+      <Route path="/technologies" element={<Technologies />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/contact" element={<Contact />} />
+      <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
   </ThemeProvider>
 );
 
