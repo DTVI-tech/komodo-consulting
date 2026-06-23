@@ -10,8 +10,6 @@ export default defineConfig({
   integrations: [
     react(),
     tailwind({
-      // Point to the existing tailwind config; disable base styles since
-      // src/index.css already applies them via @tailwind base.
       applyBaseStyles: false,
       configFile: './tailwind.config.ts',
     }),
@@ -22,6 +20,10 @@ export default defineConfig({
       alias: {
         '@': path.resolve('./src'),
       },
+    },
+    define: {
+      'import.meta.env.VITE_SUPABASE_URL': JSON.stringify(process.env.VITE_SUPABASE_URL),
+      'import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY': JSON.stringify(process.env.VITE_SUPABASE_PUBLISHABLE_KEY),
     },
   },
 });
