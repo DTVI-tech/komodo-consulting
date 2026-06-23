@@ -1,5 +1,6 @@
 import type { Config } from "tailwindcss";
 
+// Tailwind CSS configuration for Komodo Consulting
 export default {
   darkMode: ["class"],
   content: [
